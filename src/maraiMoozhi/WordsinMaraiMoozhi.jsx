@@ -158,19 +158,14 @@ const WordsinMaraiMoozhi = () => {
           <div className="flex flex-wrap justify-center gap-6">
             {wordData.map((word, index) => (
               <a
-                key={index}
-                href={`#${word.wordName}`}
-                className={`p-2 bg-white  text-lg  rounded-lg shadow-md transition-all transform hover:scale-105 focus:outline-none ${
-                  index === 0
-                    ? "bg-orange-500 text-white font-semibold"
-                    : "hover:bg-orange-500 hover:text-white"
-                } 
-				${
-          index === 0 && "text-white bg-orange-500" // Ensure selected text stays white
-        }
-				
-				`}
-              >
+			  key={index}
+			  href={`#${word.wordName}`}
+			  className={`p-2 bg-white text-lg rounded-lg shadow-md transition-all transform hover:scale-105 focus:outline-none ${
+				index === 0
+				  ? "bg-orange-500 text-white font-semibold"
+				  : "hover:bg-orange-500 hover:text-white"
+			  }`}
+			>
                 {word.wordName}
               </a>
             ))}
