@@ -88,7 +88,12 @@ const WordSummary = () => {
           "bookName_firstLetter": null,
           "bookNameDescription": null
         },
-        2,
+        {
+          "id": 2,
+          "bookName": "எண் நூல்",
+          "bookName_firstLetter": null,
+          "bookNameDescription": null
+        },
         {
           "id": 6,
           "bookName": "வடிவு நூல்",
@@ -123,9 +128,24 @@ const WordSummary = () => {
       "wordNameDescription": "தன்னிலை தனிநிலையகுக",
       "wordName_FirstLetter": "ச",
       "books": [
-        5,
-        2,
-        1
+        {
+          "id": 5,
+          "bookName": "ஊழி நூல்",
+          "bookName_firstLetter": null,
+          "bookNameDescription": null
+        },
+        {
+          "id": 2,
+          "bookName": "எண் நூல்",
+          "bookName_firstLetter": null,
+          "bookNameDescription": null
+        },
+        {
+          "id": 1,
+          "bookName": "மூல நூல்",
+          "bookName_firstLetter": null,
+          "bookNameDescription": null
+        }
       ],
       "maraimoozhis": [
         {
