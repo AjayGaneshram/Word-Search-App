@@ -8,160 +8,168 @@ const WordSummary = () => {
   const decodedWord = decodeURIComponent(wordName);
   console.log(decodedWord);
 
-  const jsonData={
-    "இயல்பு": {
-      "id": 1,
-      "wordName": "இயல்பு",
-      "wordNameDescription": "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-      "wordName_FirstLetter": "இ",
-      "books": [
+  const jsonData = {
+    சக்தி: {
+      id: 4,
+      wordName: "சக்தி",
+      wordNameDescription: "தன்னிலை தனிநிலையகுக",
+      wordName_FirstLetter: "ச",
+      books: [
         {
-          "id": 2,
-          "bookName": "எண் நூல்",
-          "bookName_firstLetter": null,
-          "bookNameDescription": null
+          id: 2,
+          bookName: "எண் நூல்",
+          bookName_firstLetter: null,
+          bookNameDescription: null,
         },
         {
-          "id": 1,
-          "bookName": "மூல நூல்",
-          "bookName_firstLetter": null,
-          "bookNameDescription": null
-        }
-      ],
-      "maraimoozhis": [
+          id: 1,
+          bookName: "மூல நூல்",
+          bookName_firstLetter: null,
+          bookNameDescription: null,
+        },
         {
-          "id": 1,
-          "maraiMoozhiName": "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-          "maraiMoozhiDescription": null
-        }
+          id: 5,
+          bookName: "ஊழி நூல்",
+          bookName_firstLetter: null,
+          bookNameDescription: null,
+        },
       ],
-      "youTubeVideos": []
+      maraimoozhis: [
+        {
+          id: 3,
+          maraiMoozhiName: "சிவமே கொள்கையாம் சக்தியே செயலாம்",
+          maraiMoozhiDescription: null,
+        },
+        {
+          id: 1,
+          maraiMoozhiName:
+            "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+          maraiMoozhiDescription: null,
+        },
+      ],
+      youTubeVideos: [],
     },
-    "வேட்டல்": {
-      "id": 2,
-      "wordName": "வேட்டல்",
-      "wordNameDescription": "விருப்பத்தில் நிலைபெறுதல்",
-      "wordName_FirstLetter": "வே",
-      "books": [
+    வேட்டல்: {
+      id: 2,
+      wordName: "வேட்டல்",
+      wordNameDescription: "விருப்பத்தில் நிலைபெறுதல்",
+      wordName_FirstLetter: "வே",
+      books: [
         {
-          "id": 3,
-          "bookName": "மெய்",
-          "bookName_firstLetter": null,
-          "bookNameDescription": null
+          id: 4,
+          bookName: "வேட்டல்",
+          bookName_firstLetter: null,
+          bookNameDescription: null,
         },
         {
-          "id": 4,
-          "bookName": "வேட்டல்",
-          "bookName_firstLetter": null,
-          "bookNameDescription": null
-        }
+          id: 3,
+          bookName: "மெய்",
+          bookName_firstLetter: null,
+          bookNameDescription: null,
+        },
       ],
-      "maraimoozhis": [
+      maraimoozhis: [
         {
-          "id": 2,
-          "maraiMoozhiName": "அன்பே சிவம்",
-          "maraiMoozhiDescription": null
+          id: 3,
+          maraiMoozhiName: "சிவமே கொள்கையாம் சக்தியே செயலாம்",
+          maraiMoozhiDescription: null,
         },
         {
-          "id": 3,
-          "maraiMoozhiName": "சிவமே கொள்கையாம் சக்தியே செயலாம்",
-          "maraiMoozhiDescription": null
-        }
+          id: 2,
+          maraiMoozhiName: "அன்பே சிவம்",
+          maraiMoozhiDescription: null,
+        },
       ],
-      "youTubeVideos": [
+      youTubeVideos: [
         {
-          "id": 1,
-          "youTubetitle": "வேட்டல் இணையவழி வகுப்பு",
-          "youTubeURL": "https://youtu.be/zifcxn9SSIs?si=3K8LOnLp1ZCP9QZI"
-        }
-      ]
+          id: 1,
+          youTubetitle: "வேட்டல் இணையவழி வகுப்பு",
+          youTubeURL: "https://youtu.be/zifcxn9SSIs?si=3K8LOnLp1ZCP9QZI",
+        },
+      ],
     },
-    "சிவம்": {
-      "id": 3,
-      "wordName": "சிவம்",
-      "wordNameDescription": "யாவும் யாமே",
-      "wordName_FirstLetter": "சி",
-      "books": [
+    சிவம்: {
+      id: 3,
+      wordName: "சிவம்",
+      wordNameDescription: "யாவும் யாமே",
+      wordName_FirstLetter: "சி",
+      books: [
         {
-          "id": 5,
-          "bookName": "ஊழி நூல்",
-          "bookName_firstLetter": null,
-          "bookNameDescription": null
+          id: 1,
+          bookName: "மூல நூல்",
+          bookName_firstLetter: null,
+          bookNameDescription: null,
         },
         {
-          "id": 2,
-          "bookName": "எண் நூல்",
-          "bookName_firstLetter": null,
-          "bookNameDescription": null
+          id: 6,
+          bookName: "வடிவு நூல்",
+          bookName_firstLetter: null,
+          bookNameDescription: null,
         },
         {
-          "id": 6,
-          "bookName": "வடிவு நூல்",
-          "bookName_firstLetter": null,
-          "bookNameDescription": null
+          id: 5,
+          bookName: "ஊழி நூல்",
+          bookName_firstLetter: null,
+          bookNameDescription: null,
         },
-        1
+        {
+          id: 2,
+          bookName: "எண் நூல்",
+          bookName_firstLetter: null,
+          bookNameDescription: null,
+        },
       ],
-      "maraimoozhis": [
+      maraimoozhis: [
         {
-          "id": 2,
-          "maraiMoozhiName": "அன்பே சிவம்",
-          "maraiMoozhiDescription": null
+          id: 2,
+          maraiMoozhiName: "அன்பே சிவம்",
+          maraiMoozhiDescription: null,
         },
         {
-          "id": 3,
-          "maraiMoozhiName": "சிவமே கொள்கையாம் சக்தியே செயலாம்",
-          "maraiMoozhiDescription": null
-        }
+          id: 3,
+          maraiMoozhiName: "சிவமே கொள்கையாம் சக்தியே செயலாம்",
+          maraiMoozhiDescription: null,
+        },
       ],
-      "youTubeVideos": [
+      youTubeVideos: [
         {
-          "id": 2,
-          "youTubetitle": "அன்பு நலம்",
-          "youTubeURL": "https://youtu.be/KWl2xH_YgS0?si=D_U6Mgo04cbAd79u"
-        }
-      ]
+          id: 2,
+          youTubetitle: "அன்பு நலம்",
+          youTubeURL: "https://youtu.be/KWl2xH_YgS0?si=D_U6Mgo04cbAd79u",
+        },
+      ],
     },
-    "சக்தி": {
-      "id": 4,
-      "wordName": "சக்தி",
-      "wordNameDescription": "தன்னிலை தனிநிலையகுக",
-      "wordName_FirstLetter": "ச",
-      "books": [
+    இயல்பு: {
+      id: 1,
+      wordName: "இயல்பு",
+      wordNameDescription:
+        "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+      wordName_FirstLetter: "இ",
+      books: [
         {
-          "id": 5,
-          "bookName": "ஊழி நூல்",
-          "bookName_firstLetter": null,
-          "bookNameDescription": null
+          id: 1,
+          bookName: "மூல நூல்",
+          bookName_firstLetter: null,
+          bookNameDescription: null,
         },
         {
-          "id": 2,
-          "bookName": "எண் நூல்",
-          "bookName_firstLetter": null,
-          "bookNameDescription": null
+          id: 2,
+          bookName: "எண் நூல்",
+          bookName_firstLetter: null,
+          bookNameDescription: null,
         },
-        {
-          "id": 1,
-          "bookName": "மூல நூல்",
-          "bookName_firstLetter": null,
-          "bookNameDescription": null
-        }
       ],
-      "maraimoozhis": [
+      maraimoozhis: [
         {
-          "id": 3,
-          "maraiMoozhiName": "சிவமே கொள்கையாம் சக்தியே செயலாம்",
-          "maraiMoozhiDescription": null
+          id: 1,
+          maraiMoozhiName:
+            "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+          maraiMoozhiDescription: null,
         },
-        {
-          "id": 1,
-          "maraiMoozhiName": "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-          "maraiMoozhiDescription": null
-        }
       ],
-      "youTubeVideos": []
-    }
-  }
+      youTubeVideos: [],
+    },
+  };
   useEffect(() => {
     const fetchWordData = async () => {
       setWordDetails(jsonData[decodedWord]);

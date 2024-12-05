@@ -321,12 +321,12 @@ const WordsInBook = () => {
               <a
                 key={index}
                 href={`#${word.wordName}`}
-                className={`p-2 bg-white  text-lg text-gray-700 rounded-lg shadow-md transition-all transform hover:scale-105 focus:outline-none ${
+                className={`p-2 bg-white  text-lg rounded-lg shadow-md transition-all transform hover:scale-105 focus:outline-none ${
                   index === 0
                     ? "bg-orange-500 text-white font-semibold"
-                    : "hover:bg-orange-100 hover:text-white"
+                    : "hover:bg-orange-500 hover:text-white"
                 } ${
-                  index === 0 && "text-white" // Ensure selected text stays white
+                  index === 0 && "text-white bg-orange-500" // Ensure selected text stays white
                 }`}
               >
                 {word.wordName}

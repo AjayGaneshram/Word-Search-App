@@ -6,130 +6,86 @@ const WordsinMaraiMoozhi = () => {
   const { maraiMoozhi } = useParams();
   const decodedmaraiMoozhi = decodeURIComponent(maraiMoozhi);
   const [wordData, setWordData] = useState([]);
-  const jsondata={
-	"அன்பே சிவம்": [
-		{
-			"wordName": "சிவம்",
-			"wordNameDescription": "யாவும் யாமே",
-			"bookNames": [
-				"ஊழி நூல்",
-				"எண் நூல்",
-				"வடிவு நூல்",
-				"மூல நூல்"
-			],
-			"maraiMoozhiNames": [
-				"அன்பே சிவம்"
-			],
-			"youTubeNames": [
-				"அன்பு நலம்"
-			]
-		},
-		{
-			"wordName": "வேட்டல்",
-			"wordNameDescription": "விருப்பத்தில் நிலைபெறுதல்",
-			"bookNames": [
-				"மெய்",
-				"வேட்டல்"
-			],
-			"maraiMoozhiNames": [
-				"அன்பே சிவம்"
-			],
-			"youTubeNames": [
-				"வேட்டல் இணையவழி வகுப்பு"
-			]
-		}
-	],
-	"இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்": [
-		{
-			"wordName": "சக்தி",
-			"wordNameDescription": "தன்னிலை தனிநிலையகுக",
-			"bookNames": [
-				"ஊழி நூல்",
-				"மூல நூல்",
-				"எண் நூல்"
-			],
-			"maraiMoozhiNames": [
-				"இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்"
-			],
-			"youTubeNames": []
-		},
-		{
-			"wordName": "இயல்பு",
-			"wordNameDescription": "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-			"bookNames": [
-				"மூல நூல்",
-				"எண் நூல்"
-			],
-			"maraiMoozhiNames": [
-				"இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்"
-			],
-			"youTubeNames": []
-		}
-	],
-	"சிவமே கொள்கையாம் சக்தியே செயலாம்": [
-		{
-			"wordName": "சக்தி",
-			"wordNameDescription": "தன்னிலை தனிநிலையகுக",
-			"bookNames": [
-				"எண் நூல்",
-				"ஊழி நூல்",
-				"மூல நூல்"
-			],
-			"maraiMoozhiNames": [
-				"சிவமே கொள்கையாம் சக்தியே செயலாம்"
-			],
-			"youTubeNames": []
-		},
-		{
-			"wordName": "சிவம்",
-			"wordNameDescription": "யாவும் யாமே",
-			"bookNames": [
-				"எண் நூல்",
-				"ஊழி நூல்",
-				"மூல நூல்",
-				"வடிவு நூல்"
-			],
-			"maraiMoozhiNames": [
-				"சிவமே கொள்கையாம் சக்தியே செயலாம்"
-			],
-			"youTubeNames": [
-				"அன்பு நலம்"
-			]
-		},
-		{
-			"wordName": "வேட்டல்",
-			"wordNameDescription": "விருப்பத்தில் நிலைபெறுதல்",
-			"bookNames": [
-				"மெய்",
-				"வேட்டல்"
-			],
-			"maraiMoozhiNames": [
-				"சிவமே கொள்கையாம் சக்தியே செயலாம்"
-			],
-			"youTubeNames": [
-				"வேட்டல் இணையவழி வகுப்பு"
-			]
-		}
-	]
-}
+  const jsondata = {
+    "அன்பே சிவம்": [
+      {
+        wordName: "சிவம்",
+        wordNameDescription: "யாவும் யாமே",
+        bookNames: ["ஊழி நூல்", "எண் நூல்", "வடிவு நூல்", "மூல நூல்"],
+        maraiMoozhiNames: ["அன்பே சிவம்"],
+        youTubeNames: ["அன்பு நலம்"],
+      },
+      {
+        wordName: "வேட்டல்",
+        wordNameDescription: "விருப்பத்தில் நிலைபெறுதல்",
+        bookNames: ["மெய்", "வேட்டல்"],
+        maraiMoozhiNames: ["அன்பே சிவம்"],
+        youTubeNames: ["வேட்டல் இணையவழி வகுப்பு"],
+      },
+    ],
+    "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்": [
+      {
+        wordName: "சக்தி",
+        wordNameDescription: "தன்னிலை தனிநிலையகுக",
+        bookNames: ["ஊழி நூல்", "மூல நூல்", "எண் நூல்"],
+        maraiMoozhiNames: [
+          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+        ],
+        youTubeNames: [],
+      },
+      {
+        wordName: "இயல்பு",
+        wordNameDescription:
+          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+        bookNames: ["மூல நூல்", "எண் நூல்"],
+        maraiMoozhiNames: [
+          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+        ],
+        youTubeNames: [],
+      },
+    ],
+    "சிவமே கொள்கையாம் சக்தியே செயலாம்": [
+      {
+        wordName: "சக்தி",
+        wordNameDescription: "தன்னிலை தனிநிலையகுக",
+        bookNames: ["எண் நூல்", "ஊழி நூல்", "மூல நூல்"],
+        maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்"],
+        youTubeNames: [],
+      },
+      {
+        wordName: "சிவம்",
+        wordNameDescription: "யாவும் யாமே",
+        bookNames: ["எண் நூல்", "ஊழி நூல்", "மூல நூல்", "வடிவு நூல்"],
+        maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்"],
+        youTubeNames: ["அன்பு நலம்"],
+      },
+      {
+        wordName: "வேட்டல்",
+        wordNameDescription: "விருப்பத்தில் நிலைபெறுதல்",
+        bookNames: ["மெய்", "வேட்டல்"],
+        maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்"],
+        youTubeNames: ["வேட்டல் இணையவழி வகுப்பு"],
+      },
+    ],
+  };
   useEffect(() => {
     const fetchWordData = async () => {
-		setWordData(jsondata[decodedmaraiMoozhi]);
-    //   fetch(
-    //     `http://localhost:8080//words/marai-moozhi-summary/${decodedmaraiMoozhi}`,
-    //     {
-    //       method: "GET", // Adjust to POST if necessary
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   )
-    //     .then((response) => {
-    //       return response.json();
-    //     })
-    //     .then((data) => {
-    //       setWordData(data);
-    //     });
+      setWordData(jsondata[decodedmaraiMoozhi]);
+      //   fetch(
+      //     `http://localhost:8080//words/marai-moozhi-summary/${decodedmaraiMoozhi}`,
+      //     {
+      //       method: "GET", // Adjust to POST if necessary
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //     }
+      //   )
+      //     .then((response) => {
+      //       return response.json();
+      //     })
+      //     .then((data) => {
+      //       setWordData(data);
+      //     });
     };
     fetchWordData();
   }, []);
@@ -204,13 +160,16 @@ const WordsinMaraiMoozhi = () => {
               <a
                 key={index}
                 href={`#${word.wordName}`}
-                className={`p-2 bg-white  text-lg text-gray-700 rounded-lg shadow-md transition-all transform hover:scale-105 focus:outline-none ${
+                className={`p-2 bg-white  text-lg  rounded-lg shadow-md transition-all transform hover:scale-105 focus:outline-none ${
                   index === 0
                     ? "bg-orange-500 text-white font-semibold"
-                    : "hover:bg-orange-100 hover:text-white"
-                } ${
-                  index === 0 && "text-white" // Ensure selected text stays white
-                }`}
+                    : "hover:bg-orange-500 hover:text-white"
+                } 
+				${
+          index === 0 && "text-white bg-orange-500" // Ensure selected text stays white
+        }
+				
+				`}
               >
                 {word.wordName}
               </a>
