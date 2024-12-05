@@ -249,7 +249,7 @@ const WordsInBook = () => {
               <a
                 key={index}
                 href={`#${word.wordName}`}
-                className={`p-2 bg-white text-lg rounded-lg shadow-md transition-all transform hover:scale-105 focus:outline-none ${
+                className={`p-2 text-lg rounded-lg shadow-md transition-all transform hover:scale-105 focus:outline-none ${
                   index === 0
                     ? "bg-orange-500 text-white font-semibold"
                     : "hover:bg-orange-500 hover:text-white"
