@@ -14,7 +14,7 @@ const Header = () => {
     navigate(`/allMaraiMoozhis`);
   };
   const homePageNavigate = () => {
-    navigate(`/செம்மை`);
+    navigate(`/home`);
   };
   return (
     <div className="bg-orange-400 h-16 w-full relative">
