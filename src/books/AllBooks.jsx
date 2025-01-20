@@ -7,7 +7,7 @@ const AllBooks = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const homePageNavigate = (word) => {
-    navigate(`/Word-Search-App`);
+    navigate(`/home`);
   };
   useEffect(() => {
     const fetchWordData = async () => {

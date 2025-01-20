@@ -7,7 +7,7 @@ const AllMaraiMoozhi = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const homePageNavigate = (word) => {
-    navigate(`/Word-Search-App`);
+    navigate(`/home`);
   };
   useEffect(() => {
 

@@ -8,7 +8,7 @@ const WordSummary = () => {
   const decodedWord = decodeURIComponent(wordName);
   console.log(decodedWord);
   const homePageNavigate = (word) => {
-    navigate(`/Word-Search-App`);
+    navigate(`/home`);
   };
   const jsonData = {
     சக்தி: {

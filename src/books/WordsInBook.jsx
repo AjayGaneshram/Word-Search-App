@@ -63,7 +63,7 @@ const WordsInBook = () => {
 
   const decodedBookName = decodeURIComponent(bookName);
   const homePageNavigate = (word) => {
-    navigate(`/Word-Search-App`);
+    navigate(`/home`);
   };
   const BOOKSUMMARYDATA = {
     "மூல நூல்": [

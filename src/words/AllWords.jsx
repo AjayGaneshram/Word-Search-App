@@ -8,7 +8,7 @@ const AllWords = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
   const homePageNavigate = (word) => {
-    navigate(`/Word-Search-App`);
+    navigate(`/home`);
   };
   useEffect(() => {
     const fetchWordData = async () => {

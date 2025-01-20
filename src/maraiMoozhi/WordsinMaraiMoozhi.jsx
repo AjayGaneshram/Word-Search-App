@@ -7,7 +7,7 @@ const WordsinMaraiMoozhi = () => {
   const decodedmaraiMoozhi = decodeURIComponent(maraiMoozhi);
   const [wordData, setWordData] = useState([]);
   const homePageNavigate = (word) => {
-    navigate(`/Word-Search-App`);
+    navigate(`/home`);
   };
   const jsondata = {
     "அன்பே சிவம்": [
