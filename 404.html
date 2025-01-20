@@ -7,12 +7,10 @@
     // Preserve the current path, query string, and hash
     const currentPath = window.location.pathname + window.location.search + window.location.hash;
 
-    // Check if we are already at index.html, if so, no need to redirect
-	window.history.replaceState(null, '', currentPath);
-    if (currentPath.includes("index.html")) {
+    // Check if we are already at index.html, if so, no need to redirect again
+    if (!currentPath.includes("index.html")) {
       // Redirect to index.html, preserving the current path
-      window.history.replaceState(null, '', currentPath);
-      window.location.replace('/Word-Search-App/index.html');
+      window.location.replace('/Word-Search-App/index.html' + currentPath);
     }
   </script>
 </head>
