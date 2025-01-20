@@ -6,8 +6,12 @@ const AllMaraiMoozhi = () => {
   const [wordData, setWordData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const homePageNavigate = (word) => {
+    navigate(`/Word-Search-App`);
+  };
   useEffect(() => {
+
+    
     const fetchWordData = async () => {
       setWordData([
         "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
@@ -56,7 +60,7 @@ const AllMaraiMoozhi = () => {
         </button>
         <div className="mb-4">
           <a
-            href="/Word-Search-App"
+           onClick={() => homePageNavigate(word)}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg

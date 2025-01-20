@@ -121,7 +121,7 @@ const WordDescription = () => {
     சக்தி: {
       id: 4,
       wordName: "சக்தி",
-      wordNameDescription: "தன்னிலை தனிநிலையகுக",
+      wordNameDescription: "தன்னிலை தனிநிலை ஆகுக",
       wordName_FirstLetter: "ச",
       books: [
         {

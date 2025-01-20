@@ -6,6 +6,9 @@ const WordsinMaraiMoozhi = () => {
   const { maraiMoozhi } = useParams();
   const decodedmaraiMoozhi = decodeURIComponent(maraiMoozhi);
   const [wordData, setWordData] = useState([]);
+  const homePageNavigate = (word) => {
+    navigate(`/Word-Search-App`);
+  };
   const jsondata = {
     "அன்பே சிவம்": [
       {
@@ -69,6 +72,7 @@ const WordsinMaraiMoozhi = () => {
     ],
   };
   useEffect(() => {
+
     const fetchWordData = async () => {
       setWordData(jsondata[decodedmaraiMoozhi]);
       //   fetch(
@@ -130,7 +134,7 @@ const WordsinMaraiMoozhi = () => {
         </button>
         <div className="mb-4">
           <a
-            href="/Word-Search-App"
+           onClick={() => homePageNavigate(word)}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg

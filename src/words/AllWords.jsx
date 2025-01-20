@@ -7,6 +7,9 @@ const AllWords = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const homePageNavigate = (word) => {
+    navigate(`/Word-Search-App`);
+  };
   useEffect(() => {
     const fetchWordData = async () => {
       setWordData(["இயல்பு", "வேட்டல்", "சிவம்", "சக்தி"]);
@@ -49,7 +52,7 @@ const AllWords = () => {
 
         <div className="mb-4">
           <a
-            href="/Word-Search-App"
+           onClick={() => homePageNavigate(word)}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg

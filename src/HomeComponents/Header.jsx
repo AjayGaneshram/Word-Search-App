@@ -13,13 +13,16 @@ const Header = () => {
   const maraiMoozhiNavigate = () => {
     navigate(`/allMaraiMoozhis`);
   };
+  const homePageNavigate = (word) => {
+    navigate(`/Word-Search-App`);
+  };
   return (
     <div className="bg-orange-400 h-16 w-full relative">
       {/* Navbar */}
       <div className="flex justify-between items-center h-full px-4 md:px-8">
         {/* App Name */}
         <h1 className="text-white font-bold text-lg md:text-2xl cursor-pointer">
-          <a onClick={() => navigate(`/`)}>செம்மை</a>
+          <a onClick={() => homePageNavigate(word)}>செம்மை</a>
         </h1>
 
         {/* Hamburger Icon */}

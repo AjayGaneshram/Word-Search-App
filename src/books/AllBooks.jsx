@@ -6,7 +6,9 @@ const AllBooks = () => {
   const [wordData, setWordData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const homePageNavigate = (word) => {
+    navigate(`/Word-Search-App`);
+  };
   useEffect(() => {
     const fetchWordData = async () => {
       setWordData([
@@ -25,6 +27,8 @@ const AllBooks = () => {
         "ஊழி நூல்",
         "வடிவு நூல்",
       ]);
+      
+
       // await fetch("http://localhost:8080/words/bookNames")
       //   .then((response) => response.json())
       //   .then((data) => {
@@ -63,7 +67,8 @@ const AllBooks = () => {
         </button>
         <div className="mb-4">
           <a
-            href="/Word-Search-App"
+            // href="/Word-Search-App"
+            onClick={() => homePageNavigate(word)}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg

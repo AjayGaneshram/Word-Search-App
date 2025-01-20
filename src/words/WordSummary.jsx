@@ -7,7 +7,9 @@ const WordSummary = () => {
   const { wordName } = useParams();
   const decodedWord = decodeURIComponent(wordName);
   console.log(decodedWord);
-
+  const homePageNavigate = (word) => {
+    navigate(`/Word-Search-App`);
+  };
   const jsonData = {
     சக்தி: {
       id: 4,
@@ -259,7 +261,7 @@ const WordSummary = () => {
             {/* Back to Home Button */}
             <div className="text-center">
               <button
-                onClick={() => window.history.back()}
+                onClick={() => homePageNavigate(word)}
                 className="px-6 py-2 bg-orange-400 text-white rounded-md shadow-md hover:bg-orange-500"
               >
                 முகப்புப்பக்கம்
