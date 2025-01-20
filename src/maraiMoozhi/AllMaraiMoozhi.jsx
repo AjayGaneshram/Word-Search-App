@@ -32,10 +32,10 @@ const AllMaraiMoozhi = () => {
   }, []);
   const navigate=useNavigate()
   const handleNavigate = (word) => {
-    navigate(`/maraiMoli/${word}`);
+    navigate(`/Word-Search-App/maraiMoli/${word}`);
   };
   const homePageNavigate = (word) => {
-    navigate(`/home`);
+    navigate(`/Word-Search-App/home`);
   };
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase();

@@ -119,7 +119,7 @@ const WordsinMaraiMoozhi = () => {
   };
   const navigate=useNavigate()
   const homePageNavigate = (word) => {
-    navigate(`/home`);
+    navigate(`/Word-Search-App/home`);
   };
   return (
     <div>

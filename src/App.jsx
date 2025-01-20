@@ -14,15 +14,15 @@ function App() {
 
   const navigate = useNavigate();
   const handleNavigate = (word) => {
-    navigate(`/book/${word}`);
+    navigate(`/Word-Search-App/book/${word}`);
   };
 
   const wordHandleNavigate = (word) => {
-    navigate(`/words/${word}`);
+    navigate(`/Word-Search-App/words/${word}`);
   };
 
   const maraiMoozhiNavigate = (word) => {
-    navigate(`/words/by-marai-moozhi/${word}`);
+    navigate(`/Word-Search-App/words/by-marai-moozhi/${word}`);
   };
   useEffect(() => {
     const fetchWordData = async () => {

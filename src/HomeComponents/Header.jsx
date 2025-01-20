@@ -5,16 +5,16 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate(`/allBooks`);
+    navigate(`/Word-Search-App/allBooks`);
   };
   const wordNavigate = () => {
-    navigate(`/allWords`);
+    navigate(`/Word-Search-App/allWords`);
   };
   const maraiMoozhiNavigate = () => {
-    navigate(`/allMaraiMoozhis`);
+    navigate(`/Word-Search-App/allMaraiMoozhis`);
   };
   const homePageNavigate = () => {
-    navigate(`/home`);
+    navigate(`/Word-Search-App/home`);
   };
   return (
     <div className="bg-orange-400 h-16 w-full relative">

@@ -8,7 +8,7 @@ const AllWords = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
   const homePageNavigate = () => {
-    navigate(`/home`);
+    navigate(`/Word-Search-App/home`);
   };
   useEffect(() => {
     const fetchWordData = async () => {
@@ -32,7 +32,7 @@ const AllWords = () => {
     );
   };
   const wordHandleNavigate = (word) => {
-    navigate(`/words/${word}`);
+    navigate(`/Word-Search-App/words/${word}`);
   };
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

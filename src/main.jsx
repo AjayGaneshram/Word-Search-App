@@ -17,15 +17,15 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <Routes>
         {/* Main route */}
-        <Route path="/home" element={<HomePage />}></Route>
-        {/* <Route path="uniqueWords" element={<HomePage />} /> */}
-        <Route path="allBooks" element={<AllBooks />} />
-        <Route path="words/:wordName" element={<WordSummary />} />
-        <Route path="allWords" element={<AllWords />} />
-        <Route path="allMaraiMoozhis" element={<AllMaraiMoozhi />} />
-        <Route path="book/:bookName" element={<WordsInBook />} />
+        <Route path="/Word-Search-App" element={<HomePage />}></Route>
+        <Route path="/Word-Search-App/home" element={<HomePage />} />
+        <Route path="/Word-Search-App/allBooks" element={<AllBooks />} />
+        <Route path="/Word-Search-App/words/:wordName" element={<WordSummary />} />
+        <Route path="/Word-Search-App/allWords" element={<AllWords />} />
+        <Route path="/Word-Search-App/allMaraiMoozhis" element={<AllMaraiMoozhi />} />
+        <Route path="/Word-Search-App/book/:bookName" element={<WordsInBook />} />
         {/* <Route path="words/:wordName" element={<WordDescription />} /> */}
-        <Route path="maraiMoli/:maraiMoozhi" element={<WordsinMaraiMoozhi />} />
+        <Route path="/Word-Search-App/maraiMoli/:maraiMoozhi" element={<WordsinMaraiMoozhi />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

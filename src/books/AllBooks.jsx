@@ -38,10 +38,10 @@ const AllBooks = () => {
   }, []);
   const navigate = useNavigate();
   const handleNavigate = (word) => {
-    navigate(`/book/${word}`);
+    navigate(`/Word-Search-App/book/${word}`);
   };
   const homePageNavigate = () => {
-    navigate(`/home`);
+    navigate(`/Word-Search-App/home`);
   };
 
   const handleSearch = (e) => {

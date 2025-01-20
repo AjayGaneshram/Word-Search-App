@@ -63,7 +63,7 @@ const WordsInBook = () => {
 
   const decodedBookName = decodeURIComponent(bookName);
   const homePageNavigate = () => {
-    navigate(`/home`);
+    navigate(`/Word-Search-App/home`);
   };
   const BOOKSUMMARYDATA = {
     "மூல நூல்": [
@@ -86,7 +86,7 @@ const WordsInBook = () => {
       },
       {
         wordName: "சக்தி",
-        wordNameDescription: "தன்னிலை தனிநிலையகுக",
+        wordNameDescription: "தன்னிலை தனிநிலை ஆகுக",
         bookNames: ["எண் நூல்", "மூல நூல்", "ஊழி நூல்"],
         maraiMoozhiNames: [
           "சிவமே கொள்கையாம் சக்தியே செயலாம்",
