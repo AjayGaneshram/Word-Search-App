@@ -17,7 +17,7 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <Routes>
         {/* Main route */}
-        <Route path="/Word-Search-App" element={<HomePage />}></Route>
+        <Route path="/" element={<HomePage />}></Route>
         {/* <Route path="uniqueWords" element={<HomePage />} /> */}
         <Route path="allBooks" element={<AllBooks />} />
         <Route path="words/:wordName" element={<WordSummary />} />
