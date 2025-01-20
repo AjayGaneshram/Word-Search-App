@@ -1,5 +1,5 @@
 {
-  "homepage": "http://AjayGaneshram.github.io/Word-Search-App",
+  "homepage": "http://ajayganeshram.github.io/Word-Search-App",
   "name": "word-search-app",
   "private": true,
   "version": "0.0.0",
@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d dist --force",
     "clean": "rm -rf dist",
     "lint": "eslint .",
     "preview": "vite preview"
