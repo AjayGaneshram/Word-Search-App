@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../HomeComponents/Header";
 
 const WordSummary = () => {
@@ -7,7 +7,8 @@ const WordSummary = () => {
   const { wordName } = useParams();
   const decodedWord = decodeURIComponent(wordName);
   console.log(decodedWord);
-  const homePageNavigate = (word) => {
+  const navigate=useNavigate()
+  const homePageNavigate = () => {
     navigate(`/home`);
   };
   const jsonData = {
@@ -261,7 +262,7 @@ const WordSummary = () => {
             {/* Back to Home Button */}
             <div className="text-center">
               <button
-                onClick={() => homePageNavigate(word)}
+                onClick={() => homePageNavigate()}
                 className="px-6 py-2 bg-orange-400 text-white rounded-md shadow-md hover:bg-orange-500"
               >
                 முகப்புப்பக்கம்

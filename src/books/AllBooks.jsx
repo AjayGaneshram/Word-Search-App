@@ -6,9 +6,7 @@ const AllBooks = () => {
   const [wordData, setWordData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const homePageNavigate = (word) => {
-    navigate(`/home`);
-  };
+  
   useEffect(() => {
     const fetchWordData = async () => {
       setWordData([
@@ -42,6 +40,9 @@ const AllBooks = () => {
   const handleNavigate = (word) => {
     navigate(`/book/${word}`);
   };
+  const homePageNavigate = () => {
+    navigate(`/home`);
+  };
 
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase();
@@ -68,7 +69,7 @@ const AllBooks = () => {
         <div className="mb-4">
           <a
             // href="/Word-Search-App"
-            onClick={() => homePageNavigate(word)}
+            onClick={() => homePageNavigate()}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg

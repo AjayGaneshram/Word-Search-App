@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../HomeComponents/Header";
 
 const WordsinMaraiMoozhi = () => {
   const { maraiMoozhi } = useParams();
   const decodedmaraiMoozhi = decodeURIComponent(maraiMoozhi);
   const [wordData, setWordData] = useState([]);
-  const homePageNavigate = (word) => {
-    navigate(`/home`);
-  };
+  
   const jsondata = {
     "அன்பே சிவம்": [
       {
@@ -119,6 +117,10 @@ const WordsinMaraiMoozhi = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+  const navigate=useNavigate()
+  const homePageNavigate = (word) => {
+    navigate(`/home`);
+  };
   return (
     <div>
       <Header />
@@ -134,7 +136,7 @@ const WordsinMaraiMoozhi = () => {
         </button>
         <div className="mb-4">
           <a
-           onClick={() => homePageNavigate(word)}
+           onClick={() => homePageNavigate()}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg

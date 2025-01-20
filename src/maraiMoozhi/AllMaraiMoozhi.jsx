@@ -6,9 +6,7 @@ const AllMaraiMoozhi = () => {
   const [wordData, setWordData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const homePageNavigate = (word) => {
-    navigate(`/home`);
-  };
+  
   useEffect(() => {
 
     
@@ -36,6 +34,9 @@ const AllMaraiMoozhi = () => {
   const handleNavigate = (word) => {
     navigate(`/maraiMoli/${word}`);
   };
+  const homePageNavigate = (word) => {
+    navigate(`/home`);
+  };
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase();
     setSearchTerm(value);
@@ -60,7 +61,7 @@ const AllMaraiMoozhi = () => {
         </button>
         <div className="mb-4">
           <a
-           onClick={() => homePageNavigate(word)}
+           onClick={() => homePageNavigate()}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg

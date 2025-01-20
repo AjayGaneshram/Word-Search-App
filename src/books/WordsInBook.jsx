@@ -62,7 +62,7 @@ const WordsInBook = () => {
   const navigate = useNavigate();
 
   const decodedBookName = decodeURIComponent(bookName);
-  const homePageNavigate = (word) => {
+  const homePageNavigate = () => {
     navigate(`/home`);
   };
   const BOOKSUMMARYDATA = {
@@ -221,7 +221,7 @@ const WordsInBook = () => {
         </button>
         <div className="mb-4">
           <a
-           onClick={() => homePageNavigate(word)}
+           onClick={() => homePageNavigate()}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
