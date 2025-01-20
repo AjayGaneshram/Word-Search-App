@@ -5,16 +5,17 @@
   <title>Redirecting...</title>
   <script>
     // Preserve the current path, query string, and hash
-    const currentUrl = window.location.pathname + window.location.search + window.location.hash;
+    const currentPath = window.location.pathname + window.location.search + window.location.hash;
 
-    // Redirect to index.html but keep the current URL in the address bar
-    window.history.replaceState(null, '', currentUrl);
-
-    // Load the React app by fetching index.html
-    window.location.replace(window.location.pathname );
+    // Check if we are already at index.html, if so, no need to redirect
+    if (!currentPath.includes("index.html")) {
+      // Redirect to index.html, preserving the current path
+      window.history.replaceState(null, '', currentPath);
+      window.location.replace('/Word-Search-App/index.html');
+    }
   </script>
 </head>
 <body>
-  <p>If you are not redirected automatically, <a href="/Word-Search-App/"+window.location.pathname >click here</a>.</p>
+  <p>If you are not redirected automatically, <a href="/Word-Search-App/index.html">click here</a>.</p>
 </body>
 </html>
