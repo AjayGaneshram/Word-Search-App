@@ -49,7 +49,7 @@ const AllWords = () => {
 
         <div className="mb-4">
           <a
-            href="/"
+            href="/Word-Search-App"
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
