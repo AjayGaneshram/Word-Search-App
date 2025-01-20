@@ -11,6 +11,7 @@ import AllBooks from "./books/AllBooks.jsx";
 import AllWords from "./words/AllWords.jsx";
 import AllMaraiMoozhi from "./maraiMoozhi/AllMaraiMoozhi.jsx";
 import WordSummary from "./words/WordSummary.jsx";
+import NotFound from "./NotFound.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/Word-Search-App/allWords" element={<AllWords />} />
         <Route path="/Word-Search-App/allMaraiMoozhis" element={<AllMaraiMoozhi />} />
         <Route path="/Word-Search-App/book/:bookName" element={<WordsInBook />} />
+        <Route path="*" element={<NotFound />} /> 
         {/* <Route path="words/:wordName" element={<WordDescription />} /> */}
         <Route path="/Word-Search-App/maraiMoli/:maraiMoozhi" element={<WordsinMaraiMoozhi />} />
       </Routes>

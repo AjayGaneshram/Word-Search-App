@@ -4,10 +4,17 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    window.location.href = window.location.pathname;
+    // Redirect all unknown paths to index.html while keeping the current path
+    const pathname = window.location.pathname;
+    const search = window.location.search;
+    const hash = window.location.hash;
+
+    // Ensure the browser fetches the index.html file
+    window.history.replaceState(null, '', pathname + search + hash);
+    window.location.replace('/index.html');
   </script>
 </head>
 <body>
-  <p>If you are not redirected automatically, <a href={window.location.pathname}>click here</a>.</p>
+  <p>If you are not redirected automatically, <a href="/index.html">click here</a>.</p>
 </body>
 </html>
