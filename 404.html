@@ -11,7 +11,7 @@
 
     // Ensure the browser fetches the index.html file
     window.history.replaceState(null, '', pathname + search + hash);
-    window.location.replace('/'+window.location.pathname);
+    window.location.replace(window.location.href+'/'+window.location.pathname);
   </script>
 </head>
 <body>
