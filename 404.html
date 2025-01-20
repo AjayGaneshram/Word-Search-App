@@ -11,10 +11,10 @@
     window.history.replaceState(null, '', currentUrl);
 
     // Load the React app by fetching index.html
-    window.location.replace('/Word-Search-App/');
+    window.location.replace(window.location.pathname );
   </script>
 </head>
 <body>
-  <p>If you are not redirected automatically, <a href="/Word-Search-App/">click here</a>.</p>
+  <p>If you are not redirected automatically, <a href="/Word-Search-App/"+window.location.pathname >click here</a>.</p>
 </body>
 </html>
