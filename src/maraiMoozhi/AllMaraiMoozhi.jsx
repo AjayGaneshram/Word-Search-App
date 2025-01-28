@@ -91,7 +91,7 @@ const AllMaraiMoozhi = () => {
         <div className="relative mb-6">
           <input
             type="text"
-            placeholder="மறை மொழிகளை தேடு"
+            placeholder="மறை மொழிகளை தேடுக"
             value={searchTerm}
             onChange={handleSearch}
             className="w-full p-4 rounded-lg border border-gray-300 shadow-md focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-700"
