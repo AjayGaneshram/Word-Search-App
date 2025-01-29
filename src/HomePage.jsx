@@ -139,3 +139,6 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+// "predeploy": "npm run build",
+    // "deploy": "gh-pages -d dist",
