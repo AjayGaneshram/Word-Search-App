@@ -26,7 +26,6 @@ createRoot(document.getElementById("root")).render(
         <Route path="/Word-Search-App/allMaraiMoozhis" element={<AllMaraiMoozhi />} />
         <Route path="/Word-Search-App/book/:bookName" element={<WordsInBook />} />
         <Route path="*" element={<NotFound />} /> 
-        {/* <Route path="words/:wordName" element={<WordDescription />} /> */}
         <Route path="/Word-Search-App/maraiMozhi/:maraiMoozhi" element={<WordsinMaraiMoozhi />} />
       </Routes>
     </BrowserRouter>
