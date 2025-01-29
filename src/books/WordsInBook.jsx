@@ -319,7 +319,7 @@ const WordsInBook = () => {
               {word.youTubeNames.length > 0 && (
                 <div className="mt-6">
                   <h3 className="text-2xl font-bold text-orange-400 mb-4 border-b-2 border-orange-200 pb-2">
-                    YouTube Videos
+                  உரைகள்
                   </h3>
                   <ul className="space-y-4">
                     {word.youTubeNames.map((video, videoIndex) => (

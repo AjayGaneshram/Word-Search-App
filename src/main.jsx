@@ -12,7 +12,7 @@ import AllWords from "./words/AllWords.jsx";
 import AllMaraiMoozhi from "./maraiMoozhi/AllMaraiMoozhi.jsx";
 import WordSummary from "./words/WordSummary.jsx";
 import NotFound from "./NotFound.jsx";
-
+import data from "./dummyJson.js";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>

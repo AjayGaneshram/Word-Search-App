@@ -28,6 +28,7 @@ const HomePage = () => {
           maraiMoozhiNames: [
             "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
             "சிவமே கொள்கையாம் சக்தியே செயலாம்",
+            "சிவமே கொள்கையாம் சக்தியே செயலாம்",
           ],
           youTubeNames: [],
         },
@@ -63,13 +64,13 @@ const HomePage = () => {
         <ul className="mt-4">
           <b className="text-gray-800">மறை மொழிகள்</b>
           {uniqueDetails.maraiMoozhiNames
-            .slice(0, showMoreMarai ? uniqueDetails.maraiMoozhiNames.length : 3)
+            .slice(0, showMoreMarai ? uniqueDetails.maraiMoozhiNames.length : 2)
             .map((ele, eleIndex) => (
               <li key={eleIndex} className="list-disc ml-4 text-gray-600">
                 {ele}
               </li>
             ))}
-          {uniqueDetails.maraiMoozhiNames.length > 3 && (
+          {uniqueDetails.maraiMoozhiNames.length > 2 && (
             <button
               onClick={() => setShowMoreMarai((prev) => !prev)}
               className="text-blue-500 mt-2"
@@ -109,7 +110,9 @@ const HomePage = () => {
     <div>
       {/* Header */}
       <Header />
-
+      <h2 className="text-sm font-bold text-center m-6 text-orange-400">
+        சிவமே கொள்கையாம் சக்தியே செயலாம்
+      </h2>
       {/* Search Component */}
       <SearchComponent />
 
@@ -126,9 +129,9 @@ const HomePage = () => {
       </button>
 
       {/* Card Grid */}
-      <div className="flex flex-wrap justify-start items-center gap-4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 justify-items-center ">
         {wordDetails.map((uniqueDetails, index) => (
-          <Card key={index} uniqueDetails={uniqueDetails} />
+          <Card key={index} uniqueDetails={uniqueDetails} className="h-full" />
         ))}
       </div>
     </div>

@@ -7,7 +7,7 @@ const WordSummary = () => {
   const { wordName } = useParams();
   const decodedWord = decodeURIComponent(wordName);
   console.log(decodedWord);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const homePageNavigate = () => {
     navigate(`/Word-Search-App/home`);
   };
@@ -241,7 +241,7 @@ const WordSummary = () => {
             {/* YouTube Videos Section */}
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-orange-400 mb-4 border-b-2 border-orange-200 pb-2">
-                YouTube Videos
+                உரைகள்
               </h2>
               <ul className="space-y-4">
                 {wordDetails.youTubeVideos.map((video, index) => (

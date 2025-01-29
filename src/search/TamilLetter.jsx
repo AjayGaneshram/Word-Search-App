@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "./search.css";
 // JSON structure for Uyir-Mei combinations
 const uyirmeiData = [
   {
@@ -316,32 +316,34 @@ const TamilAlphabetTable = ({ words }) => {
   // Function to check if a specific Uyir is present
   const isUyirHighlighted = (uyir) =>
     firstLetters.some((letter) => letter.startsWith(uyir));
+  
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-semibold text-center mb-6">
-        Tamil Uyir-Mei Table
+      <h2 className="text-2xl font-semibold text-center mb-6 text-orange-400">
+        அகர வரிசை சொற்கள்
       </h2>
       <div className="overflow-x-auto overflow-y-auto max-h-[400px] border border-gray-300 rounded-lg shadow-lg">
         <table className="min-w-full table-auto border-collapse">
           <thead>
-            <tr>
-              <th className="px-4 py-2 text-left bg-orange-400 text-white border border-gray-300">
-                Mei
-              </th>
-              {uyirEzhuthukkal.map((uyir, index) => (
-                <th
-                  key={index}
-                  className={`px-4 py-2 text-left border border-gray-300 ${
+            <th className="px-4 py-2 bg-gray-200 font-bold border border-gray-300"></th>
+            {uyirEzhuthukkal.map((uyir, index) => (
+              <th
+                key={index}
+                className="px-4 py-2 bg-gray-200 font-bold border border-gray-300 text-center"
+              >
+                <a
+                  href={`#${uyir}`} // Use this for navigation or ID
+                  className={`${
                     isUyirHighlighted(uyir)
-                      ? "bg-yellow-300 font-bold"
-                      : "bg-orange-400 text-white"
+                      ? "highlighted"
+                      : "no-underline"
                   }`}
                 >
                   {uyir}
-                </th>
-              ))}
-            </tr>
+                </a>
+              </th>
+            ))}
           </thead>
           <tbody>
             {uyirmeiData.map((row, index) => {
@@ -349,20 +351,30 @@ const TamilAlphabetTable = ({ words }) => {
                 firstLetters.includes(uyirmei)
               );
               return (
-                <tr key={index} className={rowHasMatch ? "" : "hidden"}>
+                <tr
+                  key={index}
+                  className={`${rowHasMatch ? "" : "hidden"} ${
+                    index % 2 === 0 ? "bg-gray-100" : "bg-white"
+                  }`}
+                >
                   <td className="px-4 py-2 bg-gray-200 font-bold border border-gray-300">
                     {row.mei}
                   </td>
                   {row.uyirmei.map((uyirmei, i) => (
                     <td
                       key={i}
-                      className={`px-4 py-2 border border-gray-300 text-center ${
-                        firstLetters.includes(uyirmei)
-                          ? "bg-yellow-300 font-bold"
-                          : ""
-                      }`}
+                      className="px-4 py-2 border border-gray-300 text-center"
                     >
-                      {uyirmei}
+                      <a
+                        href={`#${uyirmei}`} // Use this for navigation or ID
+                        className={`${
+                          firstLetters.includes(uyirmei)
+                            ? "highlighted"
+                            : "text-gray-800"
+                        }`}
+                      >
+                        {uyirmei}
+                      </a>
                     </td>
                   ))}
                 </tr>

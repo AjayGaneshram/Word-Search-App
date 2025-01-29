@@ -29,22 +29,22 @@ const SearchComponent = () => {
   const [filteredResults, setFilteredResults] = useState(hardcodedData);
 
   // Handle search input
-  const handleSearch = (term) => {
+  const handleSearch = (term, updatedCategories) => {
     setSearchTerm(term);
     const lowercasedTerm = term.toLowerCase();
 
     const filteredData = {
-      words: selectedCategories.includes("words")
+      words: updatedCategories.includes("words")
         ? hardcodedData.words.filter((word) =>
             word.word.toLowerCase().includes(lowercasedTerm)
           )
         : [],
-      books: selectedCategories.includes("books")
+      books: updatedCategories.includes("books")
         ? hardcodedData.books.filter((book) =>
             book.bookName.toLowerCase().includes(lowercasedTerm)
           )
         : [],
-      maraiMoozhis: selectedCategories.includes("maraiMoozhis")
+      maraiMoozhis: updatedCategories.includes("maraiMoozhis")
         ? hardcodedData.maraiMoozhis.filter((maraiMoozhi) =>
             maraiMoozhi.maraiMoozhiName.toLowerCase().includes(lowercasedTerm)
           )
@@ -63,7 +63,14 @@ const SearchComponent = () => {
     setSelectedCategories(updatedCategories);
 
     // Reapply filtering for updated categories
-    handleSearch(searchTerm);
+    handleSearch(searchTerm, updatedCategories);
+  };
+
+  // Map category names to internal keys
+  const categoryMap = {
+    சொல்: "words",
+    நூல்: "books",
+    "மறை மொழி": "maraiMoozhis",
   };
 
   return (
@@ -72,19 +79,19 @@ const SearchComponent = () => {
       <div className="relative mb-4">
         <div className="flex gap-2">
           {/* Category Buttons */}
-          {["சொற்கள்", "நூல்கள்", "மறை மொழிகள்"].map((category) => (
+          {Object.keys(categoryMap).map((category) => (
             <button
               key={category}
-              onClick={() => toggleCategory(category)}
-              className={`flex items-center gap-1 px-2 py-1 rounded-lg text-xs ${
-                selectedCategories.includes(category)
+              onClick={() => toggleCategory(categoryMap[category])}
+              className={`flex items-center gap-1 px-3 py-1 rounded-lg text-sm ${
+                selectedCategories.includes(categoryMap[category])
                   ? "bg-orange-400 text-white"
                   : "bg-gray-200 text-gray-800"
               }`}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {category}
               <span className="text-lg font-bold">
-                {selectedCategories.includes(category) ? "x" : "+"}
+                {selectedCategories.includes(categoryMap[category]) ? "x" : "+"}
               </span>
             </button>
           ))}
@@ -95,9 +102,9 @@ const SearchComponent = () => {
           <input
             type="text"
             value={searchTerm}
-            onChange={(e) => handleSearch(e.target.value)}
-            placeholder="தேடுக"
-            className="w-full p-2 mt-2 border border-gray-300 rounded-lg"
+            onChange={(e) => handleSearch(e.target.value, selectedCategories)}
+            placeholder={`தேடுக`} // Dynamically construct the placeholder
+            className="w-full p-2 mt-4 border border-gray-300 rounded-lg"
           />
 
           {/* Dropdown Results Inside Search Bar */}
