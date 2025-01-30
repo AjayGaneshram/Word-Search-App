@@ -6,7 +6,6 @@ import LetterHomePage from "./search/TamilLetter";
 
 const HomePage = () => {
   const [wordDetails, setWordDetails] = useState([]);
-
   useEffect(() => {
     const fetchWordData = async () => {
       // Hardcoded data
