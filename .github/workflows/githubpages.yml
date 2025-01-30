@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'input.json'  # Trigger workflow only when input.json changes
-  workflow_dispatch:  # Allows manual trigger if needed
+      - 'public/input.json'  # Detects changes in input.json
+  workflow_dispatch:  # Allow manual trigger
 
 permissions:
   contents: write  
@@ -19,6 +19,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Debug - List files in repo
+        run: ls -R   # This helps check if input.json is present
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -27,20 +30,27 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Ensure input.json exists
+        run: |
+          if [ ! -f public/input.json ]; then
+            echo "Error: input.json not found in public folder!"
+            exit 1
+          fi
+
       - name: Generate Output JSON
-        run: node public/generateJson.cjs  # Run the script inside public folder
+        run: node public/generateJson.cjs  # Ensure script references input.json properly
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@users.noreply.github.com"
-          git add output.json
+          git add public/output.json
           git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update output.json"
           git push
         continue-on-error: true  
 
   build-and-deploy:
-    needs: update-output  # Ensure `output.json` is updated before building
+    needs: update-output  # Wait until output.json is updated
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source  
@@ -61,7 +71,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3   
         with:
           name: 'github-pages'
-          path: dist  # Adjust if your build output directory is different
+          path: dist
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
