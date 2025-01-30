@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'public/input.json'
-  workflow_dispatch:  
+      - 'public/input.json'  # ✅ Trigger only when input.json changes
+  workflow_dispatch:
 
 permissions:
   contents: write  
@@ -19,8 +19,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Debug - List files
+      - name: Debug - List Files
         run: ls -R  
+
+      - name: Debug - Check if input.json exists
+        run: |
+          if [ ! -f public/input.json ]; then
+            echo "❌ Error: input.json not found in public/"
+            exit 1
+          else
+            echo "✅ input.json found!"
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,15 +39,8 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Ensure input.json exists
-        run: |
-          if [ ! -f public/input.json ]; then
-            echo "❌ Error: input.json not found in public/"
-            exit 1
-          fi
-
       - name: Generate Output JSON
-        run: node public/generateJson.cjs  
+        run: node public/generateJson.cjs  # ✅ Run from correct path
 
       - name: Commit and Push Changes
         run: |

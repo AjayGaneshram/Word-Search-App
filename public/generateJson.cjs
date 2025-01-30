@@ -2,13 +2,14 @@ const fs = require('fs');
 const path = require('path');
 
 function generateOutput() {
-    const inputFile = path.join(__dirname, 'public', 'input.json');  // Use absolute path
-    const outputFile = path.join(__dirname, 'public', 'output.json');
+    const inputFile = path.resolve(__dirname, '../public/input.json');  // Adjust path
+    const outputFile = path.resolve(__dirname, '../public/output.json');
 
-    // Ensure input.json exists
     if (!fs.existsSync(inputFile)) {
-        console.error('❌ Error: input.json not found in public/');
+        console.error(`❌ Error: input.json not found at ${inputFile}`);
         process.exit(1);
+    } else {
+        console.log(`✅ Found input.json at ${inputFile}`);
     }
 
     console.log('🔍 Reading input.json...');
@@ -143,9 +144,11 @@ function generateOutput() {
     outputData.maraiMoozhis = Object.values(outputData.maraiMoozhis);
     outputData.youtube = Object.values(outputData.youtube);
 
-    // Write to output file
-    fs.writeFileSync(outputFile, JSON.stringify(outputData, null, 2), 'utf-8');
-    console.log('✅ output.json generated successfully');
+    // const inputData = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
+
+    fs.writeFileSync(outputFile, JSON.stringify({ success: true, words: inputData.words }, null, 2), 'utf-8');
+
+    console.log(`✅ output.json successfully written at ${outputFile}`);
 }
 
 generateOutput();
