@@ -4,8 +4,8 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'public/input.json'  # Detects changes in input.json
-  workflow_dispatch:  # Allow manual trigger
+      - 'public/input.json'
+  workflow_dispatch:  
 
 permissions:
   contents: write  
@@ -19,8 +19,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Debug - List files in repo
-        run: ls -R   # This helps check if input.json is present
+      - name: Debug - List files
+        run: ls -R  
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -33,12 +33,12 @@ jobs:
       - name: Ensure input.json exists
         run: |
           if [ ! -f public/input.json ]; then
-            echo "Error: input.json not found in public folder!"
+            echo "❌ Error: input.json not found in public/"
             exit 1
           fi
 
       - name: Generate Output JSON
-        run: node public/generateJson.cjs  # Ensure script references input.json properly
+        run: node public/generateJson.cjs  
 
       - name: Commit and Push Changes
         run: |
@@ -50,7 +50,7 @@ jobs:
         continue-on-error: true  
 
   build-and-deploy:
-    needs: update-output  # Wait until output.json is updated
+    needs: update-output  
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source  
