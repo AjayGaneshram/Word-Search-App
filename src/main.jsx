@@ -12,7 +12,7 @@ import AllWords from "./words/AllWords.jsx";
 import AllMaraiMoozhi from "./maraiMoozhi/AllMaraiMoozhi.jsx";
 import WordSummary from "./words/WordSummary.jsx";
 import NotFound from "./NotFound.jsx";
-import data from "./dummyJson.js";
+import WordsByFirstLetter from "./words/firstLetter/FirstLetterWord.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
@@ -25,6 +25,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/Word-Search-App/allWords" element={<AllWords />} />
         <Route path="/Word-Search-App/allMaraiMoozhis" element={<AllMaraiMoozhi />} />
         <Route path="/Word-Search-App/book/:bookName" element={<WordsInBook />} />
+        <Route path="/Word-Search-App/firstLetter/:letter" element={<WordsByFirstLetter />} />
         <Route path="*" element={<NotFound />} /> 
         <Route path="/Word-Search-App/maraiMozhi/:maraiMoozhi" element={<WordsinMaraiMoozhi />} />
       </Routes>

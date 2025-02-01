@@ -9,36 +9,48 @@ const HomePage = () => {
   useEffect(() => {
     const fetchWordData = async () => {
       // Hardcoded data
-      setWordDetails([
-        {
-          wordName: "இயல்பு",
-          wordNameDescription:
-            "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-          bookNames: ["எண் நூல்", "மூல நூல்"],
-          maraiMoozhiNames: [
-            "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-          ],
-          youTubeNames: [],
-        },
-        {
-          wordName: "சக்தி",
-          wordNameDescription: "தன்னிலை தனிநிலையகுக",
-          bookNames: ["ஊழி நூல்", "எண் நூல்", "மூல நூல்"],
-          maraiMoozhiNames: [
-            "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-            "சிவமே கொள்கையாம் சக்தியே செயலாம்",
-            "சிவமே கொள்கையாம் சக்தியே செயலாம்",
-          ],
-          youTubeNames: [],
-        },
-        {
-          wordName: "சிவம்",
-          wordNameDescription: "யாவும் யாமே",
-          bookNames: ["ஊழி நூல்", "எண் நூல்", "மூல நூல்", "வடிவு நூல்"],
-          maraiMoozhiNames: ["அன்பே சிவம்", "சிவமே கொள்கையாம் சக்தியே செயலாம்"],
-          youTubeNames: ["அன்பு நலம்"],
-        },
-      ]);
+
+      fetch("../Word-Search-App/public/output.json") // Fetch from public folder
+        .then((response) => {
+          console.log(response);
+
+          return response.json();
+        })
+        .then((data) => {
+          setWordDetails(data["words"]);
+        })
+        .catch((error) => console.error("Error fetching JSON:", error));
+
+      // setWordDetails([
+      //   {
+      //     wordName: "இயல்பு",
+      //     wordNameDescription:
+      //       "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+      //     bookNames: ["எண் நூல்", "மூல நூல்"],
+      //     maraiMoozhiNames: [
+      //       "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+      //     ],
+      //     youTubeNames: [],
+      //   },
+      //   {
+      //     wordName: "சக்தி",
+      //     wordNameDescription: "தன்னிலை தனிநிலையகுக",
+      //     bookNames: ["ஊழி நூல்", "எண் நூல்", "மூல நூல்"],
+      //     maraiMoozhiNames: [
+      //       "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+      //       "சிவமே கொள்கையாம் சக்தியே செயலாம்",
+      //       "சிவமே கொள்கையாம் சக்தியே செயலாம்",
+      //     ],
+      //     youTubeNames: [],
+      //   },
+      //   {
+      //     wordName: "சிவம்",
+      //     wordNameDescription: "யாவும் யாமே",
+      //     bookNames: ["ஊழி நூல்", "எண் நூல்", "மூல நூல்", "வடிவு நூல்"],
+      //     maraiMoozhiNames: ["அன்பே சிவம்", "சிவமே கொள்கையாம் சக்தியே செயலாம்"],
+      //     youTubeNames: ["அன்பு நலம்"],
+      //   },
+      // ]);
     };
     fetchWordData();
   }, []);
@@ -62,14 +74,14 @@ const HomePage = () => {
         {/* Marai Moozhigal */}
         <ul className="mt-4">
           <b className="text-gray-800">மறை மொழிகள்</b>
-          {uniqueDetails.maraiMoozhiNames
-            .slice(0, showMoreMarai ? uniqueDetails.maraiMoozhiNames.length : 2)
+          {uniqueDetails.maraimoozhis
+            .slice(0, showMoreMarai ? uniqueDetails.maraimoozhis.length : 2)
             .map((ele, eleIndex) => (
               <li key={eleIndex} className="list-disc ml-4 text-gray-600">
                 {ele}
               </li>
             ))}
-          {uniqueDetails.maraiMoozhiNames.length > 2 && (
+          {uniqueDetails.maraimoozhis.length > 2 && (
             <button
               onClick={() => setShowMoreMarai((prev) => !prev)}
               className="text-blue-500 mt-2"
@@ -83,15 +95,15 @@ const HomePage = () => {
         <ul className="mt-4">
           <b className="text-gray-800">நூல்கள்</b>
           <br />
-          {uniqueDetails.bookNames
-            .slice(0, showMoreBooks ? uniqueDetails.bookNames.length : 3)
+          {uniqueDetails.books
+            .slice(0, showMoreBooks ? uniqueDetails.books.length : 3)
             .map((ele, bookIndex) => (
               <span key={bookIndex} className="text-gray-600">
                 {ele}
-                {bookIndex < uniqueDetails.bookNames.length - 1 && ", "}
+                {bookIndex < uniqueDetails.books.length - 1 && ", "}
               </span>
             ))}
-          {uniqueDetails.bookNames.length > 3 && (
+          {uniqueDetails.books.length > 3 && (
             <button
               onClick={() => setShowMoreBooks((prev) => !prev)}
               className="text-blue-500 mt-2"
@@ -117,7 +129,6 @@ const HomePage = () => {
 
       {/* Tamil Alphabet Table */}
       <LetterHomePage />
-
       {/* Scroll to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -140,4 +151,4 @@ const HomePage = () => {
 export default HomePage;
 
 // "predeploy": "npm run build",
-    // "deploy": "gh-pages -d dist",
+// "deploy": "gh-pages -d dist",

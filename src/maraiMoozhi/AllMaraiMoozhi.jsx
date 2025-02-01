@@ -6,31 +6,31 @@ const AllMaraiMoozhi = () => {
   const [wordData, setWordData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  
-  useEffect(() => {
 
-    
+  useEffect(() => {
     const fetchWordData = async () => {
-      setWordData([
-        "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        "அன்பே சிவம்",
-        "சிவமே கொள்கையாம் சக்தியே செயலாம்",
-      ]);
-      setFilteredData([
-        "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        "அன்பே சிவம்",
-        "சிவமே கொள்கையாம் சக்தியே செயலாம்",
-      ]);
-      // await fetch("http://localhost:8080/words/marai-moozhisNames")
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     setWordData(data);
-      //     setFilteredData(data); // Set both original and filtered data
-      //   });
+      // setWordData([
+      //   "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+      //   "அன்பே சிவம்",
+      //   "சிவமே கொள்கையாம் சக்தியே செயலாம்",
+      // ]);
+      // setFilteredData([
+      //   "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+      //   "அன்பே சிவம்",
+      //   "சிவமே கொள்கையாம் சக்தியே செயலாம்",
+      // ]);
+      fetch("../Word-Search-App/public/output.json")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("--------")
+          console.log(data["maraiMoozhiList"])
+          setWordData(data["maraiMoozhiList"]);
+          setFilteredData(data["maraiMoozhiList"]); // Set both original and filtered data
+        });
     };
     fetchWordData();
   }, []);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const handleNavigate = (word) => {
     navigate(`/Word-Search-App/maraiMozhi/${word}`);
   };
@@ -61,7 +61,7 @@ const AllMaraiMoozhi = () => {
         </button>
         <div className="mb-4">
           <a
-           onClick={() => homePageNavigate()}
+            onClick={() => homePageNavigate()}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg

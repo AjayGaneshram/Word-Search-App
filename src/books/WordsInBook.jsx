@@ -65,119 +65,139 @@ const WordsInBook = () => {
   const homePageNavigate = () => {
     navigate(`/Word-Search-App/home`);
   };
-  const BOOKSUMMARYDATA = {
-    "மூல நூல்": [
-      {
-        wordName: "இயல்பு",
-        wordNameDescription:
-          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        bookNames: ["எண் நூல்", "மூல நூல்"],
-        maraiMoozhiNames: [
-          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        ],
-        youTubeNames: [],
-      },
-      {
-        wordName: "சிவம்",
-        wordNameDescription: "யாவும் யாமே",
-        bookNames: ["எண் நூல்", "வடிவு நூல்", "மூல நூல்", "ஊழி நூல்"],
-        maraiMoozhiNames: ["அன்பே சிவம்", "சிவமே கொள்கையாம் சக்தியே செயலாம்"],
-        youTubeNames: ["அன்பு நலம்"],
-      },
-      {
-        wordName: "சக்தி",
-        wordNameDescription: "தன்னிலை தனிநிலை ஆகுக",
-        bookNames: ["எண் நூல்", "மூல நூல்", "ஊழி நூல்"],
-        maraiMoozhiNames: [
-          "சிவமே கொள்கையாம் சக்தியே செயலாம்",
-          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        ],
-        youTubeNames: [],
-      },
-    ],
-    "எண் நூல்": [
-      {
-        wordName: "இயல்பு",
-        wordNameDescription:
-          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        bookNames: ["மூல நூல்", "எண் நூல்"],
-        maraiMoozhiNames: [
-          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        ],
-        youTubeNames: [],
-      },
-      {
-        wordName: "சிவம்",
-        wordNameDescription: "யாவும் யாமே",
-        bookNames: ["மூல நூல்", "ஊழி நூல்", "எண் நூல்", "வடிவு நூல்"],
-        maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்", "அன்பே சிவம்"],
-        youTubeNames: ["அன்பு நலம்"],
-      },
-      {
-        wordName: "சக்தி",
-        wordNameDescription: "தன்னிலை தனிநிலையகுக",
-        bookNames: ["மூல நூல்", "ஊழி நூல்", "எண் நூல்"],
-        maraiMoozhiNames: [
-          "சிவமே கொள்கையாம் சக்தியே செயலாம்",
-          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        ],
-        youTubeNames: [],
-      },
-    ],
-    மெய்: [
-      {
-        wordName: "வேட்டல்",
-        wordNameDescription: "விருப்பத்தில் நிலைபெறுதல்",
-        bookNames: ["வேட்டல்", "மெய்"],
-        maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்", "அன்பே சிவம்"],
-        youTubeNames: ["வேட்டல் இணையவழி வகுப்பு"],
-      },
-    ],
-    வேட்டல்: [
-      {
-        wordName: "வேட்டல்",
-        wordNameDescription: "விருப்பத்தில் நிலைபெறுதல்",
-        bookNames: ["மெய்", "வேட்டல்"],
-        maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்", "அன்பே சிவம்"],
-        youTubeNames: ["வேட்டல் இணையவழி வகுப்பு"],
-      },
-    ],
-    "ஊழி நூல்": [
-      {
-        wordName: "சிவம்",
-        wordNameDescription: "யாவும் யாமே",
-        bookNames: ["வடிவு நூல்", "எண் நூல்", "மூல நூல்", "ஊழி நூல்"],
-        maraiMoozhiNames: ["அன்பே சிவம்", "சிவமே கொள்கையாம் சக்தியே செயலாம்"],
-        youTubeNames: ["அன்பு நலம்"],
-      },
-      {
-        wordName: "சக்தி",
-        wordNameDescription: "தன்னிலை தனிநிலையகுக",
-        bookNames: ["எண் நூல்", "மூல நூல்", "ஊழி நூல்"],
-        maraiMoozhiNames: [
-          "சிவமே கொள்கையாம் சக்தியே செயலாம்",
-          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        ],
-        youTubeNames: [],
-      },
-    ],
-    "வடிவு நூல்": [
-      {
-        wordName: "சிவம்",
-        wordNameDescription: "யாவும் யாமே",
-        bookNames: ["மூல நூல்", "எண் நூல்", "ஊழி நூல்", "வடிவு நூல்"],
-        maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்", "அன்பே சிவம்"],
-        youTubeNames: ["அன்பு நலம்"],
-      },
-    ],
+  const handleNavigate = (word) => {
+    navigate(`/Word-Search-App/book/${word}`);
   };
+  const maraimoozhiHandleNavigate = (word) => {
+    navigate(`/Word-Search-App/maraiMozhi/${word}`);
+  };
+
+  // const BOOKSUMMARYDATA = {
+  //   "மூல நூல்": [
+  //     {
+  //       wordName: "இயல்பு",
+  //       wordNameDescription:
+  //         "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+  //       bookNames: ["எண் நூல்", "மூல நூல்"],
+  //       maraiMoozhiNames: [
+  //         "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+  //       ],
+  //       youTubeNames: [],
+  //     },
+  //     {
+  //       wordName: "சிவம்",
+  //       wordNameDescription: "யாவும் யாமே",
+  //       bookNames: ["எண் நூல்", "வடிவு நூல்", "மூல நூல்", "ஊழி நூல்"],
+  //       maraiMoozhiNames: ["அன்பே சிவம்", "சிவமே கொள்கையாம் சக்தியே செயலாம்"],
+  //       youTubeNames: ["அன்பு நலம்"],
+  //     },
+  //     {
+  //       wordName: "சக்தி",
+  //       wordNameDescription: "தன்னிலை தனிநிலை ஆகுக",
+  //       bookNames: ["எண் நூல்", "மூல நூல்", "ஊழி நூல்"],
+  //       maraiMoozhiNames: [
+  //         "சிவமே கொள்கையாம் சக்தியே செயலாம்",
+  //         "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+  //       ],
+  //       youTubeNames: [],
+  //     },
+  //   ],
+  //   "எண் நூல்": [
+  //     {
+  //       wordName: "இயல்பு",
+  //       wordNameDescription:
+  //         "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+  //       bookNames: ["மூல நூல்", "எண் நூல்"],
+  //       maraiMoozhiNames: [
+  //         "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+  //       ],
+  //       youTubeNames: [],
+  //     },
+  //     {
+  //       wordName: "சிவம்",
+  //       wordNameDescription: "யாவும் யாமே",
+  //       bookNames: ["மூல நூல்", "ஊழி நூல்", "எண் நூல்", "வடிவு நூல்"],
+  //       maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்", "அன்பே சிவம்"],
+  //       youTubeNames: ["அன்பு நலம்"],
+  //     },
+  //     {
+  //       wordName: "சக்தி",
+  //       wordNameDescription: "தன்னிலை தனிநிலையகுக",
+  //       bookNames: ["மூல நூல்", "ஊழி நூல்", "எண் நூல்"],
+  //       maraiMoozhiNames: [
+  //         "சிவமே கொள்கையாம் சக்தியே செயலாம்",
+  //         "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+  //       ],
+  //       youTubeNames: [],
+  //     },
+  //   ],
+  //   மெய்: [
+  //     {
+  //       wordName: "வேட்டல்",
+  //       wordNameDescription: "விருப்பத்தில் நிலைபெறுதல்",
+  //       bookNames: ["வேட்டல்", "மெய்"],
+  //       maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்", "அன்பே சிவம்"],
+  //       youTubeNames: ["வேட்டல் இணையவழி வகுப்பு"],
+  //     },
+  //   ],
+  //   வேட்டல்: [
+  //     {
+  //       wordName: "வேட்டல்",
+  //       wordNameDescription: "விருப்பத்தில் நிலைபெறுதல்",
+  //       bookNames: ["மெய்", "வேட்டல்"],
+  //       maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்", "அன்பே சிவம்"],
+  //       youTubeNames: ["வேட்டல் இணையவழி வகுப்பு"],
+  //     },
+  //   ],
+  //   "ஊழி நூல்": [
+  //     {
+  //       wordName: "சிவம்",
+  //       wordNameDescription: "யாவும் யாமே",
+  //       bookNames: ["வடிவு நூல்", "எண் நூல்", "மூல நூல்", "ஊழி நூல்"],
+  //       maraiMoozhiNames: ["அன்பே சிவம்", "சிவமே கொள்கையாம் சக்தியே செயலாம்"],
+  //       youTubeNames: ["அன்பு நலம்"],
+  //     },
+  //     {
+  //       wordName: "சக்தி",
+  //       wordNameDescription: "தன்னிலை தனிநிலையகுக",
+  //       bookNames: ["எண் நூல்", "மூல நூல்", "ஊழி நூல்"],
+  //       maraiMoozhiNames: [
+  //         "சிவமே கொள்கையாம் சக்தியே செயலாம்",
+  //         "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+  //       ],
+  //       youTubeNames: [],
+  //     },
+  //   ],
+  //   "வடிவு நூல்": [
+  //     {
+  //       wordName: "சிவம்",
+  //       wordNameDescription: "யாவும் யாமே",
+  //       bookNames: ["மூல நூல்", "எண் நூல்", "ஊழி நூல்", "வடிவு நூல்"],
+  //       maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்", "அன்பே சிவம்"],
+  //       youTubeNames: ["அன்பு நலம்"],
+  //     },
+  //   ],
+  // };
   useEffect(() => {
     // Replace with your API endpoint
-    setWordData(BOOKSUMMARYDATA[decodedBookName]);
+    // setWordData(BOOKSUMMARYDATA[decodedBookName]);
     // fetch(`http://localhost:8080/words/book-summary/${decodedBookName}`)
     //   .then((response) => response.json())
     //   .then((data) => setWordData(data));
+
+    fetch("../public/output.json") // Fetch from public folder
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        console.log(data["eachBook"][decodedBookName]);
+        setWordData(data["eachBook"][decodedBookName]);
+      })
+      .catch((error) => console.error("Error fetching JSON:", error));
   }, []);
+
   useEffect(() => {
     // ScrollSpy effect to highlight active section link on scroll
     const sections = document.querySelectorAll("section");
@@ -221,7 +241,7 @@ const WordsInBook = () => {
         </button>
         <div className="mb-4">
           <a
-           onClick={() => homePageNavigate()}
+            onClick={() => homePageNavigate()}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
@@ -285,7 +305,8 @@ const WordsInBook = () => {
                     {word.bookNames.map((book, bookIndex) => (
                       <li
                         key={bookIndex}
-                        className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200"
+                        className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200 cursor-pointer"
+                        onClick={() => handleNavigate(book)}
                       >
                         {book}
                       </li>
@@ -305,7 +326,8 @@ const WordsInBook = () => {
                       (maraiMoozhi, maraiMoozhiIndex) => (
                         <li
                           key={maraiMoozhiIndex}
-                          className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200"
+                          className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200 cursor-pointer"
+                          onClick={() => maraimoozhiHandleNavigate(maraiMoozhi)}
                         >
                           {maraiMoozhi}
                         </li>
@@ -316,13 +338,13 @@ const WordsInBook = () => {
               )}
 
               {/* YouTube Videos Section */}
-              {word.youTubeNames.length > 0 && (
+              {word.youtubeNames.length > 0 && (
                 <div className="mt-6">
                   <h3 className="text-2xl font-bold text-orange-400 mb-4 border-b-2 border-orange-200 pb-2">
-                  உரைகள்
+                    உரைகள்
                   </h3>
                   <ul className="space-y-4">
-                    {word.youTubeNames.map((video, videoIndex) => (
+                    {word.youtubeNames.map((video, videoIndex) => (
                       <li key={videoIndex} className="text-gray-700">
                         <a
                           href={video.youTubeURL}
@@ -330,7 +352,7 @@ const WordsInBook = () => {
                           rel="noopener noreferrer"
                           className="text-orange-500 hover:underline hover:text-orange-700"
                         >
-                          {video.youTubetitle}
+                          {video.youtubeName}
                         </a>
                       </li>
                     ))}

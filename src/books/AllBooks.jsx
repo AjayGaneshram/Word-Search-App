@@ -6,33 +6,32 @@ const AllBooks = () => {
   const [wordData, setWordData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  
+
   useEffect(() => {
     const fetchWordData = async () => {
-      setWordData([
-        "மூல நூல்",
-        "எண் நூல்",
-        "மெய்",
-        "வேட்டல்",
-        "ஊழி நூல்",
-        "வடிவு நூல்",
-      ]);
-      setFilteredData([
-        "மூல நூல்",
-        "எண் நூல்",
-        "மெய்",
-        "வேட்டல்",
-        "ஊழி நூல்",
-        "வடிவு நூல்",
-      ]);
-      
-
-      // await fetch("http://localhost:8080/words/bookNames")
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     setWordData(data);
-      //     setFilteredData(data); // Set both original and filtered data
-      //   });
+      // setWordData([
+      //   "மூல நூல்",
+      //   "எண் நூல்",
+      //   "மெய்",
+      //   "வேட்டல்",
+      //   "ஊழி நூல்",
+      //   "வடிவு நூல்",
+      // ]);
+      // setFilteredData([
+      //   "மூல நூல்",
+      //   "எண் நூல்",
+      //   "மெய்",
+      //   "வேட்டல்",
+      //   "ஊழி நூல்",
+      //   "வடிவு நூல்",
+      // ]);
+      fetch("../Word-Search-App/public/output.json") // Fetch from public folder
+        .then((response) => response.json())
+        .then((data) => {
+          setWordData(data["bookList"]);
+          setFilteredData(data["bookList"]); // Set both original and filtered data
+        })
+        .catch((error) => console.error("Error fetching JSON:", error));
     };
     fetchWordData();
   }, []);

@@ -6,88 +6,80 @@ const WordsinMaraiMoozhi = () => {
   const { maraiMoozhi } = useParams();
   const decodedmaraiMoozhi = decodeURIComponent(maraiMoozhi);
   const [wordData, setWordData] = useState([]);
-  
-  const jsondata = {
-    "அன்பே சிவம்": [
-      {
-        wordName: "சிவம்",
-        wordNameDescription: "யாவும் யாமே",
-        bookNames: ["ஊழி நூல்", "எண் நூல்", "வடிவு நூல்", "மூல நூல்"],
-        maraiMoozhiNames: ["அன்பே சிவம்"],
-        youTubeNames: ["அன்பு நலம்"],
-      },
-      {
-        wordName: "வேட்டல்",
-        wordNameDescription: "விருப்பத்தில் நிலைபெறுதல்",
-        bookNames: ["மெய்", "வேட்டல்"],
-        maraiMoozhiNames: ["அன்பே சிவம்"],
-        youTubeNames: ["வேட்டல் இணையவழி வகுப்பு"],
-      },
-    ],
-    "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்": [
-      {
-        wordName: "சக்தி",
-        wordNameDescription: "தன்னிலை தனிநிலையகுக",
-        bookNames: ["ஊழி நூல்", "மூல நூல்", "எண் நூல்"],
-        maraiMoozhiNames: [
-          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        ],
-        youTubeNames: [],
-      },
-      {
-        wordName: "இயல்பு",
-        wordNameDescription:
-          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        bookNames: ["மூல நூல்", "எண் நூல்"],
-        maraiMoozhiNames: [
-          "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        ],
-        youTubeNames: [],
-      },
-    ],
-    "சிவமே கொள்கையாம் சக்தியே செயலாம்": [
-      {
-        wordName: "சக்தி",
-        wordNameDescription: "தன்னிலை தனிநிலையகுக",
-        bookNames: ["எண் நூல்", "ஊழி நூல்", "மூல நூல்"],
-        maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்"],
-        youTubeNames: [],
-      },
-      {
-        wordName: "சிவம்",
-        wordNameDescription: "யாவும் யாமே",
-        bookNames: ["எண் நூல்", "ஊழி நூல்", "மூல நூல்", "வடிவு நூல்"],
-        maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்"],
-        youTubeNames: ["அன்பு நலம்"],
-      },
-      {
-        wordName: "வேட்டல்",
-        wordNameDescription: "விருப்பத்தில் நிலைபெறுதல்",
-        bookNames: ["மெய்", "வேட்டல்"],
-        maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்"],
-        youTubeNames: ["வேட்டல் இணையவழி வகுப்பு"],
-      },
-    ],
-  };
-  useEffect(() => {
 
+  // const jsondata = {
+  //   "அன்பே சிவம்": [
+  //     {
+  //       wordName: "சிவம்",
+  //       wordNameDescription: "யாவும் யாமே",
+  //       bookNames: ["ஊழி நூல்", "எண் நூல்", "வடிவு நூல்", "மூல நூல்"],
+  //       maraiMoozhiNames: ["அன்பே சிவம்"],
+  //       youTubeNames: ["அன்பு நலம்"],
+  //     },
+  //     {
+  //       wordName: "வேட்டல்",
+  //       wordNameDescription: "விருப்பத்தில் நிலைபெறுதல்",
+  //       bookNames: ["மெய்", "வேட்டல்"],
+  //       maraiMoozhiNames: ["அன்பே சிவம்"],
+  //       youTubeNames: ["வேட்டல் இணையவழி வகுப்பு"],
+  //     },
+  //   ],
+  //   "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்": [
+  //     {
+  //       wordName: "சக்தி",
+  //       wordNameDescription: "தன்னிலை தனிநிலையகுக",
+  //       bookNames: ["ஊழி நூல்", "மூல நூல்", "எண் நூல்"],
+  //       maraiMoozhiNames: [
+  //         "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+  //       ],
+  //       youTubeNames: [],
+  //     },
+  //     {
+  //       wordName: "இயல்பு",
+  //       wordNameDescription:
+  //         "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+  //       bookNames: ["மூல நூல்", "எண் நூல்"],
+  //       maraiMoozhiNames: [
+  //         "இயலெனபடுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+  //       ],
+  //       youTubeNames: [],
+  //     },
+  //   ],
+  //   "சிவமே கொள்கையாம் சக்தியே செயலாம்": [
+  //     {
+  //       wordName: "சக்தி",
+  //       wordNameDescription: "தன்னிலை தனிநிலையகுக",
+  //       bookNames: ["எண் நூல்", "ஊழி நூல்", "மூல நூல்"],
+  //       maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்"],
+  //       youTubeNames: [],
+  //     },
+  //     {
+  //       wordName: "சிவம்",
+  //       wordNameDescription: "யாவும் யாமே",
+  //       bookNames: ["எண் நூல்", "ஊழி நூல்", "மூல நூல்", "வடிவு நூல்"],
+  //       maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்"],
+  //       youTubeNames: ["அன்பு நலம்"],
+  //     },
+  //     {
+  //       wordName: "வேட்டல்",
+  //       wordNameDescription: "விருப்பத்தில் நிலைபெறுதல்",
+  //       bookNames: ["மெய்", "வேட்டல்"],
+  //       maraiMoozhiNames: ["சிவமே கொள்கையாம் சக்தியே செயலாம்"],
+  //       youTubeNames: ["வேட்டல் இணையவழி வகுப்பு"],
+  //     },
+  //   ],
+  // };
+  useEffect(() => {
     const fetchWordData = async () => {
-      setWordData(jsondata[decodedmaraiMoozhi]);
-      //   fetch(
-      //     `http://localhost:8080//words/marai-moozhi-summary/${decodedmaraiMoozhi}`,
-      //     {
-      //       method: "GET", // Adjust to POST if necessary
-      //       headers: {
-      //         "Content-Type": "application/json",
-      //       },
-      //     }
-      //   )
-      //     .then((response) => {
-      //       return response.json();
-      //     })
-      //     .then((data) => {
-      //       setWordData(data);
-      //     });
+      // setWordData(jsondata[decodedmaraiMoozhi]);
+      fetch("../public/output.json") // Fetch from public folder
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          setWordData(data["eachMaraimoozhi"][decodedmaraiMoozhi]);
+        })
+        .catch((error) => console.error("Error fetching JSON:", error));
     };
     fetchWordData();
   }, []);
@@ -117,9 +109,15 @@ const WordsinMaraiMoozhi = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const homePageNavigate = (word) => {
     navigate(`/Word-Search-App/home`);
+  };
+  const handleNavigate = (word) => {
+    navigate(`/Word-Search-App/book/${word}`);
+  };
+  const maraimoozhiHandleNavigate = (word) => {
+    navigate(`/Word-Search-App/maraiMozhi/${word}`);
   };
   return (
     <div>
@@ -136,7 +134,7 @@ const WordsinMaraiMoozhi = () => {
         </button>
         <div className="mb-4">
           <a
-           onClick={() => homePageNavigate()}
+            onClick={() => homePageNavigate()}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
@@ -164,14 +162,14 @@ const WordsinMaraiMoozhi = () => {
           <div className="flex flex-wrap justify-center gap-6">
             {wordData.map((word, index) => (
               <a
-			  key={index}
-			  href={`#${word.wordName}`}
-			  className={`p-2 text-lg rounded-lg shadow-md transition-all transform hover:scale-105 focus:outline-none ${
-				index === 0
-				  ? "bg-orange-500 text-white font-semibold"
-				  : "hover:bg-orange-500 hover:text-white"
-			  }`}
-			>
+                key={index}
+                href={`#${word.wordName}`}
+                className={`p-2 text-lg rounded-lg shadow-md transition-all transform hover:scale-105 focus:outline-none ${
+                  index === 0
+                    ? "bg-orange-500 text-white font-semibold"
+                    : "hover:bg-orange-500 hover:text-white"
+                }`}
+              >
                 {word.wordName}
               </a>
             ))}
@@ -200,7 +198,12 @@ const WordsinMaraiMoozhi = () => {
                     {word.bookNames.map((book, bookIndex) => (
                       <li
                         key={bookIndex}
-                        className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200"
+                        className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200 cursor-pointer"
+                        onClick={() =>
+                          handleNavigate(
+                            book
+                          )
+                        }
                       >
                         {book}
                       </li>
@@ -220,7 +223,12 @@ const WordsinMaraiMoozhi = () => {
                       (maraiMoozhi, maraiMoozhiIndex) => (
                         <li
                           key={maraiMoozhiIndex}
-                          className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200"
+                          className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200 cursor-pointer"
+                          onClick={() =>
+                            maraimoozhiHandleNavigate(
+                              maraiMoozhi
+                            )
+                          }
                         >
                           {maraiMoozhi}
                         </li>
@@ -231,13 +239,13 @@ const WordsinMaraiMoozhi = () => {
               )}
 
               {/* YouTube Videos Section */}
-              {word.youTubeNames.length > 0 && (
+              {word.youtubeNames.length > 0 && (
                 <div className="mt-6">
                   <h3 className="text-2xl font-bold text-orange-400 mb-4 border-b-2 border-orange-200 pb-2">
-                  உரைகள்
+                    உரைகள்
                   </h3>
                   <ul className="space-y-4">
-                    {word.youTubeNames.map((video, videoIndex) => (
+                    {word.youtubeNames.map((video, videoIndex) => (
                       <li key={videoIndex} className="text-gray-700">
                         <a
                           href={video.youTubeURL}
@@ -245,7 +253,7 @@ const WordsinMaraiMoozhi = () => {
                           rel="noopener noreferrer"
                           className="text-orange-500 hover:underline hover:text-orange-700"
                         >
-                          {video.youTubetitle}
+                          {video.youtubeName}
                         </a>
                       </li>
                     ))}

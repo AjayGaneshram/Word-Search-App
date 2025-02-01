@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./search.css";
+import { useNavigate } from "react-router-dom";
 // JSON structure for Uyir-Mei combinations
 const uyirmeiData = [
   {
@@ -316,8 +317,11 @@ const TamilAlphabetTable = ({ words }) => {
   // Function to check if a specific Uyir is present
   const isUyirHighlighted = (uyir) =>
     firstLetters.some((letter) => letter.startsWith(uyir));
-  
 
+  const navigate = useNavigate();
+  const handleNavigate = (letter) => {
+    navigate(`/Word-Search-App/firstLetter/${letter}`);
+  };
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-semibold text-center mb-6 text-orange-400">
@@ -332,16 +336,16 @@ const TamilAlphabetTable = ({ words }) => {
                 key={index}
                 className="px-4 py-2 bg-gray-200 font-bold border border-gray-300 text-center"
               >
-                <a
-                  href={`#${uyir}`} // Use this for navigation or ID
-                  className={`${
-                    isUyirHighlighted(uyir)
-                      ? "highlighted"
-                      : "no-underline"
-                  }`}
-                >
-                  {uyir}
-                </a>
+                {isUyirHighlighted(uyir) ? (
+                  <a
+                    onClick={() => handleNavigate(uyir)}
+                    className={`${"highlighted"}`}
+                  >
+                    {uyir}
+                  </a>
+                ) : (
+                  <span className="no-underline">{uyir}</span>
+                )}
               </th>
             ))}
           </thead>
@@ -365,16 +369,16 @@ const TamilAlphabetTable = ({ words }) => {
                       key={i}
                       className="px-4 py-2 border border-gray-300 text-center"
                     >
-                      <a
-                        href={`#${uyirmei}`} // Use this for navigation or ID
-                        className={`${
-                          firstLetters.includes(uyirmei)
-                            ? "highlighted"
-                            : "text-gray-800"
-                        }`}
-                      >
-                        {uyirmei}
-                      </a>
+                      {firstLetters.includes(uyirmei) ? (
+                        <a
+                          onClick={() => handleNavigate(uyirmei)}
+                          className={`${"highlighted"}`}
+                        >
+                          {uyirmei}
+                        </a>
+                      ) : (
+                        <span className="text-gray-800"> {uyirmei}</span>
+                      )}
                     </td>
                   ))}
                 </tr>
@@ -391,15 +395,17 @@ const LetterHomePage = () => {
   const [wordDetails, setWordDetails] = useState([]);
 
   useEffect(() => {
-    // Hardcoded data
-    setWordDetails([
-      { word: "சிவம்", wordNameDescription: "யாவும் யாமே" },
-      { word: "அன்பு", wordNameDescription: "அன்பே சிவம்" },
-      { word: "இயல்பு", wordNameDescription: "வெளிப்படைத்தன்மை" },
-      { word: "வேட்டல்", wordNameDescription: "வெளிப்படைத்தன்மை" },
-      { word: "கோபி", wordNameDescription: "வெளிப்படைத்தன்மை" },
-      { word: "கோபி", wordNameDescription: "வெளிப்படைத்தன்மை" },
-    ]);
+    fetch("../Word-Search-App/public/output.json") // Fetch from public folder
+      .then((response) => response.json())
+      .then((data) => {
+        setWordDetails(
+          data["words"].map((word) => ({
+            word: word.wordName,
+            wordNameDescription: word.wordNameDescription,
+          }))
+        );
+      })
+      .catch((error) => console.error("Error fetching JSON:", error));
   }, []);
 
   return (

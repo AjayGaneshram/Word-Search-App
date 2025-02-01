@@ -1,37 +1,65 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SearchComponent = () => {
-  // Hardcoded data
-  const hardcodedData = {
-    words: [
-      { id: 1, word: "சிவம்" },
-      { id: 2, word: "அன்பு" },
-      { id: 3, word: "அறிவு" },
-    ],
-    books: [
-      { id: 1, bookName: "வடிவு நூல்" },
-      { id: 2, bookName: "எண் நூல்" },
-      { id: 3, bookName: "மூல நூல்" },
-    ],
-    maraiMoozhis: [
-      { id: 1, maraiMoozhiName: "சிவமே கொள்கையாம்" },
-      { id: 2, maraiMoozhiName: "ஆன்மிகத்தின் மூலம்" },
-    ],
-  };
+  // ✅ State for storing fetched data
+  const [hardcodedData, setHardcodedData] = useState({
+    words: [],
+    books: [],
+    maraiMoozhis: [],
+  });
 
-  // States
+  // ✅ State for search
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([
     "words",
     "books",
     "maraiMoozhis",
   ]);
-  const [filteredResults, setFilteredResults] = useState(hardcodedData);
+  const [filteredResults, setFilteredResults] = useState({
+    words: [],
+    books: [],
+    maraiMoozhis: [],
+  });
+  const navigate = useNavigate();
+  const wordHandleNavigate = (word) => {
+    navigate(`/Word-Search-App/words/${word}`);
+  };
+  const handleNavigate = (word) => {
+    navigate(`/Word-Search-App/book/${word}`);
+  };
+  const maraimoozhiHandleNavigate = (word) => {
+    navigate(`/Word-Search-App/maraiMozhi/${word}`);
+  };
+  // ✅ Fetch data from output.json
+  useEffect(() => {
+    fetch("../Word-Search-App/public/output.json") // Adjust path if needed
+      .then((response) => response.json())
+      .then((data) => {
+        const formattedData = {
+          words: data.wordList.map((word, index) => ({ id: index + 1, word })),
+          books: data.bookList.map((bookName, index) => ({
+            id: index + 1,
+            bookName,
+          })),
+          maraiMoozhis: data.maraiMoozhiList.map((maraiMoozhiName, index) => ({
+            id: index + 1,
+            maraiMoozhiName,
+          })),
+        };
 
-  // Handle search input
-  const handleSearch = (term, updatedCategories) => {
+        setHardcodedData(formattedData);
+        setFilteredResults(formattedData); // ✅ Initialize filtered data
+      })
+      .catch((error) => console.error("Error fetching JSON:", error));
+  }, []);
+
+  // ✅ Search Functionality
+  const handleSearch = (term, updatedCategories = selectedCategories) => {
     setSearchTerm(term);
     const lowercasedTerm = term.toLowerCase();
+
+    if (!hardcodedData.words.length) return; // ✅ Prevent searching if data not loaded
 
     const filteredData = {
       words: updatedCategories.includes("words")
@@ -54,121 +82,152 @@ const SearchComponent = () => {
     setFilteredResults(filteredData);
   };
 
-  // Handle category toggle
+  // ✅ Toggle Category
   const toggleCategory = (category) => {
     const updatedCategories = selectedCategories.includes(category)
       ? selectedCategories.filter((cat) => cat !== category)
       : [...selectedCategories, category];
 
     setSelectedCategories(updatedCategories);
-
-    // Reapply filtering for updated categories
     handleSearch(searchTerm, updatedCategories);
   };
 
-  // Map category names to internal keys
+  // ✅ Mapping for category names
   const categoryMap = {
     சொல்: "words",
     நூல்: "books",
     "மறை மொழி": "maraiMoozhis",
   };
 
+  // ✅ Construct dynamic placeholder text
+  const placeholderText =
+    selectedCategories.length > 0
+      ? `${selectedCategories
+          .map((cat) =>
+            Object.keys(categoryMap).find((key) => categoryMap[key] === cat)
+          )
+          .join(", ")} தேடுக`
+      : "தேடுக";
+
   return (
     <div className="p-8">
-      {/* Search Bar */}
-      <div className="relative mb-4">
-        <div className="flex gap-2">
-          {/* Category Buttons */}
-          {Object.keys(categoryMap).map((category) => (
-            <button
-              key={category}
-              onClick={() => toggleCategory(categoryMap[category])}
-              className={`flex items-center gap-1 px-3 py-1 rounded-lg text-sm ${
-                selectedCategories.includes(categoryMap[category])
-                  ? "bg-orange-400 text-white"
-                  : "bg-gray-200 text-gray-800"
-              }`}
-            >
-              {category}
-              <span className="text-lg font-bold">
-                {selectedCategories.includes(categoryMap[category]) ? "x" : "+"}
-              </span>
-            </button>
-          ))}
-        </div>
+      {/* Category Toggle Buttons */}
+      <div className="flex gap-2">
+        {Object.keys(categoryMap).map((category) => (
+          <button
+            key={category}
+            onClick={() => toggleCategory(categoryMap[category])}
+            className={`flex items-center gap-1 px-3 py-1 rounded-lg text-sm ${
+              selectedCategories.includes(categoryMap[category])
+                ? "bg-orange-400 text-white"
+                : "bg-gray-200 text-gray-800"
+            }`}
+          >
+            {category}
+            <span className="text-lg font-bold">
+              {selectedCategories.includes(categoryMap[category]) ? "x" : "+"}
+            </span>
+          </button>
+        ))}
+      </div>
 
-        {/* Input and Dropdown */}
-        <div className="relative">
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={(e) => handleSearch(e.target.value, selectedCategories)}
-            placeholder={`தேடுக`} // Dynamically construct the placeholder
-            className="w-full p-2 mt-4 border border-gray-300 rounded-lg"
-          />
+      {/* Search Input */}
+      <div className="relative mt-4">
+        <input
+          type="text"
+          value={searchTerm}
+          onChange={(e) => handleSearch(e.target.value)}
+          placeholder={placeholderText}
+          className="w-full p-2 border border-gray-300 rounded-lg"
+        />
 
-          {/* Dropdown Results Inside Search Bar */}
-          {searchTerm && (
-            <div className="absolute bg-white border border-gray-300 rounded-lg w-full mt-2 max-h-64 overflow-y-auto z-10">
-              {selectedCategories.includes("words") &&
-                filteredResults.words.length > 0 && (
-                  <div className="p-2">
-                    <h2 className="text-lg font-bold text-orange-400">
-                      சொற்கள்
-                    </h2>
-                    <ul>
-                      {filteredResults.words.map((word) => (
-                        <li
-                          key={word.id}
-                          className="text-gray-800 hover:bg-gray-100 px-2 py-1 rounded"
-                        >
+        {/* Search Results Dropdown */}
+        {searchTerm && (
+          <div className="absolute bg-white border border-gray-300 rounded-lg w-full mt-2 max-h-64 overflow-y-auto z-10">
+            {selectedCategories.includes("words") &&
+              filteredResults.words.length > 0 && (
+                <div className="p-2">
+                  <h2 className="text-lg font-bold text-orange-400">சொற்கள்</h2>
+                  <ul>
+                    {filteredResults.words.map((word) => (
+                      <li
+                        key={word.id}
+                        className="p-4 hover:bg-orange-50 rounded-md transition flex items-center justify-between"
+                      >
+                        <span className="text-gray-700 font-medium">
                           {word.word}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-              {selectedCategories.includes("books") &&
-                filteredResults.books.length > 0 && (
-                  <div className="p-2">
-                    <h2 className="text-lg font-bold text-orange-400">
-                      நூல்கள்
-                    </h2>
-                    <ul>
-                      {filteredResults.books.map((book) => (
-                        <li
-                          key={book.id}
-                          className="text-gray-800 hover:bg-gray-100 px-2 py-1 rounded"
+                        </span>
+                        <button
+                          onClick={() => {
+                            wordHandleNavigate(word.word);
+                          }}
+                          className="text-sm text-orange-500 hover:text-orange-700 transition"
                         >
+                          மேலும் அறிக
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+            {selectedCategories.includes("books") &&
+              filteredResults.books.length > 0 && (
+                <div className="p-2">
+                  <h2 className="text-lg font-bold text-orange-400">நூல்கள்</h2>
+                  <ul>
+                    {filteredResults.books.map((book) => (
+                      <li
+                        key={book.id}
+                        className="p-4 hover:bg-orange-50 rounded-md transition flex items-center justify-between"
+                      >
+                        <span className="text-gray-700 font-medium">
                           {book.bookName}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-              {selectedCategories.includes("maraiMoozhis") &&
-                filteredResults.maraiMoozhis.length > 0 && (
-                  <div className="p-2">
-                    <h2 className="text-lg font-bold text-orange-400">
-                      மறை மொழிகள்
-                    </h2>
-                    <ul>
-                      {filteredResults.maraiMoozhis.map((maraiMoozhi) => (
-                        <li
-                          key={maraiMoozhi.id}
-                          className="text-gray-800 hover:bg-gray-100 px-2 py-1 rounded"
+                        </span>
+                        <button
+                          onClick={() => handleNavigate(book.bookName)}
+                          className="text-sm text-orange-500 hover:text-orange-700 transition"
                         >
+                          மேலும் அறிக
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+            {selectedCategories.includes("maraiMoozhis") &&
+              filteredResults.maraiMoozhis.length > 0 && (
+                <div className="p-2">
+                  <h2 className="text-lg font-bold text-orange-400">
+                    மறை மொழிகள்
+                  </h2>
+                  <ul>
+                    {filteredResults.maraiMoozhis.map((maraiMoozhi) => (
+                      <li
+                        key={maraiMoozhi.id}
+                        className="p-4 hover:bg-orange-50 rounded-md transition flex items-center justify-between"
+                      >
+                        <span className="text-gray-700 font-medium">
                           {maraiMoozhi.maraiMoozhiName}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-            </div>
-          )}
-        </div>
+                        </span>
+                        <button
+                          onClick={() =>
+                            maraimoozhiHandleNavigate(
+                              maraiMoozhi.maraiMoozhiName
+                            )
+                          }
+                          className="text-sm text-orange-500 hover:text-orange-700 transition"
+                        >
+                          மேலும் அறிக
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+          </div>
+        )}
       </div>
     </div>
   );

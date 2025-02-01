@@ -12,14 +12,18 @@ const AllWords = () => {
   };
   useEffect(() => {
     const fetchWordData = async () => {
-      setWordData(["இயல்பு", "வேட்டல்", "சிவம்", "சக்தி"]);
-      setFilteredData(["இயல்பு", "வேட்டல்", "சிவம்", "சக்தி"]);
-      // await fetch("http://localhost:8080/words/names")
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     setWordData(data);
-      //     setFilteredData(data); // Set both original and filtered data
-      //   });
+      // setWordData(["இயல்பு", "வேட்டல்", "சிவம்", "சக்தி"]);
+      // setFilteredData(["இயல்பு", "வேட்டல்", "சிவம்", "சக்தி"]);
+      fetch("../../Word-Search-App/public/output.json") // Fetch from public folder
+        .then((response) => {
+          console.log(response);
+          return response.json();
+        })
+        .then((data) => {
+          setWordData(data["wordList"]);
+          setFilteredData(data["wordList"]);
+        })
+        .catch((error) => console.error("Error fetching JSON:", error));
     };
     fetchWordData();
   }, []);
@@ -52,7 +56,7 @@ const AllWords = () => {
 
         <div className="mb-4">
           <a
-           onClick={() => homePageNavigate()}
+            onClick={() => homePageNavigate()}
             className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
