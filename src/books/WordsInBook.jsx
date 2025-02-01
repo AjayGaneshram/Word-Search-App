@@ -185,7 +185,7 @@ const WordsInBook = () => {
     //   .then((response) => response.json())
     //   .then((data) => setWordData(data));
 
-    fetch("../public/output.json") // Fetch from public folder
+    fetch("/output.json") // Fetch from public folder
       .then((response) => {
         console.log(response);
         return response.json();

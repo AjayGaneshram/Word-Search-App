@@ -12,7 +12,7 @@ const WordsByFirstLetter = () => {
 
   // ✅ Fetch words grouped by first letter from output.json
   useEffect(() => {
-    fetch("../../Word-Search-App/public/output.json")
+    fetch("/output.json")
       .then((response) => response.json())
       .then((data) => {
         setWordsGroupedByFirstLetter(data["firstLetterWords"] || {});

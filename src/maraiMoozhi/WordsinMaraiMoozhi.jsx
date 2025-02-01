@@ -72,7 +72,7 @@ const WordsinMaraiMoozhi = () => {
   useEffect(() => {
     const fetchWordData = async () => {
       // setWordData(jsondata[decodedmaraiMoozhi]);
-      fetch("../public/output.json") // Fetch from public folder
+      fetch("/output.json") // Fetch from public folder
         .then((response) => {
           return response.json();
         })

@@ -10,7 +10,7 @@ const HomePage = () => {
     const fetchWordData = async () => {
       // Hardcoded data
 
-      fetch("../Word-Search-App/public/output.json") // Fetch from public folder
+      fetch("/output.json") // Fetch from public folder
         .then((response) => {
           console.log(response);
 

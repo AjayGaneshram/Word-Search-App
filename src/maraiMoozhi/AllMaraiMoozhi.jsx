@@ -19,7 +19,7 @@ const AllMaraiMoozhi = () => {
       //   "அன்பே சிவம்",
       //   "சிவமே கொள்கையாம் சக்தியே செயலாம்",
       // ]);
-      fetch("../Word-Search-App/public/output.json")
+      fetch("/output.json")
         .then((response) => response.json())
         .then((data) => {
           console.log("--------")

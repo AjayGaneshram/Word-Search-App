@@ -1,14 +1,20 @@
 const fs = require('fs');
+const path = require('path');
+
 function generateOutput() {
-    const inputFile = 'input.json';
-    const outputFile = 'output.json';
+    const inputFile = path.resolve(__dirname, '../public/input.json');  // Adjust path
+    const outputFile = path.resolve(__dirname, '../public/output.json');
 
     if (!fs.existsSync(inputFile)) {
-        console.error('Error: input.json not found');
+        console.error(`❌ Error: input.json not found at ${inputFile}`);
         process.exit(1);
+    } else {
+        console.log(`✅ Found input.json at ${inputFile}`);
     }
 
+    console.log('🔍 Reading input.json...');
     const inputData = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
+
     const outputData = {
         words: [],
         books: {},
@@ -18,7 +24,11 @@ function generateOutput() {
         bookList: [],
         maraiMoozhiList: [],
         youtubeList: [],
-        firstLetterList: []
+        firstLetterList: [],
+        eachMaraimoozhi: {},
+        eachBook: {},
+        eachWord: {},
+        firstLetterWords: {}
     };
 
     const wordSet = new Set();
@@ -26,105 +36,163 @@ function generateOutput() {
     const maraiMoozhiSet = new Set();
     const youtubeSet = new Set();
 
-    inputData["words"].forEach(word => {
+    inputData.forEach(word => {
         const wordEntry = {
-            id: word.id,
-            word: word.word,
-            firstLetter: word.firstLetter,
-            description: word.description,
-            wordNature: word.wordNature,
+            wordName: word.wordName,
+            wordName_FirstLetter: word.wordName_FirstLetter,
+            wordNameDescription: word.wordNameDescription || '',
             books: [],
-            maraiMoozhis: [],
-            youtube: []
+            maraimoozhis: [],
+            youtubeNames: []  // This is where youtube info will go
         };
 
         // Track words
-        if (!wordSet.has(word.word)) {
-            wordSet.add(word.word);
-            outputData.wordList.push(word.word);
+        if (!wordSet.has(word.wordName)) {
+            wordSet.add(word.wordName);
+            outputData.wordList.push(word.wordName);
         }
 
+        const firstLetter = word.wordName_FirstLetter;
+        if (!outputData.firstLetterWords[firstLetter]) {
+            outputData.firstLetterWords[firstLetter] = [];
+        }
+        outputData.firstLetterWords[firstLetter].push(word.wordName);
+        
         // Add books for the word
-        word.books.forEach(book => {
-            if (!bookSet.has(book.bookName)) {
-                bookSet.add(book.bookName);
-                outputData.bookList.push(book.bookName);
-            }
+        if (word.books) {
+            word.books.forEach(book => {
+                if (!bookSet.has(book.bookName)) {
+                    bookSet.add(book.bookName);
+                    outputData.bookList.push(book.bookName);
+                }
 
-            if (!outputData.books[book.bookName]) {
-                outputData.books[book.bookName] = {
-                    id: book.id,
-                    bookNameFirstLetter: book.bookNameFirstLetter,
-                    bookName: book.bookName,
-                    words: []
+                if (!outputData.books[book.bookName]) {
+                    outputData.books[book.bookName] = {
+                        bookName_firstLetter: book.bookName_firstLetter,
+                        bookName: book.bookName,
+                        words: []
+                    };
+                }
+
+                if (!outputData.books[book.bookName].words.includes(word.wordName)) {
+                    outputData.books[book.bookName].words.push(word.wordName);
+                }
+
+                if (!wordEntry.books.includes(book.bookName)) {
+                    wordEntry.books.push(book.bookName);
+                }
+
+                // Collect word and maraiMoozhi details for "each-book"
+                if (!outputData.eachBook[book.bookName]) {
+                    outputData.eachBook[book.bookName] = [];
+                }
+
+                const bookDetails = {
+                    wordName: word.wordName,
+                    wordNameDescription: word.wordNameDescription || '',
+                    maraiMoozhiNames: word.maraimoozhis ? word.maraimoozhis.map(maraiMoozhi => maraiMoozhi.maraiMoozhiName) : [],
+                    bookNames: [book.bookName],
+                    youtubeNames: word.youTubeVideos ? word.youTubeVideos.map(youtube => ({
+                        youtubeName: youtube.youtubeName,
+                        youTubeURL: youtube.youTubeURL
+                    })) : []
                 };
-            }
 
-            if (!outputData.books[book.bookName].words.includes(word.word)) {
-                outputData.books[book.bookName].words.push(word.word);
-            }
-
-            if (!wordEntry.books.includes(book.bookName)) {
-                wordEntry.books.push(book.bookName);
-            }
-        });
+                outputData.eachBook[book.bookName].push(bookDetails);
+            });
+        }
 
         // Add maraiMoozhis for the word
-        word.maraiMoozhis.forEach(maraiMoozhi => {
-            if (!maraiMoozhiSet.has(maraiMoozhi.maraiMoozhiName)) {
-                maraiMoozhiSet.add(maraiMoozhi.maraiMoozhiName);
-                outputData.maraiMoozhiList.push(maraiMoozhi.maraiMoozhiName);
-            }
+        if (word.maraimoozhis) {
+            word.maraimoozhis.forEach(maraiMoozhi => {
+                if (!maraiMoozhiSet.has(maraiMoozhi.maraiMoozhiName)) {
+                    maraiMoozhiSet.add(maraiMoozhi.maraiMoozhiName);
+                    outputData.maraiMoozhiList.push(maraiMoozhi.maraiMoozhiName);
+                }
 
-            if (!outputData.maraiMoozhis[maraiMoozhi.maraiMoozhiName]) {
-                outputData.maraiMoozhis[maraiMoozhi.maraiMoozhiName] = {
-                    id: maraiMoozhi.id,
-                    description: maraiMoozhi.description,
-                    maraiMoozhiName: maraiMoozhi.maraiMoozhiName,
-                    words: []
+                if (!outputData.maraiMoozhis[maraiMoozhi.maraiMoozhiName]) {
+                    outputData.maraiMoozhis[maraiMoozhi.maraiMoozhiName] = {
+                        maraiMoozhiName: maraiMoozhi.maraiMoozhiName,
+                        maraiMoozhiDescription: maraiMoozhi.maraiMoozhiDescription || '',
+                        words: []
+                    };
+                }
+
+                if (!outputData.maraiMoozhis[maraiMoozhi.maraiMoozhiName].words.includes(word.wordName)) {
+                    outputData.maraiMoozhis[maraiMoozhi.maraiMoozhiName].words.push(word.wordName);
+                }
+
+                if (!wordEntry.maraimoozhis.includes(maraiMoozhi.maraiMoozhiName)) {
+                    wordEntry.maraimoozhis.push(maraiMoozhi.maraiMoozhiName);
+                }
+
+                // Collect word, book, and youtube details for "each-maraimoozhi"
+                if (!outputData.eachMaraimoozhi[maraiMoozhi.maraiMoozhiName]) {
+                    outputData.eachMaraimoozhi[maraiMoozhi.maraiMoozhiName] = [];
+                }
+
+                const maraiMoozhiDetails = {
+                    wordName: word.wordName,
+                    wordNameDescription: word.wordNameDescription || '',
+                    bookNames: word.books ? word.books.map(book => book.bookName) : [],
+                    maraiMoozhiNames: [maraiMoozhi.maraiMoozhiName],
+                    youtubeNames: word.youTubeVideos ? word.youTubeVideos.map(youtube => ({
+                        youtubeName: youtube.youtubeName,
+                        youTubeURL: youtube.youTubeURL
+                    })) : []
                 };
-            }
 
-            if (!outputData.maraiMoozhis[maraiMoozhi.maraiMoozhiName].words.includes(word.word)) {
-                outputData.maraiMoozhis[maraiMoozhi.maraiMoozhiName].words.push(word.word);
-            }
-
-            if (!wordEntry.maraiMoozhis.includes(maraiMoozhi.maraiMoozhiName)) {
-                wordEntry.maraiMoozhis.push(maraiMoozhi.maraiMoozhiName);
-            }
-        });
+                outputData.eachMaraimoozhi[maraiMoozhi.maraiMoozhiName].push(maraiMoozhiDetails);
+            });
+        }
 
         // Add youtube entries for the word
-        word.YouTube.forEach(youtube => {
-            if (!youtubeSet.has(youtube.YoutubeName)) {
-                youtubeSet.add(youtube.YoutubeName);
-                outputData.youtubeList.push(youtube.YoutubeName);
-            }
+        if (word.youTubeVideos) {
+            word.youTubeVideos.forEach(youtube => {
+                if (!youtubeSet.has(youtube.youtubeName)) {
+                    youtubeSet.add(youtube.youtubeName);
+                    outputData.youtubeList.push(youtube.youtubeName);
+                }
 
-            if (!outputData.youtube[youtube.YoutubeName]) {
-                outputData.youtube[youtube.YoutubeName] = {
-                    id: youtube.id,
-                    description: youtube.description,
-                    youtubeName: youtube.YoutubeName,
-                    words: []
-                };
-            }
+                if (!outputData.youtube[youtube.youtubeName]) {
+                    outputData.youtube[youtube.youtubeName] = {
+                        youtubeName: youtube.youtubeName,
+                        youTubeURL: youtube.youTubeURL,
+                        words: []
+                    };
+                }
 
-            if (!outputData.youtube[youtube.YoutubeName].words.includes(word.word)) {
-                outputData.youtube[youtube.YoutubeName].words.push(word.word);
-            }
+                if (!outputData.youtube[youtube.youtubeName].words.includes(word.wordName)) {
+                    outputData.youtube[youtube.youtubeName].words.push(word.wordName);
+                }
 
-            if (!wordEntry.youtube.includes(youtube.YoutubeName)) {
-                wordEntry.youtube.push(youtube.YoutubeName);
-            }
-        });
+                // Add youtube name and URL under "youtubeNames" for the word entry
+                wordEntry.youtubeNames.push({
+                    youtubeName: youtube.youtubeName,
+                    youTubeURL: youtube.youTubeURL
+                });
+            });
+        }
 
         outputData.words.push(wordEntry);
 
         // Add the first letter if not already added
-        if (!outputData.firstLetterList.includes(word.firstLetter)) {
-            outputData.firstLetterList.push(word.firstLetter);
+        if (!outputData.firstLetterList.includes(word.wordName_FirstLetter)) {
+            outputData.firstLetterList.push(word.wordName_FirstLetter);
         }
+
+        // Add the word to "each-word"
+        outputData.eachWord[word.wordName] = {
+            wordName: word.wordName,
+            wordNameDescription: word.wordNameDescription || '',
+            wordName_FirstLetter: word.wordName_FirstLetter,
+            books: word.books ? word.books.map(book => ({ bookName: book.bookName })) : [],
+            maraimoozhis: word.maraimoozhis ? word.maraimoozhis.map(maraiMoozhi => ({ maraiMoozhiName: maraiMoozhi.maraiMoozhiName })) : [],
+            youtubeNames: wordEntry.youtubeNames  // This should now include youtubeName and URL
+        };
+
+
+        
     });
 
     // Convert books, maraiMoozhis, and youtube into arrays of objects with names and ids
@@ -132,9 +200,9 @@ function generateOutput() {
     outputData.maraiMoozhis = Object.values(outputData.maraiMoozhis);
     outputData.youtube = Object.values(outputData.youtube);
 
-    // Write to output file
     fs.writeFileSync(outputFile, JSON.stringify(outputData, null, 2), 'utf-8');
-    console.log('✅ output.json generated successfully');
+
+    console.log(`✅ output.json successfully written at ${outputFile}`);
 }
 
 generateOutput();

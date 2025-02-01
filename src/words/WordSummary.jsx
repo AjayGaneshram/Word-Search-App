@@ -175,7 +175,7 @@ const WordSummary = () => {
   // };
   useEffect(() => {
     const fetchWordData = async () => {
-      fetch("../public/output.json") // Fetch from public folder
+      fetch("/output.json") // Fetch from public folder
         .then((response) => {
           console.log(response);
           return response.json();
