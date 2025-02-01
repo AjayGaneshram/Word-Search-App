@@ -19,7 +19,7 @@ const AllMaraiMoozhi = () => {
       //   "அன்பே சிவம்",
       //   "சிவமே கொள்கையாம் சக்தியே செயலாம்",
       // ]);
-      fetch("/output.json")
+      fetch("./assets/output.json")
         .then((response) => response.json())
         .then((data) => {
           console.log("--------")

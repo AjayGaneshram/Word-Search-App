@@ -33,7 +33,7 @@ const SearchComponent = () => {
   };
   // ✅ Fetch data from output.json
   useEffect(() => {
-    fetch("/output.json") // Adjust path if needed
+    fetch("./assets/output.json") // Adjust path if needed
       .then((response) => response.json())
       .then((data) => {
         const formattedData = {

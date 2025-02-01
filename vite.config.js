@@ -14,5 +14,15 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     charset: 'utf-8', // Ensure UTF-8 encoding
+    assetsInlineLimit: 0,
+    rollupOptions: {
+      input: {
+        main: "index.html",
+      },
+      output: {
+        assetFileNames: "assets/[name].[ext]",
+      },
+    },
   },
+  publicDir: "public",
 });

@@ -395,7 +395,7 @@ const LetterHomePage = () => {
   const [wordDetails, setWordDetails] = useState([]);
 
   useEffect(() => {
-    fetch("/output.json") // Fetch from public folder
+    fetch("./assets/output.json") // Fetch from public folder
       .then((response) => response.json())
       .then((data) => {
         setWordDetails(

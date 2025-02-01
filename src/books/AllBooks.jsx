@@ -25,7 +25,7 @@ const AllBooks = () => {
       //   "ஊழி நூல்",
       //   "வடிவு நூல்",
       // ]);
-      fetch("/output.json") // Fetch from public folder
+      fetch("./assets/output.json") // Fetch from public folder
         .then((response) => response.json())
         .then((data) => {
           setWordData(data["bookList"]);

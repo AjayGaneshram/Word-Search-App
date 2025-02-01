@@ -10,7 +10,7 @@ const HomePage = () => {
     const fetchWordData = async () => {
       // Hardcoded data
 
-      fetch("/output.json") // Fetch from public folder
+      fetch("./assets/output.json") // Fetch from public folder
         .then((response) => {
           console.log(response);
 
