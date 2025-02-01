@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../HomeComponents/Header";
+import { DataContext } from "../DataContext";
 
 const WordsinMaraiMoozhi = () => {
   const { maraiMoozhi } = useParams();
   const decodedmaraiMoozhi = decodeURIComponent(maraiMoozhi);
   const [wordData, setWordData] = useState([]);
-
+  const { outputJson } = useContext(DataContext);
   // const jsondata = {
   //   "அன்பே சிவம்": [
   //     {
@@ -72,14 +73,16 @@ const WordsinMaraiMoozhi = () => {
   useEffect(() => {
     const fetchWordData = async () => {
       // setWordData(jsondata[decodedmaraiMoozhi]);
-      fetch("./output.json") // Fetch from public folder
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setWordData(data["eachMaraimoozhi"][decodedmaraiMoozhi]);
-        })
-        .catch((error) => console.error("Error fetching JSON:", error));
+      // fetch("./output.json") // Fetch from public folder
+      //   .then((response) => {
+      //     return response.json();
+      //   })
+      //   .then((data) => {
+      //     setWordData(data["eachMaraimoozhi"][decodedmaraiMoozhi]);
+      //   })
+      //   .catch((error) => console.error("Error fetching JSON:", error));
+
+      setWordData(outputJson["eachMaraimoozhi"][decodedmaraiMoozhi]);
     };
     fetchWordData();
   }, []);

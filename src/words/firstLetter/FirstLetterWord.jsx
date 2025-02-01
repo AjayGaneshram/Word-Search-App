@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Header from "../../HomeComponents/Header";
 import { useNavigate, useParams } from "react-router-dom";
+import { DataContext } from "../../DataContext";
 
 const WordsByFirstLetter = () => {
   const [wordsGroupedByFirstLetter, setWordsGroupedByFirstLetter] = useState(
@@ -9,16 +10,19 @@ const WordsByFirstLetter = () => {
   const [wordDetails, setWordDetails] = useState({});
   const { letter } = useParams();
   const decodedLetter = decodeURIComponent(letter);
-
+  const { outputJson } = useContext(DataContext);
   // ✅ Fetch words grouped by first letter from output.json
   useEffect(() => {
-    fetch("./output.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setWordsGroupedByFirstLetter(data["firstLetterWords"] || {});
-        setWordDetails(data["eachWord"] || {});
-      })
-      .catch((error) => console.error("Error fetching JSON:", error));
+    // fetch("./output.json")
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setWordsGroupedByFirstLetter(data["firstLetterWords"] || {});
+    //     setWordDetails(data["eachWord"] || {});
+    //   })
+    //   .catch((error) => console.error("Error fetching JSON:", error));
+
+    setWordsGroupedByFirstLetter(outputJson["firstLetterWords"] || {});
+        setWordDetails(outputJson["eachWord"] || {});
   }, []);
 
   const navigate = useNavigate();

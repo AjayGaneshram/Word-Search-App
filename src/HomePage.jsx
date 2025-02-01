@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "./HomeComponents/Header";
 import SearchComponent from "./search/SearchBar";
 // import TamilAlphabetTable from "./search/TamilLetter";
 import LetterHomePage from "./search/TamilLetter";
+import { DataContext } from "./DataContext";
 
 const HomePage = () => {
   const [wordDetails, setWordDetails] = useState([]);
+  const { outputJson } = useContext(DataContext);
   useEffect(() => {
     const fetchWordData = async () => {
       // Hardcoded data
 
-      fetch("./output.json") // Fetch from public folder
-        .then((response) => {
-          console.log(response);
+      // fetch("./output.json") // Fetch from public folder
+      //   .then((response) => {
+      //     console.log(response);
 
-          return response.json();
-        })
-        .then((data) => {
-          setWordDetails(data["words"]);
-        })
-        .catch((error) => console.error("Error fetching JSON:", error));
-
+      //     return response.json();
+      //   })
+      //   .then((data) => {
+      //     setWordDetails(data["words"]);
+      //   })
+      //   .catch((error) => console.error("Error fetching JSON:", error));
+      console.log("---------------------")
+      console.log(outputJson)
+     
+      outputJson!=null && setWordDetails( outputJson["words"]);
       // setWordDetails([
       //   {
       //     wordName: "இயல்பு",
@@ -53,7 +58,7 @@ const HomePage = () => {
       // ]);
     };
     fetchWordData();
-  }, []);
+  }, [outputJson]);
 
   // Individual Card Component
   const Card = ({ uniqueDetails }) => {
@@ -140,9 +145,14 @@ const HomePage = () => {
 
       {/* Card Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 justify-items-center ">
-        {wordDetails.map((uniqueDetails, index) => (
-          <Card key={index} uniqueDetails={uniqueDetails} className="h-full" />
-        ))}
+        {wordDetails.length > 0 &&
+          wordDetails.map((uniqueDetails, index) => (
+            <Card
+              key={index}
+              uniqueDetails={uniqueDetails}
+              className="h-full"
+            />
+          ))}
       </div>
     </div>
   );

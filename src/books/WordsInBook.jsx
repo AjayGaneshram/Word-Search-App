@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Header from "../HomeComponents/Header";
+import { DataContext } from "../DataContext";
 
 // const WordsInBook = () => {
 //   const { bookName } = useParams();
@@ -71,7 +72,7 @@ const WordsInBook = () => {
   const maraimoozhiHandleNavigate = (word) => {
     navigate(`/Word-Search-App/maraiMozhi/${word}`);
   };
-
+  const { outputJson } = useContext(DataContext);
   // const BOOKSUMMARYDATA = {
   //   "மூல நூல்": [
   //     {
@@ -185,17 +186,19 @@ const WordsInBook = () => {
     //   .then((response) => response.json())
     //   .then((data) => setWordData(data));
 
-    fetch("./output.json") // Fetch from public folder
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-        console.log(data["eachBook"][decodedBookName]);
-        setWordData(data["eachBook"][decodedBookName]);
-      })
-      .catch((error) => console.error("Error fetching JSON:", error));
+    // fetch("./output.json") // Fetch from public folder
+    //   .then((response) => {
+    //     console.log(response);
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     console.log(data);
+    //     console.log(data["eachBook"][decodedBookName]);
+    //     setWordData(data["eachBook"][decodedBookName]);
+    //   })
+    //   .catch((error) => console.error("Error fetching JSON:", error));
+
+    setWordData(outputJson["eachBook"][decodedBookName]);
   }, []);
 
   useEffect(() => {

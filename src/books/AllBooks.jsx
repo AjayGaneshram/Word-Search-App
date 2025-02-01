@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../HomeComponents/Header";
 import { useNavigate } from "react-router-dom";
+import { DataContext } from "../DataContext";
 
 const AllBooks = () => {
   const [wordData, setWordData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const { outputJson } = useContext(DataContext);
   useEffect(() => {
     const fetchWordData = async () => {
       // setWordData([
@@ -25,13 +26,16 @@ const AllBooks = () => {
       //   "ஊழி நூல்",
       //   "வடிவு நூல்",
       // ]);
-      fetch("./output.json") // Fetch from public folder
-        .then((response) => response.json())
-        .then((data) => {
-          setWordData(data["bookList"]);
-          setFilteredData(data["bookList"]); // Set both original and filtered data
-        })
-        .catch((error) => console.error("Error fetching JSON:", error));
+      // fetch("./output.json") // Fetch from public folder
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     setWordData(data["bookList"]);
+      //     setFilteredData(data["bookList"]); // Set both original and filtered data
+      //   })
+      //   .catch((error) => console.error("Error fetching JSON:", error));
+
+      setWordData(outputJson["bookList"]);
+      setFilteredData(outputJson["bookList"]);
     };
     fetchWordData();
   }, []);

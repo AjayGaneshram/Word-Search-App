@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../HomeComponents/Header";
 import { useNavigate } from "react-router-dom";
+import { DataContext } from "../DataContext";
 
 const AllWords = () => {
   const [wordData, setWordData] = useState([]);
@@ -10,20 +11,24 @@ const AllWords = () => {
   const homePageNavigate = () => {
     navigate(`/Word-Search-App/home`);
   };
+  const { outputJson } = useContext(DataContext);
   useEffect(() => {
     const fetchWordData = async () => {
       // setWordData(["இயல்பு", "வேட்டல்", "சிவம்", "சக்தி"]);
       // setFilteredData(["இயல்பு", "வேட்டல்", "சிவம்", "சக்தி"]);
-      fetch("./output.json") // Fetch from public folder
-        .then((response) => {
-          console.log(response);
-          return response.json();
-        })
-        .then((data) => {
-          setWordData(data["wordList"]);
-          setFilteredData(data["wordList"]);
-        })
-        .catch((error) => console.error("Error fetching JSON:", error));
+      // fetch("./output.json") // Fetch from public folder
+      //   .then((response) => {
+      //     console.log(response);
+      //     return response.json();
+      //   })
+      //   .then((data) => {
+      //     setWordData(data["wordList"]);
+      //     setFilteredData(data["wordList"]);
+      //   })
+      //   .catch((error) => console.error("Error fetching JSON:", error));
+
+      setWordData(outputJson["wordList"]);
+      setFilteredData(outputJson["wordList"]);
     };
     fetchWordData();
   }, []);

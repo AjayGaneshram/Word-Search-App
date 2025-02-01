@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../HomeComponents/Header";
+import { DataContext } from "../DataContext";
 
 const WordSummary = () => {
   const [wordDetails, setWordDetails] = useState([]);
@@ -11,6 +12,9 @@ const WordSummary = () => {
   const homePageNavigate = () => {
     navigate(`/Word-Search-App/home`);
   };
+
+  const {outputJson} =useContext(DataContext)
+ 
   // const jsonData = {
   //   சக்தி: {
   //     id: 4,
@@ -174,19 +178,20 @@ const WordSummary = () => {
   //   },
   // };
   useEffect(() => {
+    
     const fetchWordData = async () => {
-      fetch("./output.json") // Fetch from public folder
-        .then((response) => {
-          console.log(response);
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          // console.log(data["eachWord"][decodedWord])
-          setWordDetails(data["eachWord"][decodedWord]);
-        })
-        .catch((error) => console.error("Error fetching JSON:", error));
-
+      // fetch("../public/output.json") // Fetch from public folder
+      //   .then((response) => {
+      //     console.log(response);
+      //     return response.json();
+      //   })
+      //   .then((data) => {
+      //     console.log(data);
+      //     // console.log(data["eachWord"][decodedWord])
+      //     setWordDetails(data["eachWord"][decodedWord]);
+      //   })
+      //   .catch((error) => console.error("Error fetching JSON:", error));
+      setWordDetails(outputJson["eachWord"][decodedWord])
       // setWordDetails(jsonData[decodedWord]);
     };
     fetchWordData();

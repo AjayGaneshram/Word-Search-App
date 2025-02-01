@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./search.css";
 import { useNavigate } from "react-router-dom";
+import { DataContext } from "../DataContext";
 // JSON structure for Uyir-Mei combinations
 const uyirmeiData = [
   {
@@ -393,20 +394,20 @@ const TamilAlphabetTable = ({ words }) => {
 
 const LetterHomePage = () => {
   const [wordDetails, setWordDetails] = useState([]);
-
+  const {outputJson} =useContext(DataContext)
   useEffect(() => {
-    fetch("./output.json") // Fetch from public folder
-      .then((response) => response.json())
-      .then((data) => {
-        setWordDetails(
-          data["words"].map((word) => ({
+    // fetch("./output.json") // Fetch from public folder
+    //   .then((response) => response.json())
+    //   .then((data) => {
+      outputJson!=null && setWordDetails(
+          outputJson["words"].map((word) => ({
             word: word.wordName,
             wordNameDescription: word.wordNameDescription,
           }))
         );
-      })
-      .catch((error) => console.error("Error fetching JSON:", error));
-  }, []);
+      // })
+      // .catch((error) => console.error("Error fetching JSON:", error));
+  }, [outputJson]);
 
   return (
     <div>

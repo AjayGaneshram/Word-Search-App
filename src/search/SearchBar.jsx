@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { DataContext } from "../DataContext";
 
 const SearchComponent = () => {
   // ✅ State for storing fetched data
@@ -31,28 +32,36 @@ const SearchComponent = () => {
   const maraimoozhiHandleNavigate = (word) => {
     navigate(`/Word-Search-App/maraiMozhi/${word}`);
   };
+  const { outputJson } = useContext(DataContext);
   // ✅ Fetch data from output.json
   useEffect(() => {
-    fetch("./output.json") // Adjust path if needed
-      .then((response) => response.json())
-      .then((data) => {
-        const formattedData = {
-          words: data.wordList.map((word, index) => ({ id: index + 1, word })),
-          books: data.bookList.map((bookName, index) => ({
-            id: index + 1,
-            bookName,
-          })),
-          maraiMoozhis: data.maraiMoozhiList.map((maraiMoozhiName, index) => ({
+    // fetch("./output.json") // Adjust path if needed
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    if (outputJson != null) {
+      const formattedData = {
+        words: outputJson.wordList.map((word, index) => ({
+          id: index + 1,
+          word,
+        })),
+        books: outputJson.bookList.map((bookName, index) => ({
+          id: index + 1,
+          bookName,
+        })),
+        maraiMoozhis: outputJson.maraiMoozhiList.map(
+          (maraiMoozhiName, index) => ({
             id: index + 1,
             maraiMoozhiName,
-          })),
-        };
+          })
+        ),
+      };
 
-        setHardcodedData(formattedData);
-        setFilteredResults(formattedData); // ✅ Initialize filtered data
-      })
-      .catch((error) => console.error("Error fetching JSON:", error));
-  }, []);
+      setHardcodedData(formattedData);
+      setFilteredResults(formattedData);
+    } // ✅ Initialize filtered data
+    // })
+    // .catch((error) => console.error("Error fetching JSON:", error));
+  }, [outputJson]);
 
   // ✅ Search Functionality
   const handleSearch = (term, updatedCategories = selectedCategories) => {

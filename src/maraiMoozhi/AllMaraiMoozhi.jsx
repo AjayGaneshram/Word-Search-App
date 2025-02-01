@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../HomeComponents/Header";
 import { useNavigate } from "react-router-dom";
+import { DataContext } from "../DataContext";
 
 const AllMaraiMoozhi = () => {
   const [wordData, setWordData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const { outputJson } = useContext(DataContext);
   useEffect(() => {
     const fetchWordData = async () => {
       // setWordData([
@@ -19,14 +20,17 @@ const AllMaraiMoozhi = () => {
       //   "அன்பே சிவம்",
       //   "சிவமே கொள்கையாம் சக்தியே செயலாம்",
       // ]);
-      fetch("./output.json")
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("--------")
-          console.log(data["maraiMoozhiList"])
-          setWordData(data["maraiMoozhiList"]);
-          setFilteredData(data["maraiMoozhiList"]); // Set both original and filtered data
-        });
+      // fetch("./output.json")
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log("--------")
+      //     console.log(data["maraiMoozhiList"])
+      //     setWordData(data["maraiMoozhiList"]);
+      //     setFilteredData(data["maraiMoozhiList"]); // Set both original and filtered data
+      //   });
+
+      setWordData(outputJson["maraiMoozhiList"]);
+      setFilteredData(outputJson["maraiMoozhiList"]);
     };
     fetchWordData();
   }, []);
