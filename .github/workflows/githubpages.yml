@@ -58,6 +58,10 @@ jobs:
       - name: Checkout Source  
         uses: actions/checkout@v4
 
+      - name: Fetch Latest Changes (Ensure Updated output.json)
+        run: |
+          git pull origin main  # ✅ Pull latest committed changes before building
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
