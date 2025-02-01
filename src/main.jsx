@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import WordsInBook from "./books/WordsInBook.jsx";
 import WordDescription from "./words/WordPage.jsx";
 import WordsinMaraiMoozhi from "./maraiMoozhi/WordsinMaraiMoozhi.jsx";
@@ -15,7 +15,7 @@ import NotFound from "./NotFound.jsx";
 import WordsByFirstLetter from "./words/firstLetter/FirstLetterWord.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Routes >
         {/* Main route */}
         <Route path="/Word-Search-App" element={<HomePage />}></Route>
@@ -29,6 +29,6 @@ createRoot(document.getElementById("root")).render(
         <Route path="*" element={<NotFound />} /> 
         <Route path="/Word-Search-App/maraiMozhi/:maraiMoozhi" element={<WordsinMaraiMoozhi />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>
 );
