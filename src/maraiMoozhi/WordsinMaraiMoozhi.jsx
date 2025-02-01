@@ -102,9 +102,9 @@ const WordsinMaraiMoozhi = () => {
       });
 
       links.forEach((link) => {
-        link.classList.remove("text-orange-500", "font-bold");
+        link.classList.remove("text-red-500", "font-bold");
         if (link.classList.contains(current)) {
-          link.classList.add("text-orange-500", "font-bold");
+          link.classList.add("text-red-500", "font-bold");
         }
       });
     });
@@ -123,14 +123,14 @@ const WordsinMaraiMoozhi = () => {
     navigate(`/Word-Search-App/maraiMozhi/${word}`);
   };
   return (
-    <div>
+    <div className="bg-red-50">
       <Header />
 
       <div className="p-6 max-w-4xl mx-auto bg-gray-50 min-h-screen relative">
         {/* Scroll to Top Button */}
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 w-8 h-8 bg-orange-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-orange-600 transition-all"
+          className="fixed bottom-6 right-6 w-8 h-8 bg-red-700 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-red-900 transition-all"
           title="Scroll to Top"
         >
           ↑
@@ -138,7 +138,7 @@ const WordsinMaraiMoozhi = () => {
         <div className="mb-4">
           <a
             onClick={() => homePageNavigate()}
-            className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
+            className="text-red-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -159,7 +159,7 @@ const WordsinMaraiMoozhi = () => {
         </div>
         {/* Word List at the Top */}
         <div className="mb-8 text-center">
-          <h1 className="sm:text-sm md:text-xl font-extrabold text-orange-500 mb-6">
+          <h1 className="sm:text-sm md:text-xl font-extrabold text-red-500 mb-6">
             {decodedmaraiMoozhi}
           </h1>
           <div className="flex flex-wrap justify-center gap-6">
@@ -167,10 +167,10 @@ const WordsinMaraiMoozhi = () => {
               <a
                 key={index}
                 href={`#${word.wordName}`}
-                className={`p-2 text-lg rounded-lg shadow-md transition-all transform hover:scale-105 focus:outline-none ${
+                className={`p-2 text-lg rounded-lg shadow-xl transition-all transform hover:scale-105 focus:outline-none ${
                   index === 0
-                    ? "bg-orange-500 text-white font-semibold"
-                    : "hover:bg-orange-500 hover:text-white"
+                    ? "bg-red-800 text-white font-semibold"
+                    : "hover:bg-red-800 hover:text-white"
                 }`}
               >
                 {word.wordName}
@@ -183,25 +183,25 @@ const WordsinMaraiMoozhi = () => {
         {wordData.map((word, index) => (
           <section key={index} id={word.wordName} className="mb-8 pt-12 pb-8">
             <div className="text-center">
-              <h2 className="text-3xl font-extrabold text-orange-500 underline mb-4">
+              <h2 className="text-3xl font-extrabold text-red-500 underline mb-4">
                 {word.wordName}
               </h2>
               <p className="text-gray-700 mt-4 text-lg">
-                <b className="text-orange-400">பொருள்:</b>{" "}
+                <b className="text-red-600">பொருள்:</b>{" "}
                 {word.wordNameDescription}
               </p>
 
               {/* Books Section */}
               {word.bookNames.length > 0 && (
                 <div className="mt-6">
-                  <h3 className="text-2xl font-bold text-orange-400 mb-4 border-b-2 border-orange-200 pb-2">
+                  <h3 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2">
                     நூல்கள்
                   </h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {word.bookNames.map((book, bookIndex) => (
                       <li
                         key={bookIndex}
-                        className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200 cursor-pointer"
+                        className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 cursor-pointer"
                         onClick={() =>
                           handleNavigate(
                             book
@@ -218,7 +218,7 @@ const WordsinMaraiMoozhi = () => {
               {/* Marai Moozhis Section */}
               {word.maraiMoozhiNames.length > 0 && (
                 <div className="mt-6">
-                  <h3 className="text-2xl font-bold text-orange-400 mb-4 border-b-2 border-orange-200 pb-2">
+                  <h3 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2">
                     மறை மொழிகள்
                   </h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -226,7 +226,7 @@ const WordsinMaraiMoozhi = () => {
                       (maraiMoozhi, maraiMoozhiIndex) => (
                         <li
                           key={maraiMoozhiIndex}
-                          className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200 cursor-pointer"
+                          className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 cursor-pointer"
                           onClick={() =>
                             maraimoozhiHandleNavigate(
                               maraiMoozhi
@@ -244,7 +244,7 @@ const WordsinMaraiMoozhi = () => {
               {/* YouTube Videos Section */}
               {word.youtubeNames.length > 0 && (
                 <div className="mt-6">
-                  <h3 className="text-2xl font-bold text-orange-400 mb-4 border-b-2 border-orange-200 pb-2">
+                  <h3 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2">
                     உரைகள்
                   </h3>
                   <ul className="space-y-4">
@@ -254,7 +254,7 @@ const WordsinMaraiMoozhi = () => {
                           href={video.youTubeURL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-orange-500 hover:underline hover:text-orange-700"
+                          className="text-red-500 hover:underline hover:text-orange-700"
                         >
                           {video.youtubeName}
                         </a>

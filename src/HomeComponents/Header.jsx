@@ -17,9 +17,9 @@ const Header = () => {
     navigate(`/Word-Search-App/home`);
   };
   return (
-    <div className="bg-orange-400 h-16 w-full relative">
+    <div className="bg-red-800 h-16 w-full relative">
       {/* Navbar */}
-      <div className="flex justify-between items-center h-full px-4 md:px-8">
+      <div className="flex justify-between items-center h-full px-4 md:px-8 border-b-2 border-white-200 border-b-white-500">
         {/* App Name */}
         <h1 className="text-white font-bold text-lg md:text-2xl cursor-pointer">
           <a onClick={() => homePageNavigate()}>செம்மை</a>
@@ -30,36 +30,58 @@ const Header = () => {
           className="text-white text-2xl md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          ☰
+      {menuOpen ? (
+            <span className="text-white text-3xl">&times;</span>
+          ) : (
+            <span className="text-white text-3xl">&#9776;</span>
+          )}
         </button>
 
         {/* Menu Items for Desktop */}
         <div className="hidden md:flex gap-x-8">
-          <b className="text-white text-base md:text-lg cursor-pointer">
-            <a onClick={() => wordNavigate()}>சொற்கள்</a>
+          <b
+            onClick={() => wordNavigate()}
+            className="text-white text-base md:text-lg cursor-pointer"
+          >
+            <a>சொற்கள்</a>
           </b>
-          <b className="text-white text-base md:text-lg cursor-pointer">
-            <a onClick={() => handleNavigate()}>நூல்கள்</a>
+          <b
+            onClick={() => handleNavigate()}
+            className="text-white text-base md:text-lg cursor-pointer"
+          >
+            <a>நூல்கள்</a>
           </b>
-          <b className="text-white text-base md:text-lg cursor-pointer">
-            <a onClick={() => maraiMoozhiNavigate()}> மறை மொழிகள்</a>
+          <b
+            onClick={() => maraiMoozhiNavigate()}
+            className="text-white text-base md:text-lg cursor-pointer"
+          >
+            <a> மறை மொழிகள்</a>
           </b>
         </div>
       </div>
 
       {/* Collapsible Menu for Mobile */}
       {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-orange-500 z-50 md:hidden flex flex-col gap-y-2 p-4 shadow-lg">
-          <b className="text-white text-base cursor-pointer">
+        <div className="absolute top-full left-0 w-full bg-red-800 z-50 md:hidden flex flex-col gap-y-2 p-4 shadow-lg">
+          <b
+            onClick={() => wordNavigate()}
+            className="text-white text-base cursor-pointer"
+          >
             {" "}
-            <a onClick={() => wordNavigate()}>சொற்கள்</a>
+            <a>சொற்கள்</a>
           </b>
-          <b className="text-white text-base cursor-pointer">
+          <b
+            onClick={() => handleNavigate()}
+            className="text-white text-base cursor-pointer"
+          >
             {" "}
-            <a onClick={() => handleNavigate()}>நூல்கள்</a>
+            <a>நூல்கள்</a>
           </b>
-          <b className="text-white text-base cursor-pointer">
-            <a onClick={() => maraiMoozhiNavigate()}> மறை மொழிகள்</a>
+          <b
+            onClick={() => maraiMoozhiNavigate()}
+            className="text-white text-base cursor-pointer"
+          >
+            <a> மறை மொழிகள்</a>
           </b>
         </div>
       )}

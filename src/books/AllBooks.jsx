@@ -58,13 +58,13 @@ const AllBooks = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
-    <div>
+    <div className="bg-red-50">
       <Header />
-      <div className="p-6 max-w-4xl mx-auto">
+      <div className="p-6 max-w-4xl mx-auto bg-gray-50 min-h-screen">
         {/* Back to Homepage */}
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 w-8 h-8 bg-orange-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-orange-600 transition-all"
+          className="fixed bottom-6 right-6 w-8 h-8 bg-red-700 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-red-900 transition-all"
           title="Scroll to Top"
         >
           ↑
@@ -73,7 +73,7 @@ const AllBooks = () => {
           <a
             // href="/Word-Search-App"
             onClick={() => homePageNavigate()}
-            className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
+            className="text-red-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const AllBooks = () => {
         </div>
 
         {/* Page Title */}
-        <h1 className="text-3xl font-bold text-center text-orange-500 mb-6">
+        <h1 className="text-3xl font-bold text-center text-red-500 mb-6">
           நூல்கள்
         </h1>
 
@@ -105,22 +105,22 @@ const AllBooks = () => {
             placeholder="நூல்களை தேடுக"
             value={searchTerm}
             onChange={handleSearch}
-            className="w-full p-4 rounded-lg border border-gray-300 shadow-md focus:outline-none focus:ring-2 focus:ring-orange-400 text-gray-700"
+            className="w-full p-4 rounded-lg border border-gray-300 shadow-xl focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-700"
           />
         </div>
 
         {/* List Section */}
-        <ul className="bg-white rounded-lg shadow-lg p-6 divide-y divide-gray-200">
+        <ul className="bg-white rounded-lg shadow-lg p-6 divide-y divide-red-200">
           {filteredData.length > 0 ? (
             filteredData.map((word, index) => (
               <li
                 key={index}
-                className="p-4 hover:bg-orange-50 rounded-md transition flex items-center justify-between"
+                className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
               >
                 <span className="text-gray-700 font-medium">{word}</span>
                 <button
                   onClick={() => handleNavigate(word)}
-                  className="text-sm text-orange-500 hover:text-orange-700 transition"
+                  className="text-sm text-red-500 hover:text-orange-700 transition"
                 >
                   மேலும் அறிக
                 </button>

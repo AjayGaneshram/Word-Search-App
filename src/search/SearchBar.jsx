@@ -128,7 +128,7 @@ const SearchComponent = () => {
             onClick={() => toggleCategory(categoryMap[category])}
             className={`flex items-center gap-1 px-3 py-1 rounded-lg text-sm ${
               selectedCategories.includes(categoryMap[category])
-                ? "bg-orange-400 text-white"
+                ? "bg-red-700 text-white"
                 : "bg-gray-200 text-gray-800"
             }`}
           >
@@ -147,7 +147,7 @@ const SearchComponent = () => {
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder={placeholderText}
-          className="w-full p-2 border border-gray-300 rounded-lg"
+          className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
         />
 
         {/* Search Results Dropdown */}
@@ -156,12 +156,12 @@ const SearchComponent = () => {
             {selectedCategories.includes("words") &&
               filteredResults.words.length > 0 && (
                 <div className="p-2">
-                  <h2 className="text-lg font-bold text-orange-400">சொற்கள்</h2>
+                  <h2 className="text-lg font-bold text-red-600">சொற்கள்</h2>
                   <ul>
                     {filteredResults.words.map((word) => (
                       <li
                         key={word.id}
-                        className="p-4 hover:bg-orange-50 rounded-md transition flex items-center justify-between"
+                        className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
                       >
                         <span className="text-gray-700 font-medium">
                           {word.word}
@@ -170,7 +170,7 @@ const SearchComponent = () => {
                           onClick={() => {
                             wordHandleNavigate(word.word);
                           }}
-                          className="text-sm text-orange-500 hover:text-orange-700 transition"
+                          className="text-sm text-red-500 hover:text-orange-700 transition"
                         >
                           மேலும் அறிக
                         </button>
@@ -183,19 +183,19 @@ const SearchComponent = () => {
             {selectedCategories.includes("books") &&
               filteredResults.books.length > 0 && (
                 <div className="p-2">
-                  <h2 className="text-lg font-bold text-orange-400">நூல்கள்</h2>
+                  <h2 className="text-lg font-bold text-red-600">நூல்கள்</h2>
                   <ul>
                     {filteredResults.books.map((book) => (
                       <li
                         key={book.id}
-                        className="p-4 hover:bg-orange-50 rounded-md transition flex items-center justify-between"
+                        className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
                       >
                         <span className="text-gray-700 font-medium">
                           {book.bookName}
                         </span>
                         <button
                           onClick={() => handleNavigate(book.bookName)}
-                          className="text-sm text-orange-500 hover:text-orange-700 transition"
+                          className="text-sm text-red-500 hover:text-orange-700 transition"
                         >
                           மேலும் அறிக
                         </button>
@@ -208,14 +208,14 @@ const SearchComponent = () => {
             {selectedCategories.includes("maraiMoozhis") &&
               filteredResults.maraiMoozhis.length > 0 && (
                 <div className="p-2">
-                  <h2 className="text-lg font-bold text-orange-400">
+                  <h2 className="text-lg font-bold text-red-600">
                     மறை மொழிகள்
                   </h2>
                   <ul>
                     {filteredResults.maraiMoozhis.map((maraiMoozhi) => (
                       <li
                         key={maraiMoozhi.id}
-                        className="p-4 hover:bg-orange-50 rounded-md transition flex items-center justify-between"
+                        className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
                       >
                         <span className="text-gray-700 font-medium">
                           {maraiMoozhi.maraiMoozhiName}
@@ -226,7 +226,7 @@ const SearchComponent = () => {
                               maraiMoozhi.maraiMoozhiName
                             )
                           }
-                          className="text-sm text-orange-500 hover:text-orange-700 transition"
+                          className="text-sm text-red-500 hover:text-orange-700 transition"
                         >
                           மேலும் அறிக
                         </button>

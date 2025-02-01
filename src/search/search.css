@@ -5,7 +5,7 @@ a {
   
   /* Highlighted Uyir letters */
   .highlighted {
-	color: #ff5722; /* Orange color for highlighted text */
+	color: #de1a1a; /* Orange color for highlighted text */
 	text-decoration: underline; /* Underline for emphasis */
 	font-weight: bold;
 	cursor: pointer;

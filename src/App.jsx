@@ -74,7 +74,7 @@ function App() {
       <div className="m-4 p-4">
         <div className="flex gap-x-8">
           <ul className="shadow-2xl p-8 w-3/6 w-full border-solid border-2 border-orange-100">
-            <b className="text-2xl text-orange-400 underline underline-offset-1">
+            <b className="text-2xl text-red-600 underline underline-offset-1">
               சொற்கள்
             </b>
             {wordData.map((word) => {
@@ -92,7 +92,7 @@ function App() {
           </ul>
 
           <ul className="shadow-2xl p-8 w-3/6 w-full border-solid border-2 border-orange-100">
-            <b className="text-2xl text-orange-400 underline underline-offset-1">
+            <b className="text-2xl text-red-600 underline underline-offset-1">
               நூல்கள்
             </b>
             {bookNameData.map((word) => {
@@ -113,7 +113,7 @@ function App() {
         </div>
         <div className="mt-8">
           <ul className="shadow-2xl p-8 w-3/6 w-full border-solid border-2 border-orange-100">
-            <b className="text-2xl text-orange-400 underline underline-offset-1">
+            <b className="text-2xl text-red-600 underline underline-offset-1">
               மறை மொழிகள்
             </b>
             {maraiMoozhiData.map((word) => {

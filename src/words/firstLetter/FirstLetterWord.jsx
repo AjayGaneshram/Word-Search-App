@@ -41,7 +41,7 @@ const WordsByFirstLetter = () => {
         <div className="mb-4">
           <button
             onClick={homePageNavigate}
-            className="text-orange-500 hover:text-orange-700 transition text-lg flex items-center"
+            className="text-red-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,11 +68,11 @@ const WordsByFirstLetter = () => {
               <div key={word}>
                 {/* Word Title */}
                 <div className="mb-8 text-center">
-                  <h1 className="text-4xl font-extrabold text-orange-500 underline">
+                  <h1 className="text-4xl font-extrabold text-red-500 underline">
                     {wordDetails[word].wordName}
                   </h1>
                   <p className="text-gray-700 mt-4 text-lg">
-                    <b className="text-orange-400">பொருள்:</b>{" "}
+                    <b className="text-red-600">பொருள்:</b>{" "}
                     {wordDetails[word].wordNameDescription}
                   </p>
                 </div>
@@ -80,14 +80,14 @@ const WordsByFirstLetter = () => {
                 {/* Books Section */}
                 {wordDetails[word].books.length > 0 && (
                   <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-orange-400 mb-4 border-b-2 border-orange-200 pb-2 text-center">
+                    <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                       நூல்கள்
                     </h2>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {wordDetails[word].books.map((book, index) => (
                         <li
                           key={index}
-                          className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200 hover:shadow-lg text-center cursor-pointer"
+                          className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 hover:shadow-lg text-center cursor-pointer"
                           onClick={() => handleNavigate(book.bookName)}
                         >
                           {book.bookName}
@@ -100,7 +100,7 @@ const WordsByFirstLetter = () => {
                 {/* Marai Moozhis Section */}
                 {wordDetails[word].maraimoozhis.length > 0 && (
                   <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-orange-400 mb-4 border-b-2 border-orange-200 pb-2 text-center">
+                    <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                       மறை மொழிகள்
                     </h2>
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -108,7 +108,7 @@ const WordsByFirstLetter = () => {
                         (maraiMoozhi, index) => (
                           <li
                             key={index}
-                            className="p-4 bg-white shadow-md rounded-md text-gray-700 border border-gray-200 hover:shadow-lg text-center cursor-pointer"
+                            className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 hover:shadow-lg text-center cursor-pointer"
                             onClick={() =>
                               maraimoozhiHandleNavigate(
                                 maraiMoozhi.maraiMoozhiName
@@ -126,7 +126,7 @@ const WordsByFirstLetter = () => {
                 {/* YouTube Videos Section */}
                 {wordDetails[word].youtubeNames.length > 0 && (
                   <div className="mb-8">
-                    <h2 className="text-2xl font-bold text-orange-400 mb-4 border-b-2 border-orange-200 pb-2 text-center">
+                    <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                       உரைகள்
                     </h2>
                     <ul className="space-y-4 text-center">
@@ -136,7 +136,7 @@ const WordsByFirstLetter = () => {
                             href={video.youTubeURL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-orange-500 hover:underline hover:text-orange-700"
+                            className="text-red-500 hover:underline hover:text-orange-700"
                           >
                             {video.youtubeName}
                           </a>

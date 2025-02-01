@@ -22,8 +22,6 @@ const HomePage = () => {
       //     setWordDetails(data["words"]);
       //   })
       //   .catch((error) => console.error("Error fetching JSON:", error));
-      console.log("---------------------")
-      console.log(outputJson)
      
       outputJson!=null && setWordDetails( outputJson["words"]);
       // setWordDetails([
@@ -66,9 +64,9 @@ const HomePage = () => {
     const [showMoreBooks, setShowMoreBooks] = useState(false);
 
     return (
-      <div className="m-4 p-6 w-full max-w-sm bg-white shadow-lg rounded-lg border border-orange-200">
+      <div className="m-4 p-6 w-full max-w-sm bg-white shadow-lg rounded-lg border border-red-200">
         {/* Word Name */}
-        <h1 className="text-xl md:text-2xl text-orange-400 font-bold underline underline-offset-4">
+        <h1 className="text-xl md:text-2xl text-red-600 font-bold underline underline-offset-4">
           {uniqueDetails.wordName}
         </h1>
         <div className="mt-4">
@@ -123,10 +121,10 @@ const HomePage = () => {
   };
 
   return (
-    <div>
+    <div className="bg-stone-50">
       {/* Header */}
       <Header />
-      <h2 className="text-sm font-bold text-center m-6 text-orange-400">
+      <h2 className="text-sm font-bold text-center m-6 text-red-600">
         சிவமே கொள்கையாம் சக்தியே செயலாம்
       </h2>
       {/* Search Component */}
@@ -137,7 +135,7 @@ const HomePage = () => {
       {/* Scroll to Top Button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className="fixed bottom-6 right-6 w-8 h-8 bg-orange-500 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-orange-600 transition-all"
+        className="fixed bottom-6 right-6 w-8 h-8 bg-red-800 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-red-900 transition-all"
         title="Scroll to Top"
       >
         ↑
