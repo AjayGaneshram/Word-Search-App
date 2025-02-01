@@ -14,7 +14,7 @@ const AllWords = () => {
     const fetchWordData = async () => {
       // setWordData(["இயல்பு", "வேட்டல்", "சிவம்", "சக்தி"]);
       // setFilteredData(["இயல்பு", "வேட்டல்", "சிவம்", "சக்தி"]);
-      fetch("./assets/output.json") // Fetch from public folder
+      fetch("./output.json") // Fetch from public folder
         .then((response) => {
           console.log(response);
           return response.json();
