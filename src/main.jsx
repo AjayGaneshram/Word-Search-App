@@ -16,38 +16,36 @@ import WordsByFirstLetter from "./words/firstLetter/FirstLetterWord.jsx";
 import DataProvider, { DataContext } from "./DataContext.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <DataProvider>
-      <BrowserRouter>
-        <Routes>
-          {/* Main route */}
-          <Route path="/Word-Search-App/" element={<HomePage />}></Route>
-          <Route path="/Word-Search-App/home" element={<HomePage />} />
-          <Route path="/Word-Search-App/allBooks" element={<AllBooks />} />
-          <Route
-            path="/Word-Search-App/words/:wordName"
-            element={<WordSummary />}
-          />
-          <Route path="/Word-Search-App/allWords" element={<AllWords />} />
-          <Route
-            path="/Word-Search-App/allMaraiMoozhis"
-            element={<AllMaraiMoozhi />}
-          />
-          <Route
-            path="/Word-Search-App/book/:bookName"
-            element={<WordsInBook />}
-          />
-          <Route
-            path="/Word-Search-App/firstLetter/:letter"
-            element={<WordsByFirstLetter />}
-          />
-          <Route path="*" element={<NotFound />} />
-          <Route
-            path="/Word-Search-App/maraiMozhi/:maraiMoozhi"
-            element={<WordsinMaraiMoozhi />}
-          />
-        </Routes>
-      </BrowserRouter>
-    </DataProvider>
-  </StrictMode>
+  <DataProvider>
+    <BrowserRouter>
+      <Routes>
+        {/* Main route */}
+        <Route path="/Word-Search-App/" element={<HomePage />}></Route>
+        <Route path="/Word-Search-App/home" element={<HomePage />} />
+        <Route path="/Word-Search-App/allBooks" element={<AllBooks />} />
+        <Route
+          path="/Word-Search-App/words/:wordName"
+          element={<WordSummary />}
+        />
+        <Route path="/Word-Search-App/allWords" element={<AllWords />} />
+        <Route
+          path="/Word-Search-App/allMaraiMoozhis"
+          element={<AllMaraiMoozhi />}
+        />
+        <Route
+          path="/Word-Search-App/book/:bookName"
+          element={<WordsInBook />}
+        />
+        <Route
+          path="/Word-Search-App/firstLetter/:letter"
+          element={<WordsByFirstLetter />}
+        />
+        <Route path="*" element={<NotFound />} />
+        <Route
+          path="/Word-Search-App/maraiMozhi/:maraiMoozhi"
+          element={<WordsinMaraiMoozhi />}
+        />
+      </Routes>
+    </BrowserRouter>
+  </DataProvider>
 );

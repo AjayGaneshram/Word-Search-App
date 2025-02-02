@@ -4,12 +4,17 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    // Preserve the full path and redirect to index.html
-    const newUrl = "/Word-Search-App/index.html" + window.location.search + window.location.hash;
-    window.location.replace(newUrl);
+    // Preserve the current path, query string, and hash
+    const currentPath = window.location.pathname + window.location.search + window.location.hash;
+
+    // Check if we are already at index.html, if so, no need to redirect again
+    if (!currentPath.includes("index.html")) {
+      // Redirect to index.html, preserving the current path
+      window.location.replace("/Word-Search-App/");
+    }
   </script>
 </head>
 <body>
-  <p>If you are not redirected automatically, <a href="/Word-Search-App/index.html">click here</a>.</p>
+  <p>If you are not redirected automatically, <a href="/Word-Search-App/">click here</a>.</p>
 </body>
 </html>

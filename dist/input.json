@@ -59,32 +59,6 @@
       }
     ],
     "youTubeVideos": []
-  },
-  {
-    "wordName": "இயல்",
-    "wordName_FirstLetter": "இ",
-    "wordNameDescription": "இயலெனப்படுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-    "books": [
-      {
-        "bookName_firstLetter": "வ",
-        "bookName": "வடிவு நூல்"
-      },
-      {
-        "bookName_firstLetter": "எ",
-        "bookName": "எண் நூல்"
-      },
-      {
-        "bookName": "மூல நூல்",
-        "bookName_firstLetter": "மூ"
-      }
-    ],
-    "maraimoozhis": [
-      {
-        "maraiMoozhiName": "இயலெனப்படுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
-        "maraiMoozhiDescription": null
-      }
-    ],
-    "youTubeVideos": []
   }
-
+ 
 ]

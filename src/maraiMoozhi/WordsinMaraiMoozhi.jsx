@@ -2,6 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../HomeComponents/Header";
 import { DataContext } from "../DataContext";
+import WordDetailsSections from "../words/WordDetailsSection";
+import WordDetailsSectionsForMaraimoozhi from "../words/WordDetailsForMaraimoozhi";
+import WordList from "../words/WordList";
 
 const WordsinMaraiMoozhi = () => {
   const { maraiMoozhi } = useParams();
@@ -137,7 +140,7 @@ const WordsinMaraiMoozhi = () => {
         </button>
         <div className="mb-4">
           <a
-            onClick={() => homePageNavigate()}
+            
             className="text-red-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
@@ -154,7 +157,7 @@ const WordsinMaraiMoozhi = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            முகப்புப்பக்கம்
+            <span  className="cursor-pointer" onClick={homePageNavigate}>முகப்புப்பக்கம்</span>
           </a>
         </div>
         {/* Word List at the Top */}
@@ -162,21 +165,8 @@ const WordsinMaraiMoozhi = () => {
           <h1 className="sm:text-sm md:text-xl font-extrabold text-red-500 mb-6">
             {decodedmaraiMoozhi}
           </h1>
-          <div className="flex flex-wrap justify-center gap-6">
-            {wordData.map((word, index) => (
-              <a
-                key={index}
-                href={`#${word.wordName}`}
-                className={`p-2 text-lg rounded-lg shadow-xl transition-all transform hover:scale-105 focus:outline-none ${
-                  index === 0
-                    ? "bg-red-800 text-white font-semibold"
-                    : "hover:bg-red-800 hover:text-white"
-                }`}
-              >
-                {word.wordName}
-              </a>
-            ))}
-          </div>
+
+          <WordList wordData={wordData}/>
         </div>
 
         {/* Word Details with Scrollspy Section */}
@@ -186,83 +176,16 @@ const WordsinMaraiMoozhi = () => {
               <h2 className="text-3xl font-extrabold text-red-500 underline mb-4">
                 {word.wordName}
               </h2>
-              <p className="text-gray-700 mt-4 text-lg">
+              <p className="text-gray-700 mt-4 text-lg mb-4">
                 <b className="text-red-600">பொருள்:</b>{" "}
                 {word.wordNameDescription}
               </p>
 
-              {/* Books Section */}
-              {word.bookNames.length > 0 && (
-                <div className="mt-6">
-                  <h3 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2">
-                    நூல்கள்
-                  </h3>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {word.bookNames.map((book, bookIndex) => (
-                      <li
-                        key={bookIndex}
-                        className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 cursor-pointer"
-                        onClick={() =>
-                          handleNavigate(
-                            book
-                          )
-                        }
-                      >
-                        {book}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Marai Moozhis Section */}
-              {word.maraiMoozhiNames.length > 0 && (
-                <div className="mt-6">
-                  <h3 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2">
-                    மறை மொழிகள்
-                  </h3>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {word.maraiMoozhiNames.map(
-                      (maraiMoozhi, maraiMoozhiIndex) => (
-                        <li
-                          key={maraiMoozhiIndex}
-                          className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 cursor-pointer"
-                          onClick={() =>
-                            maraimoozhiHandleNavigate(
-                              maraiMoozhi
-                            )
-                          }
-                        >
-                          {maraiMoozhi}
-                        </li>
-                      )
-                    )}
-                  </ul>
-                </div>
-              )}
-
-              {/* YouTube Videos Section */}
-              {word.youtubeNames.length > 0 && (
-                <div className="mt-6">
-                  <h3 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2">
-                    உரைகள்
-                  </h3>
-                  <ul className="space-y-4">
-                    {word.youtubeNames.map((video, videoIndex) => (
-                      <li key={videoIndex} className="text-gray-700">
-                        <a
-                          href={video.youTubeURL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-red-500 hover:underline hover:text-orange-700"
-                        >
-                          {video.youtubeName}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              <WordDetailsSectionsForMaraimoozhi
+                wordDetails={word}
+                handleNavigate={handleNavigate}
+                maraimoozhiHandleNavigate={maraimoozhiHandleNavigate}
+              />
             </div>
           </section>
         ))}

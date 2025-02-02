@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../HomeComponents/Header";
 import { DataContext } from "../DataContext";
+import WordDetailsSections from "./WordDetailsSection";
 
 const WordSummary = () => {
   const [wordDetails, setWordDetails] = useState([]);
@@ -13,8 +14,8 @@ const WordSummary = () => {
     navigate(`/Word-Search-App/home`);
   };
 
-  const {outputJson} =useContext(DataContext)
- 
+  const { outputJson } = useContext(DataContext);
+
   // const jsonData = {
   //   சக்தி: {
   //     id: 4,
@@ -178,7 +179,6 @@ const WordSummary = () => {
   //   },
   // };
   useEffect(() => {
-    
     const fetchWordData = async () => {
       // fetch("../public/output.json") // Fetch from public folder
       //   .then((response) => {
@@ -191,7 +191,7 @@ const WordSummary = () => {
       //     setWordDetails(data["eachWord"][decodedWord]);
       //   })
       //   .catch((error) => console.error("Error fetching JSON:", error));
-      setWordDetails(outputJson["eachWord"][decodedWord])
+      setWordDetails(outputJson["eachWord"][decodedWord]);
       // setWordDetails(jsonData[decodedWord]);
     };
     fetchWordData();
@@ -220,7 +220,7 @@ const WordSummary = () => {
         </button>
         <div className="mb-4">
           <a
-            onClick={() => homePageNavigate()}
+          
             className="text-red-500 hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
@@ -237,7 +237,7 @@ const WordSummary = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            முகப்புப்பக்கம்
+            <span  className="cursor-pointer" onClick={homePageNavigate}>முகப்புப்பக்கம்</span>
           </a>
         </div>
         {wordDetails.length != 0 && (
@@ -252,9 +252,13 @@ const WordSummary = () => {
                 {wordDetails.wordNameDescription}
               </p>
             </div>
+            <WordDetailsSections
+              wordDetails={wordDetails}
+              handleNavigate={handleNavigate}
+              maraimoozhiHandleNavigate={maraimoozhiHandleNavigate}
+            />
 
-            {/* Books Section */}
-            <div className="mb-8">
+            {/* <div className="mb-8">
               <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                 நூல்கள்
               </h2>
@@ -263,19 +267,13 @@ const WordSummary = () => {
                   <li
                     key={index}
                     className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 hover:shadow-lg text-center cursor-pointer"
-                    onClick={() =>
-                      handleNavigate(
-                        book.bookName
-                      )
-                    }
+                    onClick={() => handleNavigate(book.bookName)}
                   >
                     {book.bookName}
                   </li>
                 ))}
               </ul>
             </div>
-
-            {/* Marai Moozhis Section */}
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                 மறை மொழிகள்
@@ -286,9 +284,7 @@ const WordSummary = () => {
                     key={index}
                     className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 hover:shadow-lg text-center cursor-pointer"
                     onClick={() =>
-                      maraimoozhiHandleNavigate(
-                        maraiMoozhi.maraiMoozhiName
-                      )
+                      maraimoozhiHandleNavigate(maraiMoozhi.maraiMoozhiName)
                     }
                   >
                     {maraiMoozhi.maraiMoozhiName}
@@ -297,7 +293,6 @@ const WordSummary = () => {
               </ul>
             </div>
 
-            {/* YouTube Videos Section */}
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                 உரைகள்
@@ -316,7 +311,7 @@ const WordSummary = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </div> */}
 
             {/* Back to Home Button */}
             {/* <div className="text-center">

@@ -3,7 +3,7 @@ const path = require('path');
 
 function generateOutput() {
     const inputFile = path.resolve(__dirname, '../public/input.json');  // Adjust path
-    const outputFile = path.resolve(__dirname, '../public/output.json');
+    const outputFile = path.resolve(__dirname, '../public/output.js');
 
     if (!fs.existsSync(inputFile)) {
         console.error(`❌ Error: input.json not found at ${inputFile}`);
@@ -57,7 +57,7 @@ function generateOutput() {
             outputData.firstLetterWords[firstLetter] = [];
         }
         outputData.firstLetterWords[firstLetter].push(word.wordName);
-        
+
         // Add books for the word
         if (word.books) {
             word.books.forEach(book => {
@@ -192,7 +192,7 @@ function generateOutput() {
         };
 
 
-        
+
     });
 
     // Convert books, maraiMoozhis, and youtube into arrays of objects with names and ids
@@ -200,7 +200,10 @@ function generateOutput() {
     outputData.maraiMoozhis = Object.values(outputData.maraiMoozhis);
     outputData.youtube = Object.values(outputData.youtube);
 
-    fs.writeFileSync(outputFile, JSON.stringify(outputData, null, 2), 'utf-8');
+    const jsContent = `const jsonData = ${JSON.stringify(outputData, null, 2)};
+    export default jsonData;`;
+
+    fs.writeFileSync(outputFile, jsContent, 'utf-8');
 
     console.log(`✅ output.json successfully written at ${outputFile}`);
 }

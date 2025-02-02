@@ -1,16 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../DataContext";
 
 const SearchComponent = () => {
-  // ✅ State for storing fetched data
   const [hardcodedData, setHardcodedData] = useState({
     words: [],
     books: [],
     maraiMoozhis: [],
   });
-
-  // ✅ State for search
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategories, setSelectedCategories] = useState([
     "words",
@@ -22,23 +19,16 @@ const SearchComponent = () => {
     books: [],
     maraiMoozhis: [],
   });
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   const navigate = useNavigate();
-  const wordHandleNavigate = (word) => {
-    navigate(`/Word-Search-App/words/${word}`);
-  };
-  const handleNavigate = (word) => {
-    navigate(`/Word-Search-App/book/${word}`);
-  };
-  const maraimoozhiHandleNavigate = (word) => {
-    navigate(`/Word-Search-App/maraiMozhi/${word}`);
-  };
-  const { outputJson } = useContext(DataContext);
-  // ✅ Fetch data from output.json
+  const { outputJson, setSearchResults, searchResults } =
+    useContext(DataContext);
+  const searchRef = useRef(null);
+
+  // Set the data from outputJson when available
   useEffect(() => {
-    // fetch("./output.json") // Adjust path if needed
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    if (outputJson != null) {
+    if (outputJson) {
       const formattedData = {
         words: outputJson.wordList.map((word, index) => ({
           id: index + 1,
@@ -55,20 +45,18 @@ const SearchComponent = () => {
           })
         ),
       };
-
       setHardcodedData(formattedData);
       setFilteredResults(formattedData);
-    } // ✅ Initialize filtered data
-    // })
-    // .catch((error) => console.error("Error fetching JSON:", error));
+    }
   }, [outputJson]);
 
-  // ✅ Search Functionality
+  // Handle search term change and filter results based on selected categories
   const handleSearch = (term, updatedCategories = selectedCategories) => {
     setSearchTerm(term);
-    const lowercasedTerm = term.toLowerCase();
+    setIsDropdownOpen(term.length > 0);
 
-    if (!hardcodedData.words.length) return; // ✅ Prevent searching if data not loaded
+    const lowercasedTerm = term.toLowerCase();
+    if (!hardcodedData.words.length) return;
 
     const filteredData = {
       words: updatedCategories.includes("words")
@@ -89,9 +77,10 @@ const SearchComponent = () => {
     };
 
     setFilteredResults(filteredData);
+    setSearchResults(filteredData);
   };
 
-  // ✅ Toggle Category
+  // Toggle category selection for filter
   const toggleCategory = (category) => {
     const updatedCategories = selectedCategories.includes(category)
       ? selectedCategories.filter((cat) => cat !== category)
@@ -101,14 +90,19 @@ const SearchComponent = () => {
     handleSearch(searchTerm, updatedCategories);
   };
 
-  // ✅ Mapping for category names
+  // Close the dropdown on button click
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+
+  // Map categories
   const categoryMap = {
     சொல்: "words",
     நூல்: "books",
     "மறை மொழி": "maraiMoozhis",
   };
 
-  // ✅ Construct dynamic placeholder text
+  // Placeholder text logic based on selected categories
   const placeholderText =
     selectedCategories.length > 0
       ? `${selectedCategories
@@ -120,7 +114,6 @@ const SearchComponent = () => {
 
   return (
     <div className="p-8">
-      {/* Category Toggle Buttons */}
       <div className="flex gap-2">
         {Object.keys(categoryMap).map((category) => (
           <button
@@ -140,101 +133,123 @@ const SearchComponent = () => {
         ))}
       </div>
 
-      {/* Search Input */}
-      <div className="relative mt-4">
+      <div ref={searchRef} className="relative mt-4">
         <input
           type="text"
           value={searchTerm}
           onChange={(e) => handleSearch(e.target.value)}
           placeholder={placeholderText}
           className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400"
+          onFocus={() => setIsDropdownOpen(true)}
         />
 
-        {/* Search Results Dropdown */}
-        {searchTerm && (
-          <div className="absolute bg-white border border-gray-300 rounded-lg w-full mt-2 max-h-64 overflow-y-auto z-10">
-            {selectedCategories.includes("words") &&
-              filteredResults.words.length > 0 && (
-                <div className="p-2">
-                  <h2 className="text-lg font-bold text-red-600">சொற்கள்</h2>
-                  <ul>
-                    {filteredResults.words.map((word) => (
-                      <li
-                        key={word.id}
-                        className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
-                      >
-                        <span className="text-gray-700 font-medium">
-                          {word.word}
-                        </span>
-                        <button
-                          onClick={() => {
-                            wordHandleNavigate(word.word);
-                          }}
-                          className="text-sm text-red-500 hover:text-orange-700 transition"
-                        >
-                          மேலும் அறிக
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+        {isDropdownOpen && (
+          <div className="absolute bg-white border border-red-300 rounded-lg w-full mt-2 max-h-64 overflow-y-auto z-10">
+            <button
+              onClick={closeDropdown}
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-red-600 text-white hover:bg-gray-300 hover:text-red-900 transition  
+             text-lg sm:w-7 sm:h-7 sm:text-base md:w-6 md:h-6 md:text-sm float-right"
+            >
+              ✕
+            </button>
+            {filteredResults.words.length === 0 &&
+            filteredResults.books.length === 0 &&
+            filteredResults.maraiMoozhis.length === 0 ? (
+              <p className="p-4 text-gray-500">தேடல் முடிவுகள் இல்லை</p>
+            ) : (
+              <>
+                {selectedCategories.includes("words") &&
+                  filteredResults.words.length > 0 && (
+                    <div className="p-2">
+                      <h2 className="text-lg font-bold text-red-600">
+                        சொற்கள்
+                      </h2>
+                      <ul>
+                        {filteredResults.words.map((word) => (
+                          <li
+                            key={word.id}
+                            className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
+                          >
+                            <span className="text-gray-700 font-medium">
+                              {word.word}
+                            </span>
+                            <button
+                              onClick={() =>
+                                navigate(`/Word-Search-App/words/${word.word}`)
+                              }
+                              className="text-sm text-red-500 hover:text-orange-700 transition"
+                            >
+                              மேலும் அறிக
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
-            {selectedCategories.includes("books") &&
-              filteredResults.books.length > 0 && (
-                <div className="p-2">
-                  <h2 className="text-lg font-bold text-red-600">நூல்கள்</h2>
-                  <ul>
-                    {filteredResults.books.map((book) => (
-                      <li
-                        key={book.id}
-                        className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
-                      >
-                        <span className="text-gray-700 font-medium">
-                          {book.bookName}
-                        </span>
-                        <button
-                          onClick={() => handleNavigate(book.bookName)}
-                          className="text-sm text-red-500 hover:text-orange-700 transition"
-                        >
-                          மேலும் அறிக
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+                {selectedCategories.includes("books") &&
+                  filteredResults.books.length > 0 && (
+                    <div className="p-2">
+                      <h2 className="text-lg font-bold text-red-600">
+                        நூல்கள்
+                      </h2>
+                      <ul>
+                        {filteredResults.books.map((book) => (
+                          <li
+                            key={book.id}
+                            className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
+                          >
+                            <span className="text-gray-700 font-medium">
+                              {book.bookName}
+                            </span>
+                            <button
+                              onClick={() =>
+                                navigate(
+                                  `/Word-Search-App/book/${book.bookName}`
+                                )
+                              }
+                              className="text-sm text-red-500 hover:text-orange-700 transition"
+                            >
+                              மேலும் அறிக
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
-            {selectedCategories.includes("maraiMoozhis") &&
-              filteredResults.maraiMoozhis.length > 0 && (
-                <div className="p-2">
-                  <h2 className="text-lg font-bold text-red-600">
-                    மறை மொழிகள்
-                  </h2>
-                  <ul>
-                    {filteredResults.maraiMoozhis.map((maraiMoozhi) => (
-                      <li
-                        key={maraiMoozhi.id}
-                        className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
-                      >
-                        <span className="text-gray-700 font-medium">
-                          {maraiMoozhi.maraiMoozhiName}
-                        </span>
-                        <button
-                          onClick={() =>
-                            maraimoozhiHandleNavigate(
-                              maraiMoozhi.maraiMoozhiName
-                            )
-                          }
-                          className="text-sm text-red-500 hover:text-orange-700 transition"
-                        >
-                          மேலும் அறிக
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+                {selectedCategories.includes("maraiMoozhis") &&
+                  filteredResults.maraiMoozhis.length > 0 && (
+                    <div className="p-2">
+                      <h2 className="text-lg font-bold text-red-600">
+                        மறை மொழிகள்
+                      </h2>
+                      <ul>
+                        {filteredResults.maraiMoozhis.map((maraiMoozhi) => (
+                          <li
+                            key={maraiMoozhi.id}
+                            className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
+                          >
+                            <span className="text-gray-700 font-medium">
+                              {maraiMoozhi.maraiMoozhiName}
+                            </span>
+                            <button
+                              onClick={() =>
+                                navigate(
+                                  `/Word-Search-App/maraiMozhi/${maraiMoozhi.maraiMoozhiName}`
+                                )
+                              }
+                              className="text-sm text-red-500 hover:text-orange-700 transition"
+                            >
+                              மேலும் அறிக
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+              </>
+            )}
           </div>
         )}
       </div>
