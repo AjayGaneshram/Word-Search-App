@@ -46,8 +46,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@users.noreply.github.com"
-          git add public/output.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update output.json"
+          git add public/output.js
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update output.js"
           git push
         continue-on-error: true  
 
@@ -58,7 +58,7 @@ jobs:
       - name: Checkout Source  
         uses: actions/checkout@v4
 
-      - name: Fetch Latest Changes (Ensure Updated output.json)
+      - name: Fetch Latest Changes (Ensure Updated output.js)
         run: |
           git pull origin main  # ✅ Pull latest committed changes before building
 
