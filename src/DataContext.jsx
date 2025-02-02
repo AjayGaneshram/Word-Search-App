@@ -18,7 +18,7 @@ const DataProvider = ({ children }) => {
         // .catch((error) => console.error("Error fetching JSON:", error));
 
 
-        import('../public/output.js')
+        import('./output.js')
             .then((module) => {
               setOutputJson(module.default);
             })
