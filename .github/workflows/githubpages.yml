@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'public/input.json'  # ✅ Trigger only when input.json changes
+      - 'src/input.json'  # ✅ Trigger only when input.json changes
   workflow_dispatch:
 
 permissions:
@@ -24,8 +24,8 @@ jobs:
 
       - name: Debug - Check if input.json exists
         run: |
-          if [ ! -f public/input.json ]; then
-            echo "❌ Error: input.json not found in public/"
+          if [ ! -f src/input.json ]; then
+            echo "❌ Error: input.json not found in src/"
             exit 1
           else
             echo "✅ input.json found!"
@@ -40,14 +40,14 @@ jobs:
         run: npm ci
 
       - name: Generate Output JSON
-        run: node public/generateJson.cjs  # ✅ Run from correct path
+        run: node src/generateJson.cjs  # ✅ Run from correct path
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@users.noreply.github.com"
-          git add public/output.js
-          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update output.js"
+          git add src/Output.jsx
+          git diff --quiet && git diff --staged --quiet || git commit -m "Auto-update Output.jsx"
           git push
         continue-on-error: true  
 
@@ -58,7 +58,7 @@ jobs:
       - name: Checkout Source  
         uses: actions/checkout@v4
 
-      - name: Fetch Latest Changes (Ensure Updated output.js)
+      - name: Fetch Latest Changes (Ensure Updated Output.jsx)
         run: |
           git pull origin main  # ✅ Pull latest committed changes before building
 
