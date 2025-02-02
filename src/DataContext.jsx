@@ -6,7 +6,7 @@ const DataProvider = ({ children }) => {
   const [searchResults, setSearchResults] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
-      import("./output.js")
+      import("../output.js")
         .then((module) => {
           setOutputJson(module.default);
         })
