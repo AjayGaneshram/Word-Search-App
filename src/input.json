@@ -115,7 +115,7 @@
   {
     "wordName": "சிந்தனை",
     "wordName_FirstLetter": "சி",
-    "wordNameDescription": "சிந்தனை என்பது , புலனொடு பொதிந்திருப்பது",
+    "wordNameDescription": "சிந்தனை என்பது புலனொடு பொதிந்திருப்பது",
     "books": [
       {
         "bookName_firstLetter": "உ",
@@ -132,7 +132,7 @@
         "maraiMoozhiDescription": null
       },
       {
-        "maraiMoozhiName": "சிந்தனை என்பது , புலனொடுபொதிந்திருப்பது",
+        "maraiMoozhiName": "சிந்தனை என்பது புலனொடு பொதிந்திருப்பது",
         "maraiMoozhiDescription": null
       }
     ],
@@ -163,7 +163,7 @@
     ]
   },
   {
-    "wordName": "தூண்டல் ",
+    "wordName": "தூண்டல்",
     "wordName_FirstLetter": "தூ",
     "wordNameDescription": "தூண்டல் எனப்படுவது நிலைமாற்றக் காரணி என்க",
     "books": [
@@ -441,7 +441,7 @@
     ]
   },
   {
-    "wordName": "வேடு ",
+    "wordName": "வேடு",
     "wordName_FirstLetter": "வே",
     "wordNameDescription": "வேடு எனும் சொல் மூடுதல்,மறைத்தல் என பொருட்கள் கொண்டது. அச்சொல்லே வேட்டல் எனும் விருப்பத்திற்கு உரித்தானது",
     "books": [

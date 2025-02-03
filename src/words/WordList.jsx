@@ -12,7 +12,7 @@ const WordList = ({ wordData, component }) => {
             {wordData.slice(0, visibleCount).map((word, index) => (
               <a
                 key={index}
-                href={`#${word}`}
+                href={`#${encodeURIComponent(word)}`}
                 className={`p-2 text-lg rounded-lg shadow-xl transition-all transform hover:scale-105 focus:outline-none ${
                   index === 0
                     ? "bg-red-800 text-white font-semibold"
@@ -43,7 +43,7 @@ const WordList = ({ wordData, component }) => {
             {wordData.slice(0, visibleCount).map((word, index) => (
               <a
                 key={index}
-                href={`#${word.wordName}`}
+                href={`#${encodeURIComponent(word.wordName)}`}
                 className={`p-2 text-lg rounded-lg shadow-xl transition-all transform hover:scale-105 focus:outline-none ${
                   index === 0
                     ? "bg-red-800 text-white font-semibold"

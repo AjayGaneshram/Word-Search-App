@@ -12,7 +12,6 @@ const WordsByFirstLetter = () => {
   const { letter } = useParams();
   const decodedLetter = decodeURIComponent(letter);
   const { outputJson } = useContext(DataContext);
-  // ✅ Fetch words grouped by first letter from output.json
   useEffect(() => {
     // fetch("./output.json")
     //   .then((response) => response.json())
@@ -76,9 +75,9 @@ const WordsByFirstLetter = () => {
             </div>
 
             <div>
-              {wordsGroupedByFirstLetter[decodedLetter].map((word) =>
+              {wordsGroupedByFirstLetter[decodedLetter].map((word,index) =>
                 wordDetails[word] ? (
-                  <div key={word}>
+                  <div key={index} id={wordDetails[word].wordName}>
                     {/* Word Title */}
                     <div className="mb-8 text-center">
                       <h1 className="text-4xl font-extrabold text-red-500 underline">
