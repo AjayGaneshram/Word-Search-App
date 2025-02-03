@@ -56,6 +56,10 @@ const SearchComponent = () => {
     setIsDropdownOpen(term.length > 0);
 
     const lowercasedTerm = term.toLowerCase();
+    if (!term.trim()) {
+      setSearchResults(hardcodedData);
+      return;
+    }
     if (!hardcodedData.words.length) return;
 
     const filteredData = {
@@ -77,7 +81,6 @@ const SearchComponent = () => {
     };
 
     setFilteredResults(filteredData);
-    setSearchResults(filteredData);
   };
 
   // Toggle category selection for filter
@@ -93,6 +96,7 @@ const SearchComponent = () => {
   // Close the dropdown on button click
   const closeDropdown = () => {
     setIsDropdownOpen(false);
+    setSearchResults(filteredResults);
   };
 
   // Map categories

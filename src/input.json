@@ -37,7 +37,7 @@
   {
     "wordName": "இயல்பு",
     "wordName_FirstLetter": "இ",
-    "wordNameDescription": "இயலெனப்படுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+    "wordNameDescription": "இருத்தலைத் தக்க வைப்பதும் பண்பினை உணர்தலும் இயல்பு",
     "books": [
       {
         "bookName_firstLetter": "வ",
@@ -54,7 +54,405 @@
     ],
     "maraimoozhis": [
       {
-        "maraiMoozhiName": "இயலெனப்படுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
+        "maraiMoozhiName": "இருத்தலைத் தக்க வைப்பதும் பண்பினை உணர்தலும் இயல்பு",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "இயல்பே காத்தல் செய்யும்",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": [
+      {
+        "youtubeName": "இயல்பு தொழிலை கண்டறிவது எப்படி?",
+        "youTubeURL": "https://youtu.be/dfMCwhqUyo0?si=OU91yH1e88FEjvW7"
+      },
+      {
+        "youtubeName": "இயல்பே காத்தல் செய்யும்",
+        "youTubeURL": "https://youtu.be/Pq89Nk8H0KE?si=nORs7DsGXYkvI0_B"
+      }
+    ]
+  },
+  {
+    "wordName": "உயிர்",
+    "wordName_FirstLetter": "உ",
+    "wordNameDescription": "நில்லாச் சுழலியக்கத் துகள் உயிர் என்க அணுவினும் நுண்மை அதன் அளவு",
+    "books": [
+      {
+        "bookName_firstLetter": "உ",
+        "bookName": "உயிர் நூல்"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "நில்லாச் சுழலியக்கத் துகள் உயிர் என்க அணுவினும் நுண்மை அதன் அளவு",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "சிவமே உயிர்",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "தானே தனையறிதல் ,தானே தனதாதல் உயிரின் இயல்புகள் தானே தனக்காதல் உயிரின் குணம்",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "ஓருடல் ஓருயிர் அல்ல",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "பிறக்காத உயிரில்லை , இறக்கின்ற உயிரில்லை, சிவமே உயிர் !",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": [
+      {
+        "youtubeName": "உயிர் நலம்",
+        "youTubeURL": "https://youtu.be/kKEGiV9xrGs?si=VvS_vGVP1uEPXubq"
+      }
+    ]
+  },
+  {
+    "wordName": "சிந்தனை",
+    "wordName_FirstLetter": "சி",
+    "wordNameDescription": "சிந்தனை என்பது , புலனொடு பொதிந்திருப்பது",
+    "books": [
+      {
+        "bookName_firstLetter": "உ",
+        "bookName": "உயிர் நூல்"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "நுண்காலம் பெருங்காலம் ஆதல் சிந்தனை என்க",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "காலம் சிந்தனையுள் உறைகிறது",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "சிந்தனை என்பது , புலனொடுபொதிந்திருப்பது",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": [
+      {
+        "youtubeName": "சிந்தனை நலம்",
+        "youTubeURL": "https://youtu.be/YtJwGLlsc7Y?si=tm5DdRCf_VFkYqC9"
+      },
+      {
+        "youtubeName": "சிந்தனை வாழ்வு",
+        "youTubeURL": "https://youtu.be/9mpqAUdoVMw?si=mjzhJh7wEytM2q5y"
+      },
+
+      {
+        "youtubeName": "சிந்தனை வழி செம்மையாதல்",
+        "youTubeURL": "https://youtu.be/_z5kvX_R88U?si=RSYSmS9h6IVD6gNo"
+      },
+
+      {
+        "youtubeName": "சிந்தனையில் தீர்வு உள்ளது இது சிந்தனை வழி செம்மையாதல் உரையின் தொடர்ச்சி",
+        "youTubeURL": "https://youtu.be/fOtgowLRZYE?si=2bjJ-aT6Ns2kHIPN"
+      },
+
+      {
+        "youtubeName": "சிந்தையில் வழி உள்ளது",
+        "youTubeURL": "https://youtu.be/aii97v9Vj9s?si=XcdykCZlgMKlMzXa"
+      }
+    ]
+  },
+  {
+    "wordName": "தூண்டல் ",
+    "wordName_FirstLetter": "தூ",
+    "wordNameDescription": "தூண்டல் எனப்படுவது நிலைமாற்றக் காரணி என்க",
+    "books": [
+      {
+        "bookName_firstLetter": "உ",
+        "bookName": "உயிர் நூல்"
+      },
+      {
+        "bookName_firstLetter": "உ",
+        "bookName": "உணர்ச்சி இயல்"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "தூண்டல் எனப்படுவது நிலைமாற்றக் காரணி என்க",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "உறையுங் காலத்தை யுசுப்பந் தூண்டல் உணர்ச்சி என்றாகும்",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "சீர்மையும் ஒழுங்கும் தூண்டலால் நிகழ்பவை என்க",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "ஒழுங்கமைவும் தூண்டலால் என்றறிக",
+        "maraiMoozhiDescription": null
+      },
+
+      {
+        "maraiMoozhiName": "இயல்பினை இருத்துதல் தூண்டலின் நிகழ்ச்சி என்க",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": []
+  },
+  {
+    "wordName": "இயக்கம்",
+    "wordName_FirstLetter": "இ",
+    "wordNameDescription": "உரு, இயல்பு, நோக்கம், குணம் இந்த நான்கும் இல்லை என்றால் அது இயக்கம்",
+    "books": [
+      {
+        "bookName_firstLetter": "வ",
+        "bookName": "வடிவு நூல்"
+      },
+      {
+        "bookName_firstLetter": "எ",
+        "bookName": "எண் நூல்"
+      },
+      {
+        "bookName": "மூல நூல்",
+        "bookName_firstLetter": "மூ"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "இயக்கம் ஏதுமற்றது",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "இயக்கம் தணித்லே ஆற்றல் பெருக்கம்",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "தொடக்கவும் முடிவும் அற்றது",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": []
+  },
+  {
+    "wordName": "பண்பு",
+    "wordName_FirstLetter": "ப",
+    "wordNameDescription": "சிவத்திற்கு நெருக்கமானது",
+    "books": [
+      {
+        "bookName_firstLetter": "வ",
+        "bookName": "வடிவு நூல்"
+      },
+      {
+        "bookName_firstLetter": "எ",
+        "bookName": "எண் நூல்"
+      },
+      {
+        "bookName": "மூல நூல்",
+        "bookName_firstLetter": "மூ"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "பண்பெனப்படுவது படிமுறைப்படுவது",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": []
+  },
+  {
+    "wordName": "மையம்",
+    "wordName_FirstLetter": "மை",
+    "wordNameDescription": "புறப்பட்ட இடமும் வந்தடையும் இடமும் ஒன்றே முதல் மையம் என்க",
+    "books": [
+      {
+        "bookName_firstLetter": "வ",
+        "bookName": "வடிவு நூல்"
+      },
+      {
+        "bookName_firstLetter": "எ",
+        "bookName": "எண் நூல்"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "புறப்பட்ட இடமும் வந்தடையும் இடமும் ஒன்றே முதல் மையம் என்க",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": []
+  },
+  {
+    "wordName": "செயல்",
+    "wordName_FirstLetter": "செ",
+    "wordNameDescription": "விளைவு நோக்குச் செய்கை செயலாகும்",
+    "books": [
+      {
+        "bookName_firstLetter": "வ",
+        "bookName": "வடிவு நூல்"
+      },
+      {
+        "bookName_firstLetter": "எ",
+        "bookName": "எண் நூல்"
+      },
+      {
+        "bookName_firstLetter": "உ",
+        "bookName": "உயிர் நூல்"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "கருத்துச் சேர்க்கையை ஒழித்தல் செயலாகும் மனமும் குணமும் சேர்க்கையாவன",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "விளைவிக்கும் செய்கை தொழிலாகும், விளைவறியாச் செய்கை வினையாகும், விளைவுநோக்குச் செய்கை செயலாகும்",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": []
+  },
+
+  {
+    "wordName": "வினை",
+    "wordName_FirstLetter": "வி",
+    "wordNameDescription": "விளைவறியாச் செய்கை வினையாகும் ",
+    "books": [
+      {
+        "bookName_firstLetter": "வ",
+        "bookName": "வடிவு நூல்"
+      },
+      {
+        "bookName_firstLetter": "எ",
+        "bookName": "எண் நூல்"
+      },
+      {
+        "bookName_firstLetter": "உ",
+        "bookName": "உயிர் நூல்"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "விருப்பமே வினைக்கு உறவாகும்",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "விளைவிக்கும் செய்கை தொழிலாகும், விளைவறியாச் செய்கை வினையாகும், விளைவுநோக்குச் செய்கை செயலாகும்",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "உட்புகல் இருவினை ஆக்கும் உள்ளூறல் உள்வினை நீக்கும்",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": [
+      {
+        "youtubeName": "வினை ஊக்கம்",
+        "youTubeURL": "https://youtu.be/ac8U2_pL9QU?si=pI0R7wKa7Wqnkbbl"
+      },
+      {
+        "youtubeName": "வினை நலம்",
+        "youTubeURL": "https://youtu.be/3cE4Ytf-f1Y?si=GaPMDbNmpkSSBOmC"
+      }
+    ]
+  },
+  {
+    "wordName": "முயக்கம்",
+    "wordName_FirstLetter": "மு",
+    "wordNameDescription": "வேறுவேறு வகையினம் தம்முள் கலந்திருத்தலும்,அவ்வாறு கலந்திருக்கையில் தமக்கு தனித்தனி உரு இல்லை, எனும் படியாக தனி இயல்பு இன்றி இருத்தலும் ஆகும்",
+    "books": [
+      {
+        "bookName_firstLetter": "வ",
+        "bookName": "வடிவு நூல்"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "தனியுரு முகிழா முந்துநிலை யுள்ளே கருவுரு முயக்கமும் இயக்கத் தணிகையும் மூலம் என்க",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": []
+  },
+  {
+    "wordName": "அணு",
+    "wordName_FirstLetter": "அ",
+    "wordNameDescription": "உணர்வின் இயக்கம் தணிகையில் முதலில் வெளிப்படுவது அணு",
+    "books": [
+      {
+        "bookName_firstLetter": "வ",
+        "bookName": "வடிவு நூல்"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "அணு விலக்கமே ஆகாயம் ஆகிறது",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "ஆற்றல் நிறைத்துகள் அணுவென்க",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": []
+  },
+  {
+    "wordName": "இச்சை",
+    "wordName_FirstLetter": "இ",
+    "wordNameDescription": "உரிமை மறுத்தல் மற்றும் உரிமை பறித்தல் ஆகிய இருதன்மைகளைக் கொண்டது",
+    "books": [
+      {
+        "bookName_firstLetter": "உ",
+        "bookName": "உயிர் நூல்"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "இச்சை, பொறாமை ,பெருமை ஆகியவை அகந்தையின் விளைவு",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": [
+      {
+        "youtubeName": "அகந்தை விலக்கல்",
+        "youTubeURL": "https://youtu.be/YYqiw_WfcRY?si=aeyMbX8O41p7WuSf"
+      },
+      {
+        "youtubeName": "மனம்-வகுப்பு 1-அகந்தை அறிமுகம்",
+        "youTubeURL": "https://youtu.be/t4hgq2OBW1Y?si=7qV0K8x5dCut4t3R"
+      },
+      {
+        "youtubeName": "மனம்-வகுப்பு -2--அகந்தை- இச்சை",
+        "youTubeURL": "https://youtu.be/NBtpeBYYogQ?si=Y5W1WIeauS5mEpuX"
+      },
+      {
+        "youtubeName": "மனம்-வகுப்பு -3--அகந்தை-பெருமை",
+        "youTubeURL": "https://youtu.be/W6kzcji5HuY?si=4ET41fIi_K3iDhv8"
+      }
+    ]
+  },
+  {
+    "wordName": "வேடு ",
+    "wordName_FirstLetter": "வே",
+    "wordNameDescription": "வேடு எனும் சொல் மூடுதல்,மறைத்தல் என பொருட்கள் கொண்டது. அச்சொல்லே வேட்டல் எனும் விருப்பத்திற்கு உரித்தானது",
+    "books": [
+      {
+        "bookName_firstLetter": "உ",
+        "bookName": "உயிர் நூல்"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "மனிதப் பிறவியில் உமது நிலை தரித்த வேடம்",
         "maraiMoozhiDescription": null
       }
     ],
