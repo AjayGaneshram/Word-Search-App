@@ -326,7 +326,7 @@ const TamilAlphabetTable = ({ words }) => {
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-semibold text-center mb-6 text-red-600">
-        அகர வரிசை சொற்கள்
+        தொடரடைவுகள்
       </h2>
       <div className="overflow-x-auto overflow-y-auto max-h-[400px] border border-gray-300 rounded-lg shadow-lg">
         <table className="min-w-full table-auto border-collapse">
@@ -394,19 +394,20 @@ const TamilAlphabetTable = ({ words }) => {
 
 const LetterHomePage = () => {
   const [wordDetails, setWordDetails] = useState([]);
-  const {outputJson} =useContext(DataContext)
+  const { outputJson } = useContext(DataContext);
   useEffect(() => {
     // fetch("./output.json") // Fetch from public folder
     //   .then((response) => response.json())
     //   .then((data) => {
-      outputJson!=null && setWordDetails(
-          outputJson["words"].map((word) => ({
-            word: word.wordName,
-            wordNameDescription: word.wordNameDescription,
-          }))
-        );
-      // })
-      // .catch((error) => console.error("Error fetching JSON:", error));
+    outputJson != null &&
+      setWordDetails(
+        outputJson["words"].map((word) => ({
+          word: word.wordName,
+          wordNameDescription: word.wordNameDescription,
+        }))
+      );
+    // })
+    // .catch((error) => console.error("Error fetching JSON:", error));
   }, [outputJson]);
 
   return (
