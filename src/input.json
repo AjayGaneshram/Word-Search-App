@@ -37,7 +37,7 @@
   {
     "wordName": "இயல்பு",
     "wordName_FirstLetter": "இ",
-    "wordNameDescription": "இருத்தலைத் தக்க வைப்பதும் பண்பினை உணர்தலும் இயல்பு",
+    "wordNameDescription": "இருத்தலைத் தக்க வைப்பதும் மூலத்தை உணர்வதும் ஆகும்",
     "books": [
       {
         "bookName_firstLetter": "வ",
@@ -54,7 +54,7 @@
     ],
     "maraimoozhis": [
       {
-        "maraiMoozhiName": "இருத்தலைத் தக்க வைப்பதும் பண்பினை உணர்தலும் இயல்பு",
+        "maraiMoozhiName": "இருத்தலைத் தக்க வைப்பதும் மூலத்தை உணர்வதும் ஆகும்",
         "maraiMoozhiDescription": null
       },
       {
@@ -229,7 +229,7 @@
         "maraiMoozhiDescription": null
       },
       {
-        "maraiMoozhiName": "இயக்கம் தணித்லே ஆற்றல் பெருக்கம்",
+        "maraiMoozhiName": "இயக்கம் தணித்தலே ஆற்றல் பெருக்கம்",
         "maraiMoozhiDescription": null
       },
       {
@@ -268,7 +268,7 @@
   {
     "wordName": "மையம்",
     "wordName_FirstLetter": "மை",
-    "wordNameDescription": "புறப்பட்ட இடமும் வந்தடையும் இடமும் ஒன்றே முதல் மையம் என்க",
+    "wordNameDescription": "புறப்பட்ட இடமும் வந்தடையும் இடமும் ஒன்றே யாதல் மையம் என்க",
     "books": [
       {
         "bookName_firstLetter": "வ",
@@ -285,7 +285,7 @@
     ],
     "maraimoozhis": [
       {
-        "maraiMoozhiName": "புறப்பட்ட இடமும் வந்தடையும் இடமும் ஒன்றே முதல் மையம் என்க",
+        "maraiMoozhiName": "புறப்பட்ட இடமும் வந்தடையும் இடமும் ஒன்றே யாதல் மையம் என்க",
         "maraiMoozhiDescription": null
       }
     ],
