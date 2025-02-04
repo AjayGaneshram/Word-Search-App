@@ -331,7 +331,7 @@ const TamilAlphabetTable = ({ words }) => {
       <div className="overflow-x-auto overflow-y-auto max-h-[400px] border border-gray-300 rounded-lg shadow-lg">
         <table className="min-w-full table-auto border-collapse">
           <thead>
-            <th className="px-4 py-2 bg-gray-200 font-bold border border-gray-300"></th>
+            {/* <th className="px-4 py-2 bg-gray-200 font-bold border border-gray-300"></th> */}
             {uyirEzhuthukkal.map((uyir, index) => (
               <th
                 key={index}
@@ -362,9 +362,9 @@ const TamilAlphabetTable = ({ words }) => {
                     index % 2 === 0 ? "bg-gray-100" : "bg-white"
                   }`}
                 >
-                  <td className="px-4 py-2 bg-gray-200 font-bold border border-gray-300">
+                  {/* <td className="px-4 py-2 bg-gray-200 font-bold border border-gray-300">
                     {row.mei}
-                  </td>
+                  </td> */}
                   {row.uyirmei.map((uyirmei, i) => (
                     <td
                       key={i}

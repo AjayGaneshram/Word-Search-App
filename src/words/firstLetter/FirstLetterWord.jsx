@@ -3,6 +3,7 @@ import Header from "../../HomeComponents/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import { DataContext } from "../../DataContext";
 import WordList from "../WordList";
+import WordDetailsSections from "../WordDetailsSection";
 
 const WordsByFirstLetter = () => {
   const [wordsGroupedByFirstLetter, setWordsGroupedByFirstLetter] = useState(
@@ -75,7 +76,7 @@ const WordsByFirstLetter = () => {
             </div>
 
             <div>
-              {wordsGroupedByFirstLetter[decodedLetter].map((word,index) =>
+              {wordsGroupedByFirstLetter[decodedLetter].map((word, index) =>
                 wordDetails[word] ? (
                   <div key={index} id={wordDetails[word].wordName}>
                     {/* Word Title */}
@@ -88,9 +89,13 @@ const WordsByFirstLetter = () => {
                         {wordDetails[word].wordNameDescription}
                       </p>
                     </div>
-
+                    <WordDetailsSections
+                      wordDetails={wordDetails[word]}
+                      handleNavigate={handleNavigate}
+                      maraimoozhiHandleNavigate={maraimoozhiHandleNavigate}
+                    />
                     {/* Books Section */}
-                    {wordDetails[word].books.length > 0 && (
+                    {/* {wordDetails[word].books.length > 0 && (
                       <div className="mb-8">
                         <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                           நூல்கள்
@@ -107,10 +112,10 @@ const WordsByFirstLetter = () => {
                           ))}
                         </ul>
                       </div>
-                    )}
+                    )} */}
 
                     {/* Marai Moozhis Section */}
-                    {wordDetails[word].maraimoozhis.length > 0 && (
+                    {/* {wordDetails[word].maraimoozhis.length > 0 && (
                       <div className="mb-8">
                         <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                           மறை மொழிகள்
@@ -133,10 +138,10 @@ const WordsByFirstLetter = () => {
                           )}
                         </ul>
                       </div>
-                    )}
+                    )} */}
 
                     {/* YouTube Videos Section */}
-                    {wordDetails[word].youtubeNames.length > 0 && (
+                    {/* {wordDetails[word].youtubeNames.length > 0 && (
                       <div className="mb-8">
                         <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                           உரைகள்
@@ -158,7 +163,7 @@ const WordsByFirstLetter = () => {
                           )}
                         </ul>
                       </div>
-                    )}
+                    )} */}
                   </div>
                 ) : null
               )}
