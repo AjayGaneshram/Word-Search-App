@@ -13,6 +13,16 @@ const WordsByFirstLetter = () => {
   const { letter } = useParams();
   const decodedLetter = decodeURIComponent(letter);
   const { outputJson } = useContext(DataContext);
+
+  const uriLetterMeaning = {
+    அ: "ஆற்றலின் ஈற்றில் 'அ' அமைகிறது",
+    இ: "ஆற்றலின் இடை நிலையில் 'இ' இருக்கிறது",
+    உ: "ஆற்றலின் முதல் நிலையில் 'உ' உள்ளது",
+    எ: "இ அ ஆகிய எழுத்துகள் 'எ' என்றாகின்றன.இவ்வாறு இவை ஆவது அகரத்துடன் உ மற்றும் இ கலவி ஆதலின் விளைவுகளாகும்",
+    ஒ: "உ முதலாக அ ஈறாக உள்ள நிலை 'ஒ' என்றாகிறது.உ முதல் அ வரையிலானவற்றை உள் அடக்கி இருத்தல் ஒகரத்தின் இயல்பு",
+    ஐ: "அ இ இயைதல் 'ஐ' ஆகிறது.இஃது ஆற்றல் மையம் என்றுள்ளது.ஐ எனும் எழுத்து தலைமை, மையம் என்று பொருளாகும்.",
+    ஔ: "அ உ இயைதல் 'ஔ' ஆகிறது",
+  };
   useEffect(() => {
     // fetch("./output.json")
     //   .then((response) => response.json())
@@ -68,7 +78,10 @@ const WordsByFirstLetter = () => {
               <h1 className="sm:text-sm md:text-xl font-extrabold text-red-500 mb-6">
                 <span className="text-2xl">{decodedLetter}</span> வரிசை சொற்கள்
               </h1>
-
+              <h3 className="sm:text-xs md:text-base font-bold text-red-600 mb-6">
+                {" "}
+                {uriLetterMeaning[decodedLetter]}
+              </h3>
               <WordList
                 wordData={wordsGroupedByFirstLetter[decodedLetter]}
                 component="firstLetter"
