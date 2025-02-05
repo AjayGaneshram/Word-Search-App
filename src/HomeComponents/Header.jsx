@@ -55,17 +55,18 @@ const Header = () => {
           >
             <a>சொற்கள்</a>
           </b>
-          <b
-            onClick={() => handleNavigate()}
-            className="text-white text-base md:text-lg cursor-pointer"
-          >
-            <a>நூல்கள்</a>
-          </b>
+
           <b
             onClick={() => maraiMoozhiNavigate()}
             className="text-white text-base md:text-lg cursor-pointer"
           >
             <a> மறை மொழிகள்</a>
+          </b>
+          <b
+            onClick={() => handleNavigate()}
+            className="text-white text-base md:text-lg cursor-pointer"
+          >
+            <a>நூல்கள்</a>
           </b>
         </div>
       </div>
@@ -86,18 +87,19 @@ const Header = () => {
             {" "}
             <a>சொற்கள்</a>
           </b>
+
+          <b
+            onClick={() => maraiMoozhiNavigate()}
+            className="text-white text-base cursor-pointer"
+          >
+            <a> மறை மொழிகள்</a>
+          </b>
           <b
             onClick={() => handleNavigate()}
             className="text-white text-base cursor-pointer"
           >
             {" "}
             <a>நூல்கள்</a>
-          </b>
-          <b
-            onClick={() => maraiMoozhiNavigate()}
-            className="text-white text-base cursor-pointer"
-          >
-            <a> மறை மொழிகள்</a>
           </b>
         </div>
       )}
