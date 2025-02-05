@@ -14,6 +14,7 @@ import WordSummary from "./words/WordSummary.jsx";
 import NotFound from "./NotFound.jsx";
 import WordsByFirstLetter from "./words/firstLetter/FirstLetterWord.jsx";
 import DataProvider, { DataContext } from "./DataContext.jsx";
+import WordBookMaraimoozhi from "./words/WordBookMaraimoozhi.jsx";
 
 createRoot(document.getElementById("root")).render(
   <DataProvider>
@@ -44,6 +45,10 @@ createRoot(document.getElementById("root")).render(
         <Route
           path="/Word-Search-App/maraiMozhi/:maraiMoozhi"
           element={<WordsinMaraiMoozhi />}
+        />
+        <Route
+          path="/Word-Search-App/tirattu"
+          element={<WordBookMaraimoozhi />}
         />
       </Routes>
     </BrowserRouter>

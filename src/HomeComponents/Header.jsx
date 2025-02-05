@@ -16,6 +16,10 @@ const Header = () => {
   const homePageNavigate = () => {
     navigate(`/Word-Search-App/home`);
   };
+
+  const tirattuPageNavigate = () => {
+    navigate(`/Word-Search-App/tirattu`);
+  };
   return (
     <div className="bg-red-800 h-16 w-full relative">
       {/* Navbar */}
@@ -30,7 +34,7 @@ const Header = () => {
           className="text-white text-2xl md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-      {menuOpen ? (
+          {menuOpen ? (
             <span className="text-white text-3xl">&times;</span>
           ) : (
             <span className="text-white text-3xl">&#9776;</span>
@@ -39,6 +43,12 @@ const Header = () => {
 
         {/* Menu Items for Desktop */}
         <div className="hidden md:flex gap-x-8">
+          <b
+            onClick={() => tirattuPageNavigate()}
+            className="text-white text-base md:text-lg cursor-pointer"
+          >
+            <a>திரட்டு</a>
+          </b>
           <b
             onClick={() => wordNavigate()}
             className="text-white text-base md:text-lg cursor-pointer"
@@ -63,6 +73,12 @@ const Header = () => {
       {/* Collapsible Menu for Mobile */}
       {menuOpen && (
         <div className="absolute top-full left-0 w-full bg-red-800 z-50 md:hidden flex flex-col gap-y-2 p-4 shadow-lg">
+          <b
+            onClick={() => tirattuPageNavigate()}
+            className="text-white text-base md:text-lg cursor-pointer"
+          >
+            <a>திரட்டு</a>
+          </b>
           <b
             onClick={() => wordNavigate()}
             className="text-white text-base cursor-pointer"
