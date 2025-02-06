@@ -37,7 +37,7 @@
   {
     "wordName": "இயல்பு",
     "wordName_FirstLetter": "இ",
-    "wordNameDescription": "இருத்தலைத் தக்க வைப்பதும் மூலத்தை உணர்வதும் ஆகும்",
+    "wordNameDescription": "உயிரினங்கள் இருத்தலை தக்க வைப்பதற்காக ஆற்றும் வினைகளின் தொகுப்பு.இயல்பின் முதல் நிலை: இருத்தலை தக்க வைப்பது.இயல்பின் 2ஆம் நிலை: இருத்தலை தக்க வைப்பதும்,மூலத்தை உணர்வதும்.",
     "books": [
       {
         "bookName_firstLetter": "வ",
@@ -50,28 +50,19 @@
       {
         "bookName": "மூல நூல்",
         "bookName_firstLetter": "மூ"
+      },
+      {
+        "bookName": "அண்டவியல் முதல் நிலை",
+        "bookName_firstLetter": "அ"
       }
     ],
     "maraimoozhis": [
       {
-        "maraiMoozhiName": "இருத்தலைத் தக்க வைப்பதும் மூலத்தை உணர்வதும் ஆகும்",
-        "maraiMoozhiDescription": null
-      },
-      {
-        "maraiMoozhiName": "இயல்பே காத்தல் செய்யும்",
+        "maraiMoozhiName": "இயலெனப்படுவது இருத்தலை தக்கவைத்தலும் மூலத்தை உணர்வதும்",
         "maraiMoozhiDescription": null
       }
     ],
-    "youTubeVideos": [
-      {
-        "youtubeName": "இயல்பு தொழிலை கண்டறிவது எப்படி?",
-        "youTubeURL": "https://youtu.be/dfMCwhqUyo0?si=OU91yH1e88FEjvW7"
-      },
-      {
-        "youtubeName": "இயல்பே காத்தல் செய்யும்",
-        "youTubeURL": "https://youtu.be/Pq89Nk8H0KE?si=nORs7DsGXYkvI0_B"
-      }
-    ]
+    "youTubeVideos": []
   },
   {
     "wordName": "உயிர்",
@@ -413,6 +404,14 @@
       {
         "bookName_firstLetter": "உ",
         "bookName": "உயிர் நூல்"
+      },
+      {
+        "bookName_firstLetter": "சீ",
+        "bookName": "சீர்"
+      },
+      {
+        "bookName_firstLetter": "வி",
+        "bookName": "விருப்பு"
       }
     ],
     "maraimoozhis": [
@@ -456,6 +455,279 @@
         "maraiMoozhiDescription": null
       }
     ],
+    "youTubeVideos": []
+  },
+  {
+    "wordName": "உறுபொருள்",
+    "wordName_FirstLetter": "உ",
+    "wordNameDescription": "தானாக வந்தடையும் பொருள்.உயிருக்கு உடல், ஐம்பூதம் மழை,உயிரனக் கூட்டம் எல்லாம் உறுபொருட்களே.",
+    "books": [],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "உறுபொருள் சேர்க்கை உண்மையைக் வெளிபடுத்தும்.",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": [
+      {
+        "youtubeName": "உறுபொருள் நலம்",
+        "youTubeURL": "https://www.youtube.com/watch?v=axpTE68GFos&t=730s"
+      }
+    ]
+  },
+  {
+    "wordName": "உணவு",
+    "wordName_FirstLetter": "உ",
+    "wordNameDescription": "சூழலை உள்வாங்குதல்.புலன்களின் வழியாக உடல் உள்வாங்கும் அனைத்தும் உணவுதான்.தோல் காற்றையும், வாய் உணவுப் பொருட்களையும், நாசி நாற்றத்தையும், கண் காட்சியையும், காது ஒலியையும், மனம் சிந்தனையையும் உள்வாங்கிதான் உடலை வளர்க்கும்.",
+    "books": [
+      {
+        "bookName_firstLetter": "உ",
+        "bookName": "உணவு நூல்"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "விரிவின் செறிவு உணவு",
+        "maraiMoozhiDescription": null
+      },
+      {
+        "maraiMoozhiName": "உணவெனப்படுவது நிலத்தொடு நீரே ( புறநானுற்று பாடல் 18 குடபுலவியனார்)",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": [
+      {
+        "youtubeName": "உணவு நலம்- -ஐந்து வகையான உணவுகள்",
+        "youTubeURL": "https://www.youtube.com/watch?v=JIO73LCJifY"
+      },
+      {
+        "youtubeName": "உணவு நலம்",
+        "youTubeURL": "https://youtu.be/CGReVtQ4k7E?si=jYYXHUJ7wh6dfSn4"
+      },
+      {
+        "youtubeName": "ஆசானிடம் கற்ற சமையல் முறைகள்!",
+        "youTubeURL": "https://youtu.be/cuhbcd6aRWU?si=X3NJvzH04EuBNMzn"
+      },
+      {
+        "youtubeName": "உணவு மருந்து பொறுப்பு",
+        "youTubeURL": "https://youtu.be/w6v3MlV-0a8?si=4dFr-ZXsFJHUbpE4"
+      },
+      {
+        "youtubeName": "உணவுப் பொருட்களில் அக்கறை காட்டுங்கள்",
+        "youTubeURL": "https://youtu.be/y-hsJynaeTI?si=TX2LpNMA0nMg90eR"
+      },
+      {
+        "youtubeName": "உணவுப் பழக்கம் மற்றும் மருந்து செய்முறைகள்",
+        "youTubeURL": "https://youtu.be/Frkx2hyd8sE?si=57KMEAflLHUY7PY6"
+      },
+      {
+        "youtubeName": "செம்மை அறக்கட்டளையின்தூய்மைப் பணியாளருக்கான காலை உணவுச் செயல்திட்டம்!",
+        "youTubeURL": "https://youtu.be/slZFF0ZlITA?si=WYsxaNawJRY_BAS9"
+      },
+      {
+        "youtubeName": "செரிமான மேம்பாடு! -இன்றைய தேவை ஆசான் ம.செந்தமிழன்உணவு மற்றும் வீட்டு மருந்துகள் நடைமுறை",
+        "youTubeURL": "https://youtu.be/EBnCgnyAS2s?si=OdqbOw6iOs85f5ca"
+      },
+      {
+        "youtubeName": "அரவணைக்க வாருங்கள்! சீர் உணவு செயல் திட்டம்",
+        "youTubeURL": "https://youtu.be/bDnxS_3KFQs?si=n1Kxz_He6UBNr4_H"
+      },
+
+      {
+        "youtubeName": "உணவு இயல்பு - நூல் அறிமுகம்",
+        "youTubeURL": "https://youtu.be/nQSZcGvp0Ow?si=XUEznyZtCSYC3fkZ"
+      },
+      {
+        "youtubeName": "ஆக்கை உணவு - செம்மை இல்லம் பாடநூல் வரிசை 1 நூல் அறிமுகம்",
+        "youTubeURL": "https://youtu.be/6wTGRQgtzug?si=HmYzxKuyZ8lJ3twk"
+      },
+
+      {
+        "youtubeName": "கடுகு பயணம்-- தேனி--விதைகள் மற்றும் உணவு உரிமையை பாதுகாப்பதின் இன்றைய அவசியம்",
+        "youTubeURL": "https://youtu.be/Zq41N5nBNtU?si=0thQHKoV7gETufDB"
+      }
+    ]
+  },
+  {
+    "wordName": "உறவு",
+    "wordName_FirstLetter": "உ",
+    "wordNameDescription": "உயிரால் அமைவது.ஈர்க்கும், ஈர்க்கப்படும் பொருட்களும் உறவாடுகின்றன.புரிந்து கொள்ளல் உறவு.இறைக்கும் நமக்கும் உள்ளது உறவு",
+    "books": [
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை"
+      }
+    ],
+    "maraimoozhis": [
+      
+    ],
+    "youTubeVideos": [
+      {
+        "youtubeName": "உறவு நலம்",
+        "youTubeURL": "https://www.youtube.com/watch?v=HNcUfOUcAYY"
+      },
+      {
+        "youtubeName": "உறவு என்றால் என்ன?",
+        "youTubeURL": "https://youtu.be/UP91Rqn1xWs?si=ZNLwuzJrDwXJ-XlT"
+      },
+      {
+        "youtubeName": "உறவின் ஆளுமை",
+        "youTubeURL": "https://youtu.be/RB_UaRN3ep8?si=TA-zxLCpv1q-r87p"
+      }
+    ]
+  },
+  {
+    "wordName": "உவர்ப்பு ",
+    "wordName_FirstLetter": "உ",
+    "wordNameDescription": "ஆதி சுவை.புவியில் நிலம் உருவாவதற்கு முன்பு இருந்த எரிநீர் உவர்ப்பு சுவையில் தான் இருந்தது",
+    "books": [
+      {
+        "bookName_firstLetter": "சு",
+        "bookName": "சுவையியல்"
+      }
+    ],
+    "maraimoozhis": [],
+    "youTubeVideos": []
+  },
+  {
+    "wordName": "உலகம்",
+    "wordName_FirstLetter": "உ",
+    "wordNameDescription": "ஐம்பூத மயக்கமே உலகம்.ஐம்பூதமாகிய நிலம், நீர், தீ, வளி, விசும்பின் மயக்கமே உலகம்.குறிஞ்சி நிலம் மடுவரை உலகம்",
+    "books": [
+      {
+        "bookName_firstLetter": "தொ",
+        "bookName": "தொல்காப்பியம் மரபியல் உரை"
+      }
+    ],
+    "maraimoozhis": [],
+    "youTubeVideos": [
+      {
+        "youtubeName": "அண்டத்துக்குள் உலகங்கள்",
+        "youTubeURL": "https://youtu.be/6bGaXtVdT1M?si=QIhe91numAckyvmN"
+      }
+    ]
+  },
+  {
+    "wordName": "இறை",
+    "wordName_FirstLetter": "இ",
+    "wordNameDescription": "எல்லாமே இறைதான்.  வரம்புகளுக்குள் அடங்காதது.ஆக்கம்,அளவு,இறுதி இல்லாதவன் என்பது மாணிக்கவாசகர் கூற்று.",
+    "books": [
+      {
+        "bookName_firstLetter": "அ",
+        "bookName": "அண்டவியல் முதல் நிலை"
+      }
+    ],
+    "maraimoozhis": [],
+    "youTubeVideos": [
+      {
+        "youtubeName": "இறையியல் முதல் நிலை",
+        "youTubeURL": "https://youtu.be/h-Yf4tijhj8?si=MCHEbmmRPJrIzQcu"
+      },
+      {
+        "youtubeName": "காதலே திருவாயில்- இறையியல் இரண்டாம் நிலை",
+        "youTubeURL": "https://youtu.be/aK7RhgiZeNI?si=cWdIP61zuGPOUpiG"
+      },
+      {
+        "youtubeName": "ஏற்புடைமை-இறையியல் மூன்றாம் நிலை",
+        "youTubeURL": "https://youtu.be/qmkGDZbsG8w?si=awW0dfdtRtzX_0Gz"
+      },
+      {
+        "youtubeName": "இறைத் தமிழ் நலம்",
+        "youTubeURL": "https://youtu.be/FjgZGNx1F48?si=Ob392LhXIOgMvMBi"
+      }
+    ]
+  },
+  {
+    "wordName": "உண்மை",
+    "wordName_FirstLetter": "உ",
+    "wordNameDescription": "விளைவை நோக்காதது.விளைவு நோக்காத சொற்கள் உண்மையானவை.விளைவு நோக்காத செயல்கள் உண்மையானவை.",
+    "books": [],
+    "maraimoozhis": [],
+    "youTubeVideos": [
+      {
+        "youtubeName": "உண்மை வழி",
+        "youTubeURL": "https://www.youtube.com/watch?v=T9Q4-t3HLPM&t=507s"
+      },
+      {
+        "youtubeName": "உண்மை நலம்",
+        "youTubeURL": "https://youtu.be/CmvxdpQYPoo?si=L4GPOoIplOwGItj7"
+      },
+      {
+        "youtubeName": "ஏற்புடைமை-இறையியல் மூன்றாம் நிலை",
+        "youTubeURL": "https://youtu.be/qmkGDZbsG8w?si=awW0dfdtRtzX_0Gz"
+      },
+      {
+        "youtubeName": "அகவிடுதலை-மன நலம்",
+        "youTubeURL": "https://youtu.be/g0-0y27MDps?si=MY7-UmQrhP_FjKOp"
+      }
+    ]
+  },
+  {
+    "wordName": "உருவம்",
+    "wordName_FirstLetter": "உ",
+    "wordNameDescription": "வெளிப்பாடு.புலனறிவுக்கு எட்டுவது",
+    "books": [
+      {
+        "bookName_firstLetter": "வ",
+        "bookName": "வடிவு நூல்"
+      }
+    ],
+    "maraimoozhis": [],
+    "youTubeVideos": []
+  },
+  {
+    "wordName": "உணர்வு",
+    "wordName_FirstLetter": "உ",
+    "wordNameDescription": "பேரண்டத்தில் எவை எல்லாம் பொருள் வடிவில் உள்ளனவோ,அவற்றின் அப்பால் ஆழ்நிலையில் உள்ளதுதான் உணர்வு.இது பொருளல்ல,இதன் உள்ளேதான் யாவும் உள்ளன",
+    "books": [
+      {
+        "bookName": "மூல நூல்",
+        "bookName_firstLetter": "மூ"
+      }
+    ],
+    "maraimoozhis": [
+      {
+        "maraiMoozhiName": "அருங்கடை பொருளின் ஆழ்நிலை உணர்வாகும்",
+        "maraiMoozhiDescription": null
+      }
+    ],
+    "youTubeVideos": [
+      {
+        "youtubeName": "உணர்வு நலம்",
+        "youTubeURL": "https://www.youtube.com/watch?v=Zpp-MSpKpJ8"
+      }
+    ]
+  },
+  {
+    "wordName": "இன்பம்",
+    "wordName_FirstLetter": "இ",
+    "wordNameDescription": "காமம்+துன்பம். பொருந்தச் செய்தல் காமம்.",
+    "books": [
+      {
+        "bookName": "உரை",
+        "bookName_firstLetter": "உ"
+      }
+    ],
+    "maraimoozhis": [],
+    "youTubeVideos": [
+      {
+        "youtubeName": "இன்பம் பெருக",
+        "youTubeURL": "https://www.youtube.com/watch?v=vGS2rc_HKXk"
+      }
+    ]
+  },
+
+  {
+    "wordName": "இயல்",
+    "wordName_FirstLetter": "இ",
+    "wordNameDescription": "அது அவ்வாறு இருக்கிறது.ஒரு கருத்தை பற்றிய விளக்கங்களின் தொகுப்பு.இயல்பாக என்ன உள்ளதோ அதை பதிவு செய்தால் அது இயல்.",
+    "books": [
+      {
+        "bookName": "அண்டவியல் முதல் நிலை",
+        "bookName_firstLetter": "அ"
+      }
+    ],
+    "maraimoozhis": [],
     "youTubeVideos": []
   }
 ]
