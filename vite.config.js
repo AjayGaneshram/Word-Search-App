@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate", // Auto-update the service worker when new content is available
+      registerType: "autoUpdate", // Ensures SW updates on new deployment
       manifest: {
         name: "Word Search App",
         short_name: "WordSearch",
@@ -19,18 +19,41 @@ export default defineConfig({
       workbox: {
         runtimeCaching: [
           {
+            urlPattern: ({ request }) => request.mode === "navigate",
+            handler: "StaleWhileRevalidate",
+            options: {
+              cacheName: "html-cache",
+              expiration: {
+                maxEntries: 5, // Keep only 5 HTML files
+                maxAgeSeconds: 24 * 60 * 60, // Expire after 1 day
+              },
+            },
+          },
+          {
             urlPattern: ({ request }) => request.destination === "script" || request.destination === "style",
             handler: "StaleWhileRevalidate",
             options: {
               cacheName: "assets-cache",
               expiration: {
-                maxEntries: 50,
-                maxAgeSeconds: 60,
+                maxEntries: 20, // Store up to 20 script/style files
+                maxAgeSeconds: 7 * 24 * 60 * 60, // Expire after 7 days
+              },
+            },
+          },
+          {
+            urlPattern: ({ request }) => request.destination === "image",
+            handler: "CacheFirst",
+            options: {
+              cacheName: "image-cache",
+              expiration: {
+                maxEntries: 50, // Store up to 50 images
+                maxAgeSeconds: 30 * 24 * 60 * 60, // Expire after 30 days
               },
             },
           },
         ],
-      },
+      }
+      
     }),
   ],
   base: "/Word-Search-App/",
