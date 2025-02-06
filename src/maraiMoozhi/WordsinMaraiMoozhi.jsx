@@ -127,7 +127,7 @@ const WordsinMaraiMoozhi = () => {
   };
   return (
     <div className="bg-red-50">
-      <Header />
+       {/* <Header /> */}
 
       <div className="p-6 max-w-4xl mx-auto bg-gray-50 min-h-screen relative">
         {/* Scroll to Top Button */}

@@ -179,7 +179,7 @@ const WordBookMaraimoozhi = () => {
   };
   return (
     <div className="bg-stone-50">
-      <Header />
+       {/* <Header /> */}
       <div className="">
         <div className="mb-4 p-6">
           <a className="text-red-500 hover:text-orange-700 transition text-lg flex items-center">

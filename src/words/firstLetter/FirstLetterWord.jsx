@@ -46,7 +46,7 @@ const WordsByFirstLetter = () => {
   };
   return (
     <div>
-      <Header />
+       {/* <Header /> */}
       <div className="p-6 max-w-4xl mx-auto bg-gray-50 min-h-screen">
         {/* Back Button */}
         <div className="mb-4">

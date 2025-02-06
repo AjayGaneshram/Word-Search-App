@@ -53,7 +53,7 @@ const SearchComponent = () => {
   // Handle search term change and filter results based on selected categories
   const handleSearch = (term, updatedCategories = selectedCategories) => {
     setSearchTerm(term);
-    setIsDropdownOpen(term.length > 0);
+    // setIsDropdownOpen(term.length > 0);
 
     const lowercasedTerm = term.toLowerCase();
     if (!term.trim()) {
@@ -151,8 +151,8 @@ const SearchComponent = () => {
           <div className="absolute bg-white border border-red-300 rounded-lg w-full mt-2 max-h-64 overflow-y-auto z-10">
             <button
               onClick={closeDropdown}
-              className="w-8 h-8 flex items-center justify-center rounded-full bg-red-600 text-white hover:bg-gray-300 hover:text-red-900 transition  
-             text-lg sm:w-7 sm:h-7 sm:text-base md:w-6 md:h-6 md:text-sm float-right"
+              className="w-6 h-6 flex items-center justify-center rounded-full bg-red-600 text-white hover:bg-gray-300 hover:text-red-900 transition  
+             text-sm sm:w-6 sm:h-7 sm:text-base md:w-6 md:h-6 md:text-sm float-right"
             >
               ✕
             </button>
