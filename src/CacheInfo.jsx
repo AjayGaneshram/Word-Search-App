@@ -19,20 +19,23 @@ export default function CacheInfo() {
         const cache = await caches.open(cacheName);
         const requests = await cache.keys();
         let cacheSize = 0;
-
         let lastUpdated = localStorage.getItem(`${cacheName}-lastUpdated`) || "Not available";
         let expiryTime = localStorage.getItem(`${cacheName}-expiryTime`) || "Not available";
 
         for (const request of requests) {
           const response = await cache.match(request);
           if (response) {
-            const blob = await response.blob();
-            cacheSize += blob.size;
+            try {
+              const clonedResponse = response.clone();
+              const text = await clonedResponse.text(); // Use `.text()` instead of `.blob()`
+              cacheSize += new Blob([text]).size; // Calculate size properly
+            } catch (error) {
+              console.error("Error reading cache response:", error);
+            }
           }
         }
 
         totalBytes += cacheSize;
-
         cacheData.push({
           name: cacheName,
           size: (cacheSize / 1024 / 1024).toFixed(2) + " MB",
@@ -48,7 +51,7 @@ export default function CacheInfo() {
     async function getStorageEstimate() {
       if (navigator.storage && navigator.storage.estimate) {
         const estimate = await navigator.storage.estimate();
-        setTotalSize((estimate.usage / 1024 / 1024).toFixed(2) + " MB");
+        console.log("Storage Estimate:", estimate);
       }
     }
 
