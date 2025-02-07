@@ -5,6 +5,7 @@ import "./index.css";
 import DataProvider from "./DataContext.jsx";
 import Header from "./HomeComponents/Header.jsx";
 import { registerSW } from "virtual:pwa-register";
+import CacheInfo from "./CacheInfo.jsx";
 
 // Register the service worker
 registerSW({ immediate: true });
@@ -59,6 +60,10 @@ createRoot(document.getElementById("root")).render(
           <Route
             path="/Word-Search-App/tirattu"
             element={<WordBookMaraimoozhi />}
+          />
+          <Route
+            path="/Word-Search-App/cache"
+            element={<CacheInfo />}
           />
           <Route path="*" element={<NotFound />} />
         </Routes>

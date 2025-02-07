@@ -17,6 +17,7 @@ export default defineConfig({
         theme_color: "#000000",
       },
       workbox: {
+        cleanupOutdatedCaches: true,
         runtimeCaching: [
           {
             urlPattern: ({ request }) => request.mode === "navigate",
@@ -26,6 +27,7 @@ export default defineConfig({
               expiration: {
                 maxEntries: 5, // Keep only 5 HTML files
                 maxAgeSeconds: 24 * 60 * 60, // Expire after 1 day
+                purgeOnQuotaError: true
               },
             },
           },
@@ -37,6 +39,7 @@ export default defineConfig({
               expiration: {
                 maxEntries: 20, // Store up to 20 script/style files
                 maxAgeSeconds: 7 * 24 * 60 * 60, // Expire after 7 days
+                purgeOnQuotaError: true
               },
             },
           },
