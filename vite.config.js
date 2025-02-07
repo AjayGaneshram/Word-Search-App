@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate", // Ensures SW updates on new deployment
+      registerType: "autoUpdate",
       manifest: {
         name: "Word Search App",
         short_name: "WordSearch",
@@ -25,10 +25,11 @@ export default defineConfig({
             options: {
               cacheName: "html-cache",
               expiration: {
-                maxEntries: 5, // Keep only 5 HTML files
-                maxAgeSeconds: 24 * 60 * 60, // Expire after 1 day
+                maxEntries: 10,
+                maxAgeSeconds: 24 * 60 * 60, // 1 day
                 purgeOnQuotaError: true
               },
+              broadcastUpdate: { channelName: "cache-updates" },
             },
           },
           {
@@ -37,10 +38,11 @@ export default defineConfig({
             options: {
               cacheName: "assets-cache",
               expiration: {
-                maxEntries: 20, // Store up to 20 script/style files
-                maxAgeSeconds: 7 * 24 * 60 * 60, // Expire after 7 days
+                maxEntries: 30,
+                maxAgeSeconds: 7 * 24 * 60 * 60, // 7 days
                 purgeOnQuotaError: true
               },
+              broadcastUpdate: { channelName: "cache-updates" },
             },
           },
           {
@@ -49,14 +51,14 @@ export default defineConfig({
             options: {
               cacheName: "image-cache",
               expiration: {
-                maxEntries: 50, // Store up to 50 images
-                maxAgeSeconds: 30 * 24 * 60 * 60, // Expire after 30 days
+                maxEntries: 50,
+                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
               },
+              broadcastUpdate: { channelName: "cache-updates" },
             },
           },
         ],
       }
-      
     }),
   ],
   base: "/Word-Search-App/",
@@ -67,15 +69,11 @@ export default defineConfig({
   },
   build: {
     outDir: "dist",
-    charset: "utf-8", // Ensure UTF-8 encoding
+    charset: "utf-8",
     assetsInlineLimit: 0,
     rollupOptions: {
-      input: {
-        main: "index.html",
-      },
-      output: {
-        assetFileNames: "assets/[name].[ext]",
-      },
+      input: { main: "index.html" },
+      output: { assetFileNames: "assets/[name].[ext]" },
     },
   },
 });
