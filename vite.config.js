@@ -25,11 +25,16 @@ export default defineConfig({
             options: {
               cacheName: "html-cache",
               expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 24 * 60 * 60, // 1 day
-                purgeOnQuotaError: true
+                maxEntries: 5,
+                maxAgeSeconds: 24 * 60 * 60,
+                purgeOnQuotaError: true,
               },
-              broadcastUpdate: { channelName: "cache-updates" },
+              broadcastUpdate: {
+                channelName: "html-cache-updates",
+                options: {
+                  headersToCheck: ["ETag"], // Required property
+                },
+              },
             },
           },
           {
@@ -38,11 +43,16 @@ export default defineConfig({
             options: {
               cacheName: "assets-cache",
               expiration: {
-                maxEntries: 30,
-                maxAgeSeconds: 7 * 24 * 60 * 60, // 7 days
-                purgeOnQuotaError: true
+                maxEntries: 20,
+                maxAgeSeconds: 7 * 24 * 60 * 60,
+                purgeOnQuotaError: true,
               },
-              broadcastUpdate: { channelName: "cache-updates" },
+              broadcastUpdate: {
+                channelName: "assets-cache-updates",
+                options: {
+                  headersToCheck: ["ETag"], // Required property
+                },
+              },
             },
           },
           {
@@ -52,13 +62,18 @@ export default defineConfig({
               cacheName: "image-cache",
               expiration: {
                 maxEntries: 50,
-                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 days
+                maxAgeSeconds: 30 * 24 * 60 * 60,
               },
-              broadcastUpdate: { channelName: "cache-updates" },
+              broadcastUpdate: {
+                channelName: "image-cache-updates",
+                options: {
+                  headersToCheck: ["ETag"], // Required property
+                },
+              },
             },
           },
         ],
-      }
+      },
     }),
   ],
   base: "/Word-Search-App/",
@@ -72,8 +87,12 @@ export default defineConfig({
     charset: "utf-8",
     assetsInlineLimit: 0,
     rollupOptions: {
-      input: { main: "index.html" },
-      output: { assetFileNames: "assets/[name].[ext]" },
+      input: {
+        main: "index.html",
+      },
+      output: {
+        assetFileNames: "assets/[name].[ext]",
+      },
     },
   },
 });
