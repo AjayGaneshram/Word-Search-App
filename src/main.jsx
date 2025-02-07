@@ -27,6 +27,7 @@ const WordBookMaraimoozhi = lazy(() =>
   import("./words/WordBookMaraimoozhi.jsx")
 );
 
+
 createRoot(document.getElementById("root")).render(
   <DataProvider>
     <BrowserRouter>
