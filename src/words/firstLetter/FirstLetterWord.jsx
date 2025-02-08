@@ -44,11 +44,21 @@ const WordsByFirstLetter = () => {
   const maraimoozhiHandleNavigate = (word) => {
     navigate(`/Word-Search-App/maraiMozhi/${word}`);
   };
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   return (
-    <div>
-       {/* <Header /> */}
+    <div className="bg-red-50">
+      {/* <Header /> */}
+
       <div className="p-6 max-w-4xl mx-auto bg-gray-50 min-h-screen">
         {/* Back Button */}
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 w-8 h-8 bg-red-700 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-red-900 transition-all"
+          title="Scroll to Top"
+        >
+          ↑
+        </button>
         <div className="mb-4">
           <button className="text-red-500 hover:text-orange-700 transition text-lg flex items-center">
             <svg
@@ -72,7 +82,7 @@ const WordsByFirstLetter = () => {
         </div>
         {console.log(wordsGroupedByFirstLetter[decodedLetter])}
         {/* ✅ Show Words Starting with the Selected Letter */}
-        {wordsGroupedByFirstLetter[decodedLetter]?.length > 0 ? (
+        {wordsGroupedByFirstLetter[decodedLetter]?.length > 0 && (
           <div>
             <div className="mb-8 text-center">
               <h1 className="sm:text-sm md:text-xl font-extrabold text-red-500 mb-6">
@@ -182,7 +192,8 @@ const WordsByFirstLetter = () => {
               )}
             </div>
           </div>
-        ) : (
+        )}
+        {wordsGroupedByFirstLetter[decodedLetter]?.length == 0 && (
           <p className="text-center text-gray-500 text-lg mt-6">
             இந்த எழுத்திற்கான சொற்கள் இல்லை
           </p>
