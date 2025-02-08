@@ -66,7 +66,7 @@ const WordBookMaraimoozhi = () => {
       <div className="m-4 p-6 w-full max-w-sm bg-white shadow-lg rounded-lg border border-red-200 shadow-xl">
         <div className="flex items-center justify-between">
           <h1
-            className="text-xl md:text-2xl text-customTextMedium font-bold underline underline-offset-4 cursor-pointer"
+            className="text-xl md:text-2xl text-[#dc2626] font-bold underline underline-offset-4 cursor-pointer"
             title="மேலும் காண்க"
             onClick={() => wordHandleNavigate(uniqueDetails.wordName)}
           >
@@ -144,7 +144,7 @@ const WordBookMaraimoozhi = () => {
           <li>
             <button
               onClick={() => handlePageChange(currentPage - 1)}
-              className="px-3 py-1 font-semibold border border-red-200  rounded text-customTextMedium bg-customBg"
+              className="px-3 py-1 font-semibold border border-red-200  rounded text-[#dc2626] bg-[#fef2f2]"
             >
               « முந்தைய
             </button>
@@ -170,7 +170,7 @@ const WordBookMaraimoozhi = () => {
           <li>
             <button
               onClick={() => handlePageChange(currentPage + 1)}
-              className="px-3 py-1 font-semibold border rounded text-customTextMedium bg-customBg"
+              className="px-3 py-1 font-semibold border rounded text-[#dc2626] bg-[#fef2f2]"
             >
               அடுத்து »
             </button>
@@ -184,7 +184,7 @@ const WordBookMaraimoozhi = () => {
        {/* <Header /> */}
       <div className="">
         <div className="mb-4 p-6">
-          <a className="text-customTextMedium hover:text-orange-700 transition text-lg flex items-center">
+          <a className="text-[#dc2626] hover:text-orange-700 transition text-lg flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 mr-2"
@@ -212,14 +212,14 @@ const WordBookMaraimoozhi = () => {
           ↑
         </button>
         <div>
-          <h1 className="text-3xl font-bold text-center text-customTextMedium mb-6">
+          <h1 className="text-3xl font-bold text-center text-[#dc2626] mb-6">
             திரட்டு
           </h1>
         </div>
         <SearchComponent />
         <div className="p-4">
           <div className="mb-4 flex flex-col sm:flex-row justify-center items-center gap-4">
-            <label className="font-bold text-customTextMedium">
+            <label className="font-bold text-[#dc2626]">
               {filteredWordDetails.length == wordDetails.length && (
                 <>மொத்த சொற்கள்: {filteredWordDetails.length}</>
               )}

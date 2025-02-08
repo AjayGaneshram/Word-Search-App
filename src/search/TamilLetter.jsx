@@ -325,7 +325,7 @@ const TamilAlphabetTable = ({ words }) => {
   };
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-semibold text-center mb-6 text-customText">
+      <h2 className="text-2xl font-semibold text-center mb-6 text-[#991b1b]">
         தொடரடைவுகள்
       </h2>
       <div className="overflow-x-auto overflow-y-auto max-h-[400px] border border-gray-300 rounded-lg shadow-lg">

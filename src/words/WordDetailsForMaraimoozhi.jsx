@@ -6,7 +6,7 @@ const Section = ({ title, items, renderItem, expandLabel, collapseLabel }) => {
 
   return (
     <div className="mb-8">
-      <h2 className="text-2xl font-bold text-customText mb-4 text-center">
+      <h2 className="text-2xl font-bold text-[#991b1b] mb-4 text-center">
         {title}
       </h2>
       {title != "உரைகள்" ? (
@@ -20,7 +20,7 @@ const Section = ({ title, items, renderItem, expandLabel, collapseLabel }) => {
         <div className="text-center mt-4">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="text-customTextMedium font-bold hover:text-orange-700 "
+            className="text-[#dc2626] font-bold hover:text-orange-700 "
           >
             {expanded ? " ‹‹ " + collapseLabel : expandLabel + " ›› "}
           </button>
@@ -87,7 +87,7 @@ const WordDetailsSectionsForMaraimoozhi = ({
                 href={video.youTubeURL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-customTextMedium hover:text-orange-700 "
+                className="text-[#dc2626] hover:text-orange-700 "
               >
                 {video.youtubeName}
               </a>

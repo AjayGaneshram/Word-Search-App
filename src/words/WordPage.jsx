@@ -175,7 +175,7 @@ const WordDescription = () => {
 
   return (
     <div>
-      <div className="bg-customBrown h-16 w-full">
+      <div className="bg-[#986249] h-16 w-full">
         {
           <h1 className="pt-4 pl-4 text-2xl font-bold text-white">
             {wordName}
@@ -183,10 +183,10 @@ const WordDescription = () => {
         }
       </div>
       <div className="m-8 ">
-        <b className="text-2xl text-customText">பொருள் </b>
+        <b className="text-2xl text-[#991b1b]">பொருள் </b>
         <h1> {wordData.wordNameDescription}</h1>
         <ul>
-          <b className="text-2xl text-customText underline underline-offset-1">
+          <b className="text-2xl text-[#991b1b] underline underline-offset-1">
             நூல்கள்
           </b>
           {wordData !== undefined &&
@@ -198,7 +198,7 @@ const WordDescription = () => {
             })}
         </ul>
         <ul>
-          <b className="text-2xl text-customText underline underline-offset-1">
+          <b className="text-2xl text-[#991b1b] underline underline-offset-1">
             மறை மொழிகள்
           </b>
           {wordData !== undefined &&
