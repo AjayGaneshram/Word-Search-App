@@ -211,13 +211,13 @@ const WordSummary = () => {
       <div className="p-6 max-w-4xl mx-auto bg-gray-50 min-h-screen">
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 w-8 h-8 bg-[#986249] text-white rounded-full shadow-lg flex items-center justify-center hover:bg-red-900 transition-all"
+          className="fixed bottom-6 right-6 w-8 h-8 bg-red-800 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-red-900 transition-all"
           title="Scroll to Top"
         >
           ↑
         </button>
         <div className="mb-4">
-          <a className="text-[#dc2626] hover:text-orange-700 transition text-lg flex items-center">
+          <a className="text-red-500 hover:text-orange-700 transition text-lg flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 mr-2"
@@ -241,11 +241,11 @@ const WordSummary = () => {
           <div>
             {/* Word Title */}
             <div className="mb-8 text-center">
-              <h1 className="text-4xl font-extrabold text-[#dc2626] underline">
+              <h1 className="text-4xl font-extrabold text-red-500 underline">
                 {wordDetails.wordName}
               </h1>
               <p className="text-gray-700 mt-4 text-lg">
-                <b className="text-[#991b1b]">பொருள்:</b>{" "}
+                <b className="text-red-600">பொருள்:</b>{" "}
                 {wordDetails.wordNameDescription}
               </p>
             </div>
@@ -256,7 +256,7 @@ const WordSummary = () => {
             />
 
             {/* <div className="mb-8">
-              <h2 className="text-2xl font-bold text-[#991b1b] mb-4 border-b-2 border-red-200 pb-2 text-center">
+              <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                 நூல்கள்
               </h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -272,7 +272,7 @@ const WordSummary = () => {
               </ul>
             </div>
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-[#991b1b] mb-4 border-b-2 border-red-200 pb-2 text-center">
+              <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                 மறை மொழிகள்
               </h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -291,7 +291,7 @@ const WordSummary = () => {
             </div>
 
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-[#991b1b] mb-4 border-b-2 border-red-200 pb-2 text-center">
+              <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
                 உரைகள்
               </h2>
               <ul className="space-y-4 text-center">
@@ -301,7 +301,7 @@ const WordSummary = () => {
                       href={video.youTubeURL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#dc2626] hover:underline hover:text-orange-700"
+                      className="text-red-500 hover:underline hover:text-orange-700"
                     >
                       {video.youtubeName}
                     </a>
@@ -314,7 +314,7 @@ const WordSummary = () => {
             {/* <div className="text-center">
               <button
                 onClick={() => homePageNavigate()}
-                className="px-6 py-2 bg-[#986249] text-white rounded-md shadow-xl hover:bg-red-800"
+                className="px-6 py-2 bg-red-800 text-white rounded-md shadow-xl hover:bg-red-800"
               >
                 முகப்புப்பக்கம்
               </button>

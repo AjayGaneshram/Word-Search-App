@@ -8,7 +8,7 @@ const Section = ({ title, items, renderItem, expandLabel, collapseLabel }) => {
 
   return (
     <div className="mb-8">
-      <h2 className="text-2xl font-bold text-[#991b1b] mb-4 pb-2 text-center">
+      <h2 className="text-2xl font-bold text-red-600 mb-4 pb-2 text-center">
         {title}
       </h2>
       {title != "உரைகள்" ? (
@@ -22,7 +22,7 @@ const Section = ({ title, items, renderItem, expandLabel, collapseLabel }) => {
         <div className="text-center mt-4">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="text-[#dc2626] font-bold hover:text-orange-700 "
+            className="text-red-500 font-bold hover:text-orange-700 "
           >
             {expanded ? " ‹‹ " + collapseLabel : expandLabel + " ›› "}
           </button>
@@ -92,7 +92,7 @@ const WordDetailsSections = ({
                 href={video.youTubeURL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#dc2626] hover:text-orange-700 "
+                className="text-red-500 hover:text-orange-700 "
               >
                 {video.youtubeName}
               </a>

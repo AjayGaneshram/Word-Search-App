@@ -23,8 +23,8 @@ const CustomDropdown = ({
         className="flex justify-around p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 w-full sm:w-72 md:w-80 lg:w-96 text-center"
       >
         {itemsPerPage} சொற்களாக வடி{" "}
-        {!isOpen && <h1 className="text-[#dc2626]">▼</h1>}{" "}
-        {isOpen && <h1 className="text-[#dc2626]">▲</h1>}
+        {!isOpen && <h1 className="text-red-500">▼</h1>}{" "}
+        {isOpen && <h1 className="text-red-500">▲</h1>}
       </button>
 
       {isOpen && (

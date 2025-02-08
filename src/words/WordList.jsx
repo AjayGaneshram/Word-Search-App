@@ -15,8 +15,8 @@ const WordList = ({ wordData, component }) => {
                 href={`#${encodeURIComponent(word)}`}
                 className={`p-2 text-lg rounded-lg shadow-xl transition-all transform hover:scale-105 focus:outline-none ${
                   index === 0
-                    ? "bg-[#986249] text-white font-semibold"
-                    : "hover:bg-[#986249] hover:text-white"
+                    ? "bg-red-800 text-white font-semibold"
+                    : "hover:bg-red-800 hover:text-white"
                 }`}
               >
                 {word}
@@ -28,7 +28,7 @@ const WordList = ({ wordData, component }) => {
                   onClick={() =>
                     setVisibleCount(isExpanded ? 8 : wordData.length)
                   }
-                  className="text-[#dc2626] hover:text-orange-700 font-bold"
+                  className="text-red-500 hover:text-orange-700 font-bold"
                 >
                   {isExpanded ? "குறைக்க" : "அனைத்தையும் காண்க"}
                 </button>
@@ -46,8 +46,8 @@ const WordList = ({ wordData, component }) => {
                 href={`#${encodeURIComponent(word.wordName)}`}
                 className={`p-2 text-lg rounded-lg shadow-xl transition-all transform hover:scale-105 focus:outline-none ${
                   index === 0
-                    ? "bg-[#986249] text-white font-semibold"
-                    : "hover:bg-[#986249] hover:text-white"
+                    ? "bg-red-800 text-white font-semibold"
+                    : "hover:bg-red-800 hover:text-white"
                 }`}
               >
                 {word.wordName}
@@ -62,7 +62,7 @@ const WordList = ({ wordData, component }) => {
                 onClick={() =>
                   setVisibleCount(isExpanded ? 8 : wordData.length)
                 }
-                className="text-[#dc2626] hover:text-orange-700 font-bold"
+                className="text-red-500 hover:text-orange-700 font-bold"
               >
                 {isExpanded ? "குறைக்க" : "அனைத்தையும் காண்க"}
               </button>

@@ -21,7 +21,7 @@ const Header = () => {
     navigate(`/Word-Search-App/tirattu`);
   };
   return (
-    <div className="bg-[#986249] h-16 w-full relative">
+    <div className="bg-red-800 h-16 w-full relative">
       {/* Navbar */}
       <div className="flex justify-between items-center h-full px-4 md:px-8 border-b-2 border-white-200 border-b-white-500">
         {/* App Name */}
@@ -73,7 +73,7 @@ const Header = () => {
 
       {/* Collapsible Menu for Mobile */}
       {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-[#986249] z-50 md:hidden flex flex-col gap-y-2 p-4 shadow-lg">
+        <div className="absolute top-full left-0 w-full bg-red-800 z-50 md:hidden flex flex-col gap-y-2 p-4 shadow-lg">
           <b
             onClick={() => tirattuPageNavigate()}
             className="text-white text-base md:text-lg cursor-pointer"
