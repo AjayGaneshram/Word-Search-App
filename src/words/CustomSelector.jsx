@@ -20,14 +20,16 @@ const CustomDropdown = ({
     <div className="relative inline-block w-full sm:w-auto">
       <button
         onClick={toggleDropdown}
-        className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 w-full sm:w-72 md:w-80 lg:w-96 text-center"
+        className="flex justify-around p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-400 w-full sm:w-72 md:w-80 lg:w-96 text-center"
       >
-        {itemsPerPage} சொற்களாக வடி
+        {itemsPerPage} சொற்களாக வடி{" "}
+        {!isOpen && <h1 className="text-customTextMedium">▼</h1>}{" "}
+        {isOpen && <h1 className="text-customTextMedium">▲</h1>}
       </button>
 
       {isOpen && (
-        <ul className="absolute left-0 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg z-10">
-          {itemsPerPageOptions.map((size) => (
+        <ul className="absolute left-0 mt-4 w-full bg-white border border-gray-300 rounded-lg shadow-lg z-10">
+          {itemsPerPageOptions.sort().map((size) => (
             <li
               key={size}
               onClick={() => handleSelectOption(size)}

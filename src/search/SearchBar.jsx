@@ -30,15 +30,15 @@ const SearchComponent = () => {
   useEffect(() => {
     if (outputJson) {
       const formattedData = {
-        words: outputJson.wordList.map((word, index) => ({
+        words: outputJson.wordList.sort().map((word, index) => ({
           id: index + 1,
           word,
         })),
-        books: outputJson.bookList.map((bookName, index) => ({
+        books: outputJson.bookList.sort().map((bookName, index) => ({
           id: index + 1,
           bookName,
         })),
-        maraiMoozhis: outputJson.maraiMoozhiList.map(
+        maraiMoozhis: outputJson.maraiMoozhiList.sort().map(
           (maraiMoozhiName, index) => ({
             id: index + 1,
             maraiMoozhiName,
@@ -109,7 +109,7 @@ const SearchComponent = () => {
   // Placeholder text logic based on selected categories
   const placeholderText =
     selectedCategories.length > 0
-      ? `${selectedCategories
+      ? `${selectedCategories.sort()
           .map((cat) =>
             Object.keys(categoryMap).find((key) => categoryMap[key] === cat)
           )
@@ -119,13 +119,13 @@ const SearchComponent = () => {
   return (
     <div className="p-8">
       <div className="flex gap-2">
-        {Object.keys(categoryMap).map((category) => (
+        {Object.keys(categoryMap).sort().map((category) => (
           <button
             key={category}
             onClick={() => toggleCategory(categoryMap[category])}
             className={`flex items-center gap-1 px-3 py-1 rounded-lg text-sm ${
               selectedCategories.includes(categoryMap[category])
-                ? "bg-red-700 text-white"
+                ? "bg-customBrown text-white font-bold"
                 : "bg-gray-200 text-gray-800"
             }`}
           >
@@ -165,14 +165,14 @@ const SearchComponent = () => {
                 {selectedCategories.includes("words") &&
                   filteredResults.words.length > 0 && (
                     <div className="p-2">
-                      <h2 className="text-lg font-bold text-red-600">
+                      <h2 className="text-lg font-bold text-customText">
                         சொற்கள்
                       </h2>
                       <ul>
-                        {filteredResults.words.map((word) => (
+                        {filteredResults.words.sort().map((word) => (
                           <li
                             key={word.id}
-                            className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
+                            className="p-4 hover:bg-customBg rounded-md transition flex items-center justify-between"
                           >
                             <span className="text-gray-700 font-medium">
                               {word.word}
@@ -181,7 +181,7 @@ const SearchComponent = () => {
                               onClick={() =>
                                 navigate(`/Word-Search-App/words/${word.word}`)
                               }
-                              className="text-sm text-red-500 hover:text-orange-700 transition"
+                              className="text-sm text-customTextMedium hover:text-orange-700 transition"
                             >
                               மேலும் அறிக
                             </button>
@@ -194,14 +194,14 @@ const SearchComponent = () => {
                 {selectedCategories.includes("books") &&
                   filteredResults.books.length > 0 && (
                     <div className="p-2">
-                      <h2 className="text-lg font-bold text-red-600">
+                      <h2 className="text-lg font-bold text-customText">
                         நூல்கள்
                       </h2>
                       <ul>
-                        {filteredResults.books.map((book) => (
+                        {filteredResults.books.sort().map((book) => (
                           <li
                             key={book.id}
-                            className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
+                            className="p-4 hover:bg-customBg rounded-md transition flex items-center justify-between"
                           >
                             <span className="text-gray-700 font-medium">
                               {book.bookName}
@@ -212,7 +212,7 @@ const SearchComponent = () => {
                                   `/Word-Search-App/book/${book.bookName}`
                                 )
                               }
-                              className="text-sm text-red-500 hover:text-orange-700 transition"
+                              className="text-sm text-customTextMedium hover:text-orange-700 transition"
                             >
                               மேலும் அறிக
                             </button>
@@ -225,14 +225,14 @@ const SearchComponent = () => {
                 {selectedCategories.includes("maraiMoozhis") &&
                   filteredResults.maraiMoozhis.length > 0 && (
                     <div className="p-2">
-                      <h2 className="text-lg font-bold text-red-600">
+                      <h2 className="text-lg font-bold text-customText">
                         மறை மொழிகள்
                       </h2>
                       <ul>
-                        {filteredResults.maraiMoozhis.map((maraiMoozhi) => (
+                        {filteredResults.maraiMoozhis.sort().map((maraiMoozhi) => (
                           <li
                             key={maraiMoozhi.id}
-                            className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
+                            className="p-4 hover:bg-customBg rounded-md transition flex items-center justify-between"
                           >
                             <span className="text-gray-700 font-medium">
                               {maraiMoozhi.maraiMoozhiName}
@@ -243,7 +243,7 @@ const SearchComponent = () => {
                                   `/Word-Search-App/maraiMozhi/${maraiMoozhi.maraiMoozhiName}`
                                 )
                               }
-                              className="text-sm text-red-500 hover:text-orange-700 transition"
+                              className="text-sm text-customTextMedium hover:text-orange-700 transition"
                             >
                               மேலும் அறிக
                             </button>

@@ -90,9 +90,9 @@ function generateOutput() {
                 const bookDetails = {
                     wordName: word.wordName,
                     wordNameDescription: word.wordNameDescription || '',
-                    maraiMoozhiNames: word.maraimoozhis ? word.maraimoozhis.map(maraiMoozhi => maraiMoozhi.maraiMoozhiName) : [],
+                    maraiMoozhiNames: word.maraimoozhis ? word.maraimoozhis.sort().map(maraiMoozhi => maraiMoozhi.maraiMoozhiName) : [],
                     bookNames: [book.bookName],
-                    youtubeNames: word.youTubeVideos ? word.youTubeVideos.map(youtube => ({
+                    youtubeNames: word.youTubeVideos ? word.youTubeVideos.sort().map(youtube => ({
                         youtubeName: youtube.youtubeName,
                         youTubeURL: youtube.youTubeURL
                     })) : []
@@ -134,9 +134,9 @@ function generateOutput() {
                 const maraiMoozhiDetails = {
                     wordName: word.wordName,
                     wordNameDescription: word.wordNameDescription || '',
-                    bookNames: word.books ? word.books.map(book => book.bookName) : [],
+                    bookNames: word.books ? word.books.sort().map(book => book.bookName) : [],
                     maraiMoozhiNames: [maraiMoozhi.maraiMoozhiName],
-                    youtubeNames: word.youTubeVideos ? word.youTubeVideos.map(youtube => ({
+                    youtubeNames: word.youTubeVideos ? word.youTubeVideos.sort().map(youtube => ({
                         youtubeName: youtube.youtubeName,
                         youTubeURL: youtube.youTubeURL
                     })) : []
@@ -186,8 +186,8 @@ function generateOutput() {
             wordName: word.wordName,
             wordNameDescription: word.wordNameDescription || '',
             wordName_FirstLetter: word.wordName_FirstLetter,
-            books: word.books ? word.books.map(book => ({ bookName: book.bookName })) : [],
-            maraimoozhis: word.maraimoozhis ? word.maraimoozhis.map(maraiMoozhi => ({ maraiMoozhiName: maraiMoozhi.maraiMoozhiName })) : [],
+            books: word.books ? word.books.sort().map(book => ({ bookName: book.bookName })) : [],
+            maraimoozhis: word.maraimoozhis ? word.maraimoozhis.sort().map(maraiMoozhi => ({ maraiMoozhiName: maraiMoozhi.maraiMoozhiName })) : [],
             youtubeNames: wordEntry.youtubeNames  // This should now include youtubeName and URL
         };
 

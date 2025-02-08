@@ -62,13 +62,13 @@ const AllMaraiMoozhi = () => {
         <li>
           <button
             onClick={() => handlePageChange(currentPage - 1)}
-            className="px-3 py-1 font-semibold border border-red-200 rounded text-red-500 bg-red-50"
+            className="px-3 py-1 font-semibold border border-red-200 rounded text-customTextMedium bg-customBg"
           >
             « முந்தைய
           </button>
         </li>
       )}
-      {[...Array(totalPages)].map((_, i) => (
+      {[...Array(totalPages)].sort().map((_, i) => (
         <li key={i}>
           <button
             onClick={() => handlePageChange(i + 1)}
@@ -86,7 +86,7 @@ const AllMaraiMoozhi = () => {
         <li>
           <button
             onClick={() => handlePageChange(currentPage + 1)}
-            className="px-3 py-1 font-semibold border border-red-200 rounded text-red-500 bg-red-50"
+            className="px-3 py-1 font-semibold border border-red-200 rounded text-customTextMedium bg-customBg"
           >
             அடுத்து »
           </button>
@@ -102,13 +102,13 @@ const AllMaraiMoozhi = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <div className="bg-red-50">
+    <div className="bg-customBg">
        {/* <Header /> */}
       <div className="p-6 max-w-4xl mx-auto bg-gray-50 min-h-screen">
         {/* Scroll to Top Button */}
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 w-8 h-8 bg-red-700 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-red-900 transition-all"
+          className="fixed bottom-6 right-6 w-8 h-8 bg-customBrown text-white rounded-full shadow-lg flex items-center justify-center hover:bg-red-900 transition-all"
           title="Scroll to Top"
         >
           ↑
@@ -118,7 +118,7 @@ const AllMaraiMoozhi = () => {
         <div className="mb-4">
           <a
            
-            className="text-red-500 hover:text-orange-700 transition text-lg flex items-center"
+            className="text-customTextMedium hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +134,7 @@ const AllMaraiMoozhi = () => {
         </div>
 
         {/* Page Title */}
-        <h1 className="text-3xl font-bold text-center text-red-500 mb-6">மறை மொழிகள்</h1>
+        <h1 className="text-3xl font-bold text-center text-customTextMedium mb-6">மறை மொழிகள்</h1>
 
         
         {/* Search Bar */}
@@ -151,15 +151,15 @@ const AllMaraiMoozhi = () => {
         {/* List Section */}
         <ul className="bg-white rounded-lg shadow-lg p-6 divide-y divide-red-200">
           {currentItems.length > 0 ? (
-            currentItems.map((word, index) => (
+            currentItems.sort().map((word, index) => (
               <li
                 key={index}
-                className="p-4 hover:bg-red-50 rounded-md transition flex items-center justify-between"
+                className="p-4 hover:bg-customBg rounded-md transition flex items-center justify-between"
               >
                 <span className="text-gray-700 font-medium">{word}</span>
                 <button
                   onClick={() => handleNavigate(word)}
-                  className="text-sm text-red-500 hover:text-orange-700 transition"
+                  className="text-sm text-customTextMedium hover:text-orange-700 transition"
                 >
                   மேலும் அறிக
                 </button>

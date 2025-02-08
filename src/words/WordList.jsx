@@ -9,14 +9,14 @@ const WordList = ({ wordData, component }) => {
       {component === "firstLetter" ? (
         <div>
           <div className="flex flex-wrap justify-center gap-6">
-            {wordData.slice(0, visibleCount).map((word, index) => (
+            {wordData.slice(0, visibleCount).sort().map((word, index) => (
               <a
                 key={index}
                 href={`#${encodeURIComponent(word)}`}
                 className={`p-2 text-lg rounded-lg shadow-xl transition-all transform hover:scale-105 focus:outline-none ${
                   index === 0
-                    ? "bg-red-800 text-white font-semibold"
-                    : "hover:bg-red-800 hover:text-white"
+                    ? "bg-customBrown text-white font-semibold"
+                    : "hover:bg-customBrown hover:text-white"
                 }`}
               >
                 {word}
@@ -28,7 +28,7 @@ const WordList = ({ wordData, component }) => {
                   onClick={() =>
                     setVisibleCount(isExpanded ? 8 : wordData.length)
                   }
-                  className="text-red-500 hover:text-orange-700 font-bold"
+                  className="text-customTextMedium hover:text-orange-700 font-bold"
                 >
                   {isExpanded ? "குறைக்க" : "அனைத்தையும் காண்க"}
                 </button>
@@ -40,14 +40,14 @@ const WordList = ({ wordData, component }) => {
         <div>
           {/* Word List */}
           <div className="flex flex-wrap justify-center gap-6">
-            {wordData.slice(0, visibleCount).map((word, index) => (
+            {wordData.slice(0, visibleCount).sort().map((word, index) => (
               <a
                 key={index}
                 href={`#${encodeURIComponent(word.wordName)}`}
                 className={`p-2 text-lg rounded-lg shadow-xl transition-all transform hover:scale-105 focus:outline-none ${
                   index === 0
-                    ? "bg-red-800 text-white font-semibold"
-                    : "hover:bg-red-800 hover:text-white"
+                    ? "bg-customBrown text-white font-semibold"
+                    : "hover:bg-customBrown hover:text-white"
                 }`}
               >
                 {word.wordName}
@@ -62,7 +62,7 @@ const WordList = ({ wordData, component }) => {
                 onClick={() =>
                   setVisibleCount(isExpanded ? 8 : wordData.length)
                 }
-                className="text-red-500 hover:text-orange-700 font-bold"
+                className="text-customTextMedium hover:text-orange-700 font-bold"
               >
                 {isExpanded ? "குறைக்க" : "அனைத்தையும் காண்க"}
               </button>

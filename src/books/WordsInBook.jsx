@@ -24,13 +24,13 @@ import WordList from "../words/WordList";
 //   return (
 //     <div className="min-h-screen bg-gray-50">
 //       {/* Header */}
-//       <div className="bg-red-700 h-16 w-full flex items-center justify-between px-4">
+//       <div className="bg-customBrown h-16 w-full flex items-center justify-between px-4">
 //         <h1 className="text-2xl font-bold text-white truncate">
 //           நூல்: {decodedBookName}
 //         </h1>
 //         <button
 //           onClick={() => navigate(-1)}
-//           className="px-4 py-2 bg-white text-red-600 rounded-md shadow-xl hover:bg-orange-100"
+//           className="px-4 py-2 bg-white text-customText rounded-md shadow-xl hover:bg-orange-100"
 //         >
 //           Home
 //         </button>
@@ -219,9 +219,9 @@ const WordsInBook = () => {
       });
 
       links.forEach((link) => {
-        link.classList.remove("text-red-500", "font-bold");
+        link.classList.remove("text-customTextMedium", "font-bold");
         if (link.classList.contains(current)) {
-          link.classList.add("text-red-500", "font-bold");
+          link.classList.add("text-customTextMedium", "font-bold");
         }
       });
     });
@@ -232,14 +232,14 @@ const WordsInBook = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
-    <div className="bg-red-50">
+    <div className="bg-customBg">
        {/* <Header /> */}
 
       <div className="p-6 max-w-4xl mx-auto bg-gray-50 min-h-screen relative">
         {/* Scroll to Top Button */}
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 w-8 h-8 bg-red-700 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-red-900 transition-all"
+          className="fixed bottom-6 right-6 w-8 h-8 bg-customBrown text-white rounded-full shadow-lg flex items-center justify-center hover:bg-red-900 transition-all"
           title="Scroll to Top"
         >
           ↑
@@ -247,7 +247,7 @@ const WordsInBook = () => {
         <div className="mb-4">
           <a
           
-            className="text-red-500 hover:text-orange-700 transition text-lg flex items-center"
+            className="text-customTextMedium hover:text-orange-700 transition text-lg flex items-center"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -268,7 +268,7 @@ const WordsInBook = () => {
         </div>
         {/* Word List at the Top */}
         <div className="mb-8 text-center">
-          <h1 className="text-4xl font-extrabold text-red-500 mb-6">
+          <h1 className="text-4xl font-extrabold text-customTextMedium mb-6">
             {decodedBookName}
           </h1>
           <WordList wordData={wordData}/>
@@ -290,14 +290,14 @@ const WordsInBook = () => {
         </div>
 
         {/* Word Details with Scrollspy Section */}
-        {wordData.map((word, index) => (
+        {wordData.sort().map((word, index) => (
           <section key={index} id={word.wordName} className="mb-8 pt-12 pb-8">
             <div className="text-center">
-              <h2 className="text-3xl font-extrabold text-red-500 underline mb-4">
+              <h2 className="text-3xl font-extrabold text-customTextMedium underline mb-4">
                 {word.wordName}
               </h2>
               <p className="text-gray-700 mt-4 text-lg mb-4">
-                <b className="text-red-600">பொருள்:</b>{" "}
+                <b className="text-customText">பொருள்:</b>{" "}
                 {word.wordNameDescription}
               </p>
               <WordDetailsSectionsForMaraimoozhi

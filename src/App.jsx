@@ -77,7 +77,7 @@ function App() {
             <b className="text-2xl text-red-600 underline underline-offset-1">
               சொற்கள்
             </b>
-            {wordData.map((word) => {
+            {wordData.sort().map((word) => {
               return (
                 <li className="list-decimal">
                   <a
@@ -95,7 +95,7 @@ function App() {
             <b className="text-2xl text-red-600 underline underline-offset-1">
               நூல்கள்
             </b>
-            {bookNameData.map((word) => {
+            {bookNameData.sort().map((word) => {
               return (
                 <li className="list-decimal">
                   {/* <Link to="/book"> */}
@@ -116,7 +116,7 @@ function App() {
             <b className="text-2xl text-red-600 underline underline-offset-1">
               மறை மொழிகள்
             </b>
-            {maraiMoozhiData.map((word) => {
+            {maraiMoozhiData.sort().map((word) => {
               return (
                 <li className="list-decimal">
                   <a

@@ -13,7 +13,7 @@ const NotFound = ({ searchTerm, section }) => {
 
   return (
     <div className="flex flex-col items-center justify-center text-center p-6">
-      <h2 className="text-2xl font-semibold text-red-600">
+      <h2 className="text-2xl font-semibold text-customText">
         தேடல் முடிவுகள் இல்லை
       </h2>
       <p className="text-gray-600 mt-2">

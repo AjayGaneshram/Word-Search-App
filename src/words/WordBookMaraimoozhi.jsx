@@ -25,7 +25,7 @@ const WordBookMaraimoozhi = () => {
         !searchResults.books.length &&
         !searchResults.maraiMoozhis.length)
     ) {
-      return outputJson ? outputJson.words : [];
+      return outputJson ? outputJson.words.sort((a, b) => a.wordName.localeCompare(b.wordName)) : [];
     }
 
     return outputJson.words.filter(
@@ -35,7 +35,9 @@ const WordBookMaraimoozhi = () => {
         searchResults.maraiMoozhis.some((m) =>
           word.maraimoozhis.includes(m.maraiMoozhiName)
         )
-    );
+    )
+    .sort((a, b) => a.wordName.localeCompare(b.wordName))
+    ;
   };
 
   const filteredWordDetails = getFilteredData();
@@ -64,7 +66,7 @@ const WordBookMaraimoozhi = () => {
       <div className="m-4 p-6 w-full max-w-sm bg-white shadow-lg rounded-lg border border-red-200 shadow-xl">
         <div className="flex items-center justify-between">
           <h1
-            className="text-xl md:text-2xl text-red-600 font-bold underline underline-offset-4 cursor-pointer"
+            className="text-xl md:text-2xl text-customTextMedium font-bold underline underline-offset-4 cursor-pointer"
             title="மேலும் காண்க"
             onClick={() => wordHandleNavigate(uniqueDetails.wordName)}
           >
@@ -80,7 +82,7 @@ const WordBookMaraimoozhi = () => {
           <b className="text-gray-800">மறை மொழிகள்</b>
           {uniqueDetails.maraimoozhis
             .slice(0, showMoreMarai ? uniqueDetails.maraimoozhis.length : 2)
-            .map((ele, index) => (
+            .sort().map((ele, index) => (
               <li key={index} className="list-disc ml-4 text-gray-600">
                 {ele}
               </li>
@@ -99,7 +101,7 @@ const WordBookMaraimoozhi = () => {
           <b className="text-gray-800">நூல்கள்: </b>
           {uniqueDetails.books
             .slice(0, showMoreBooks ? uniqueDetails.books.length : 3)
-            .map((ele, index) => (
+            .sort().map((ele, index) => (
               <span key={index} className="text-gray-600">
                 {ele}
                 {index < uniqueDetails.books.length - 1 && ", "}
@@ -137,25 +139,25 @@ const WordBookMaraimoozhi = () => {
     }
 
     return (
-      <ul className="flex space-x-2 mt-4 justify-center">
+      <ul className="flex flex-wrap justify-center gap-2 m-4">
         {currentPage > 1 && (
           <li>
             <button
               onClick={() => handlePageChange(currentPage - 1)}
-              className="px-3 py-1 border rounded text-red-500 bg-red-50"
+              className="px-3 py-1 font-semibold border border-red-200  rounded text-customTextMedium bg-customBg"
             >
               « முந்தைய
             </button>
           </li>
         )}
-        {pages.map((page, index) => (
+        {pages.sort().map((page, index) => (
           <li key={index}>
             {page === "..." ? (
               <span className="px-3 py-1">{page}</span>
             ) : (
               <button
                 onClick={() => handlePageChange(page)}
-                className={`px-3 py-1 border rounded ${
+                className={`px-3 py-1 border border-red-200 rounded ${
                   page === currentPage ? "bg-red-600 text-white" : ""
                 }`}
               >
@@ -168,7 +170,7 @@ const WordBookMaraimoozhi = () => {
           <li>
             <button
               onClick={() => handlePageChange(currentPage + 1)}
-              className="px-3 py-1 border rounded text-red-500 bg-red-50"
+              className="px-3 py-1 font-semibold border rounded text-customTextMedium bg-customBg"
             >
               அடுத்து »
             </button>
@@ -182,7 +184,7 @@ const WordBookMaraimoozhi = () => {
        {/* <Header /> */}
       <div className="">
         <div className="mb-4 p-6">
-          <a className="text-red-500 hover:text-orange-700 transition text-lg flex items-center">
+          <a className="text-customTextMedium hover:text-orange-700 transition text-lg flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 mr-2"
@@ -210,14 +212,14 @@ const WordBookMaraimoozhi = () => {
           ↑
         </button>
         <div>
-          <h1 className="text-3xl font-bold text-center text-red-500 mb-6">
+          <h1 className="text-3xl font-bold text-center text-customTextMedium mb-6">
             திரட்டு
           </h1>
         </div>
         <SearchComponent />
         <div className="p-4">
           <div className="mb-4 flex flex-col sm:flex-row justify-center items-center gap-4">
-            <label className="font-bold text-red-500">
+            <label className="font-bold text-customTextMedium">
               {filteredWordDetails.length == wordDetails.length && (
                 <>மொத்த சொற்கள்: {filteredWordDetails.length}</>
               )}
@@ -235,7 +237,7 @@ const WordBookMaraimoozhi = () => {
           </div>
           {renderPagination()}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4 justify-items-center">
-            {currentItems.map((word) => (
+            {currentItems.sort().map((word) => (
               <Card key={word.wordName} uniqueDetails={word} />
             ))}
           </div>

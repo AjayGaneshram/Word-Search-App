@@ -8,21 +8,21 @@ const Section = ({ title, items, renderItem, expandLabel, collapseLabel }) => {
 
   return (
     <div className="mb-8">
-      <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
+      <h2 className="text-2xl font-bold text-customText mb-4 pb-2 text-center">
         {title}
       </h2>
       {title != "உரைகள்" ? (
         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {visibleItems.map(renderItem)}
+          {visibleItems.sort().map(renderItem)}
         </ul>
       ) : (
-        <ul className="grid gap-4">{visibleItems.map(renderItem)}</ul>
+        <ul className="grid gap-4">{visibleItems.sort().map(renderItem)}</ul>
       )}
       {items.length > 4 && (
         <div className="text-center mt-4">
           <button
             onClick={() => setExpanded(!expanded)}
-            className="text-red-500 font-bold hover:text-orange-700 "
+            className="text-customTextMedium font-bold hover:text-orange-700 "
           >
             {expanded ? " ‹‹ " + collapseLabel : expandLabel + " ›› "}
           </button>
@@ -38,7 +38,7 @@ const WordDetailsSections = ({
   maraimoozhiHandleNavigate,
 }) => {
   return (
-    <div>
+    <div className="border-b-2 border-red-200 mb-8">
       {/* Books Section */}
       {wordDetails.books.length > 0 && (
         <Section
@@ -92,7 +92,7 @@ const WordDetailsSections = ({
                 href={video.youTubeURL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-red-500 hover:text-orange-700 "
+                className="text-customTextMedium hover:text-orange-700 "
               >
                 {video.youtubeName}
               </a>

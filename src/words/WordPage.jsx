@@ -175,7 +175,7 @@ const WordDescription = () => {
 
   return (
     <div>
-      <div className="bg-red-700 h-16 w-full">
+      <div className="bg-customBrown h-16 w-full">
         {
           <h1 className="pt-4 pl-4 text-2xl font-bold text-white">
             {wordName}
@@ -183,29 +183,29 @@ const WordDescription = () => {
         }
       </div>
       <div className="m-8 ">
-        <b className="text-2xl text-red-600">பொருள் </b>
+        <b className="text-2xl text-customText">பொருள் </b>
         <h1> {wordData.wordNameDescription}</h1>
         <ul>
-          <b className="text-2xl text-red-600 underline underline-offset-1">
+          <b className="text-2xl text-customText underline underline-offset-1">
             நூல்கள்
           </b>
           {wordData !== undefined &&
             wordData !== null &&
             wordData.books !== undefined &&
             wordData.books !== null &&
-            wordData.books.map((ele) => {
+            wordData.books.sort().map((ele) => {
               return <li className="list-decimal">{ele.bookName}</li>;
             })}
         </ul>
         <ul>
-          <b className="text-2xl text-red-600 underline underline-offset-1">
+          <b className="text-2xl text-customText underline underline-offset-1">
             மறை மொழிகள்
           </b>
           {wordData !== undefined &&
             wordData !== null &&
             wordData.maraimoozhis !== undefined &&
             wordData.maraimoozhis !== null &&
-            wordData.maraimoozhis.map((ele) => {
+            wordData.maraimoozhis.sort().map((ele) => {
               return <li className="list-decimal">{ele.maraiMoozhiName}</li>;
             })}
         </ul>

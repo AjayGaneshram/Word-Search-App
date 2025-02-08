@@ -313,7 +313,7 @@ const uyirEzhuthukkal = [
 
 const TamilAlphabetTable = ({ words }) => {
   // Extract first letters of all words
-  const firstLetters = words.map((word) => word.word.slice(0, 2)); // Extract first two characters (e.g., "கோ" or "சி")
+  const firstLetters = words.sort().map((word) => word.word.slice(0, 2)); // Extract first two characters (e.g., "கோ" or "சி")
 
   // Function to check if a specific Uyir is present
   const isUyirHighlighted = (uyir) =>
@@ -325,14 +325,14 @@ const TamilAlphabetTable = ({ words }) => {
   };
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-semibold text-center mb-6 text-red-600">
+      <h2 className="text-2xl font-semibold text-center mb-6 text-customText">
         தொடரடைவுகள்
       </h2>
       <div className="overflow-x-auto overflow-y-auto max-h-[400px] border border-gray-300 rounded-lg shadow-lg">
         <table className="min-w-full table-auto border-collapse">
           <thead>
             {/* <th className="px-4 py-2 bg-gray-200 font-bold border border-gray-300"></th> */}
-            {uyirEzhuthukkal.map((uyir, index) => (
+            {uyirEzhuthukkal.sort().map((uyir, index) => (
               <th
                 key={index}
                 className="px-4 py-2 bg-gray-200 font-bold border border-gray-300 text-center"
@@ -351,7 +351,7 @@ const TamilAlphabetTable = ({ words }) => {
             ))}
           </thead>
           <tbody>
-            {uyirmeiData.map((row, index) => {
+            {uyirmeiData.sort().map((row, index) => {
               const rowHasMatch = row.uyirmei.some((uyirmei) =>
                 firstLetters.includes(uyirmei)
               );
@@ -365,7 +365,7 @@ const TamilAlphabetTable = ({ words }) => {
                   {/* <td className="px-4 py-2 bg-gray-200 font-bold border border-gray-300">
                     {row.mei}
                   </td> */}
-                  {row.uyirmei.map((uyirmei, i) => (
+                  {row.uyirmei.sort().map((uyirmei, i) => (
                     <td
                       key={i}
                       className="px-4 py-2 border border-gray-300 text-center"
@@ -401,7 +401,7 @@ const LetterHomePage = () => {
     //   .then((data) => {
     outputJson != null &&
       setWordDetails(
-        outputJson["words"].map((word) => ({
+        outputJson["words"].sort().map((word) => ({
           word: word.wordName,
           wordNameDescription: word.wordNameDescription,
         }))
