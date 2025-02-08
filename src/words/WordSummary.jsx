@@ -8,7 +8,6 @@ const WordSummary = () => {
   const [wordDetails, setWordDetails] = useState([]);
   const { wordName } = useParams();
   const decodedWord = decodeURIComponent(wordName);
-  console.log(decodedWord);
   const navigate = useNavigate();
   const homePageNavigate = () => {
     navigate(`/Word-Search-App/home`);
@@ -195,7 +194,6 @@ const WordSummary = () => {
       // setWordDetails(jsonData[decodedWord]);
     };
     fetchWordData();
-    console.log(wordDetails);
   }, []);
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -209,7 +207,7 @@ const WordSummary = () => {
 
   return (
     <div>
-       {/* <Header /> */}
+      {/* <Header /> */}
       <div className="p-6 max-w-4xl mx-auto bg-gray-50 min-h-screen">
         <button
           onClick={scrollToTop}
@@ -219,10 +217,7 @@ const WordSummary = () => {
           ↑
         </button>
         <div className="mb-4">
-          <a
-          
-            className="text-red-500 hover:text-orange-700 transition text-lg flex items-center"
-          >
+          <a className="text-red-500 hover:text-orange-700 transition text-lg flex items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5 mr-2"
@@ -237,7 +232,9 @@ const WordSummary = () => {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            <span  className="cursor-pointer" onClick={homePageNavigate}>முகப்புப்பக்கம்</span>
+            <span className="cursor-pointer" onClick={homePageNavigate}>
+              முகப்புப்பக்கம்
+            </span>
           </a>
         </div>
         {wordDetails.length != 0 && (

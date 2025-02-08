@@ -7,92 +7,47 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate",
+      registerType: "autoUpdate", // ✅ Auto-update service worker when new content is available
+      workbox: {
+        cleanupOutdatedCaches: true, // ✅ Remove old caches
+        clientsClaim: true, // ✅ Take control of uncontrolled clients
+        skipWaiting: true, // ✅ Activate SW immediately
+      },
+      strategies: "generateSW", // ✅ Automatically generates the service worker
       manifest: {
+        short_name: "Word Search",
         name: "Word Search App",
-        short_name: "WordSearch",
+        icons: [],
         start_url: "/Word-Search-App/",
         display: "standalone",
+        theme_color: "#ffffff",
         background_color: "#ffffff",
-        theme_color: "#000000",
-      },
-      workbox: {
-        cleanupOutdatedCaches: true,
-        runtimeCaching: [
-          {
-            urlPattern: ({ request }) => request.mode === "navigate",
-            handler: "StaleWhileRevalidate",
-            options: {
-              cacheName: "html-cache",
-              expiration: {
-                maxEntries: 5,
-                maxAgeSeconds: 24 * 60 * 60,
-                purgeOnQuotaError: true,
-              },
-              broadcastUpdate: {
-                channelName: "html-cache-updates",
-                options: {
-                  headersToCheck: ["ETag"], // Required property
-                },
-              },
-            },
-          },
-          {
-            urlPattern: ({ request }) => request.destination === "script" || request.destination === "style",
-            handler: "StaleWhileRevalidate",
-            options: {
-              cacheName: "assets-cache",
-              expiration: {
-                maxEntries: 20,
-                maxAgeSeconds: 7 * 24 * 60 * 60,
-                purgeOnQuotaError: true,
-              },
-              broadcastUpdate: {
-                channelName: "assets-cache-updates",
-                options: {
-                  headersToCheck: ["ETag"], // Required property
-                },
-              },
-            },
-          },
-          {
-            urlPattern: ({ request }) => request.destination === "image",
-            handler: "CacheFirst",
-            options: {
-              cacheName: "image-cache",
-              expiration: {
-                maxEntries: 50,
-                maxAgeSeconds: 30 * 24 * 60 * 60,
-              },
-              broadcastUpdate: {
-                channelName: "image-cache-updates",
-                options: {
-                  headersToCheck: ["ETag"], // Required property
-                },
-              },
-            },
-          },
-        ],
       },
     }),
   ],
   base: "/Word-Search-App/",
   css: {
-    postcss: {
-      plugins: [tailwindcss()],
-    },
+    postcss: { plugins: [tailwindcss()] },
   },
   build: {
     outDir: "dist",
     charset: "utf-8",
-    assetsInlineLimit: 0,
-    rollupOptions: {
-      input: {
-        main: "index.html",
+    sourcemap: false,
+    minify: "terser", // ✅ Explicitly set minification to Terser
+    terserOptions: {
+      compress: {
+        drop_console: true, // ✅ Remove console logs
+        drop_debugger: true, // ✅ Remove debugger statements
       },
-      output: {
-        assetFileNames: "assets/[name].[ext]",
+      format: {
+        comments: false, // ✅ Remove comments
+      }},
+      assetsInlineLimit: 0,
+      rollupOptions: {
+        input: { main: "index.html" },
+        output: {
+          assetFileNames: "assets/[name].[ext]",
+        },
       },
     },
-  },
-});
+  });

@@ -161,7 +161,6 @@ const WordDescription = () => {
   };
   useEffect(() => {
     const fetchWordData = async () => {
-      console.log(jsondata[decodedWord])
       setWordData(jsondata[decodedWord]);
       // await fetch(`http://localhost:8080/words/${decodedWord}`)
       //   .then((response) => {
