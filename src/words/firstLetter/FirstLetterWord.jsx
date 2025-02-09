@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import Header from "../../HomeComponents/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import { DataContext } from "../../DataContext";
-import WordList from "../WordList";
 import WordDetailsSections from "../WordDetailsSection";
+import WordListFirstLetter from "../WordListFirstLetter";
 
 const WordsByFirstLetter = () => {
   const [wordsGroupedByFirstLetter, setWordsGroupedByFirstLetter] = useState(
@@ -92,10 +92,9 @@ const WordsByFirstLetter = () => {
                 {" "}
                 {uriLetterMeaning[decodedLetter]}
               </h3>
-              <WordList
-                wordData={wordsGroupedByFirstLetter[decodedLetter]}
-                component="firstLetter"
-              />
+              
+               <WordListFirstLetter wordData={wordsGroupedByFirstLetter[decodedLetter]} viewType="firstLetter" />  
+
             </div>
 
             <div>

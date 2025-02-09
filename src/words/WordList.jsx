@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const WordList = ({ wordData, component }) => {
   const [visibleCount, setVisibleCount] = useState(8);
   const isExpanded = visibleCount >= wordData.length;
-
   return (
     <div className="text-center">
       {component === "firstLetter" ? (

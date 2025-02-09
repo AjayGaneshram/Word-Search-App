@@ -4,6 +4,7 @@ import Header from "../HomeComponents/Header";
 import { DataContext } from "../DataContext";
 import WordDetailsSectionsForMaraimoozhi from "../words/WordDetailsForMaraimoozhi";
 import WordList from "../words/WordList";
+import WordAccordion from "../words/WordAccordion";
 
 // const WordsInBook = () => {
 //   const { bookName } = useParams();
@@ -271,7 +272,8 @@ const WordsInBook = () => {
           <h1 className="text-4xl font-extrabold text-red-500 mb-6">
             {decodedBookName}
           </h1>
-          <WordList wordData={wordData}/>
+          {/* <WordList wordData={wordData}/> */}
+          <WordAccordion wordData={wordData}/>
           {/* <div className="flex flex-wrap justify-center gap-6">
             {wordData.map((word, index) => (
               <a
