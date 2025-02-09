@@ -309,7 +309,7 @@ const WordAccordion = ({ wordData }) => {
   const groupedWords = sortedWords.reduce((acc, word) => {
     const firstLetter = word.wordName.charAt(0);
     const family = uyirmeiData.find((group) => group.uyirmei.includes(firstLetter));
-    const key = family ? `${family.mei} (${firstLetter})` : firstLetter;
+    const key = family ? `${firstLetter}` : firstLetter;
 
     if (!acc[key]) acc[key] = [];
     acc[key].push(word);
@@ -323,7 +323,7 @@ const WordAccordion = ({ wordData }) => {
   return (
     <div className="w-full max-w-2xl mx-auto">
       {/* Search Bar */}
-      <div className="flex items-center justify-center mb-4 border border-red-500 rounded-lg p-2">
+      <div className="flex items-center  mb-4 border border-red-500 rounded-lg p-2">
 
 	  <span className="p-2 text-red-800">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
