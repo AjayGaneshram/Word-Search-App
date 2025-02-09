@@ -5,6 +5,7 @@ import { DataContext } from "../DataContext";
 import WordDetailsSections from "../words/WordDetailsSection";
 import WordDetailsSectionsForMaraimoozhi from "../words/WordDetailsForMaraimoozhi";
 import WordList from "../words/WordList";
+import WordAccordion from "../words/WordAccordion";
 
 const WordsinMaraiMoozhi = () => {
   const { maraiMoozhi } = useParams();
@@ -166,7 +167,8 @@ const WordsinMaraiMoozhi = () => {
             {decodedmaraiMoozhi}
           </h1>
 
-          <WordList wordData={wordData}/>
+          {/* <WordList wordData={wordData}/> */}
+          <WordAccordion wordData={wordData}/>
         </div>
 
         {/* Word Details with Scrollspy Section */}

@@ -59,8 +59,11 @@ const Header = () => {
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? (
-            <span className="text-white text-3xl">&times;</span>
-          ) : (
+            <span className="text-white text-3xl">
+              {/* &times; */}
+              </span>
+          ) : 
+          (
             <span className="text-white text-3xl">&#9776;</span>
           )}
         </button>

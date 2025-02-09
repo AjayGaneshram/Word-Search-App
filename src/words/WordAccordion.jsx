@@ -364,7 +364,7 @@ const WordAccordion = ({ wordData }) => {
         </button>
 
         {expanded && (
-          <div className="p-3 bg-white border-t border-gray-300">
+          <div className="p-3 bg-white border-t border-gray-300 max-h-[300px] overflow-y-auto">
             {filteredGroups.length > 0 ? (
               filteredGroups.map(([key, words]) => (
                 <div key={key} className="mb-4">

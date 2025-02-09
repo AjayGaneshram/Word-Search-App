@@ -81,7 +81,7 @@ const WordListFirstLetter = ({ wordData }) => {
 
       {/* Word Dropdown */}
       {isDropdownOpen && (
-        <div className="relative bg-white shadow-lg rounded-lg border border-gray-200 max-h-60 overflow-y-auto z-10 p-2">
+        <div className="relative bg-white shadow-lg rounded-lg border border-gray-200 max-h-[300px] overflow-y-auto z-10 p-2">
           {filteredWords.length === 0 ? (
             <div className="p-4 text-gray-500 text-center">
               சொற்கள் கிடைக்கவில்லை

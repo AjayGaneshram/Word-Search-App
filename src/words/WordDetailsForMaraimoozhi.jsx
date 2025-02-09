@@ -1,74 +1,105 @@
 import React, { useState } from "react";
 
-const Section = ({ title, items, renderItem, expandLabel, collapseLabel }) => {
-  const [expanded, setExpanded] = useState(false);
-  const visibleItems = expanded ? items : items.slice(0, 4);
+const Pagination = ({ currentPage, totalPages, handlePageChange }) => {
+  const pages = [];
+  for (let i = 1; i <= totalPages; i++) {
+    pages.push(i);
+  }
+
+  return (
+    <ul className="flex flex-wrap justify-center gap-2 m-4">
+      {currentPage > 1 && (
+        <li>
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            className="px-3 py-1 font-semibold border border-red-200 rounded text-red-500 bg-red-50"
+          >
+            « முந்தைய
+          </button>
+        </li>
+      )}
+      {pages.map((page) => (
+        <li key={page}>
+          <button
+            onClick={() => handlePageChange(page)}
+            className={`px-3 py-1 border border-red-200 rounded ${
+              page === currentPage ? "bg-red-600 text-white" : ""
+            }`}
+          >
+            {page}
+          </button>
+        </li>
+      ))}
+      {currentPage < totalPages && (
+        <li>
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            className="px-3 py-1 font-semibold border rounded text-red-500 bg-red-50"
+          >
+            அடுத்து »
+          </button>
+        </li>
+      )}
+    </ul>
+  );
+};
+
+const PaginatedSection = ({ title, items, renderItem, itemsPerPage = 4, layout }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const startIdx = (currentPage - 1) * itemsPerPage;
+  const visibleItems = items.slice(startIdx, startIdx + itemsPerPage);
 
   return (
     <div className="mb-8">
-      <h2 className="text-2xl font-bold text-red-600 mb-4 text-center">
+      <h2 className="text-2xl font-bold text-red-600 mb-4 pb-2 text-center underline underline-offset-1">
         {title}
       </h2>
-      {title != "உரைகள்" ? (
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {visibleItems.sort().map(renderItem)}
-        </ul>
-      ) : (
-        <ul className="grid gap-4">{visibleItems.sort().map(renderItem)}</ul>
-      )}
-      {items.length > 4 && (
-        <div className="text-center mt-4">
-          <button
-            onClick={() => setExpanded(!expanded)}
-            className="text-red-500 font-bold hover:text-orange-700 "
-          >
-            {expanded ? " ‹‹ " + collapseLabel : expandLabel + " ›› "}
-          </button>
+      {layout === "row" ? (
+        <div className="flex flex-wrap justify-center gap-4">
+          {visibleItems.map(renderItem)}
         </div>
+      ) : (
+        <ul className="divide-y divide-gray-300">{visibleItems.map(renderItem)}</ul>
       )}
+      {totalPages > 1 && <Pagination currentPage={currentPage} totalPages={totalPages} handlePageChange={setCurrentPage} />}
     </div>
   );
 };
 
-const WordDetailsSectionsForMaraimoozhi = ({
-  wordDetails,
-  handleNavigate,
-  maraimoozhiHandleNavigate,
-}) => {
+const WordDetailsSectionsForMaraimoozhi = ({ wordDetails, handleNavigate, maraimoozhiHandleNavigate }) => {
   return (
-    <div className="border-b-2 border-red-200 pb-2">
-      {/* Books Section */}
+    <div className="border-b-2 border-red-200 mb-8 p-4">
+      {/* Books Section - Multi-Column Grid */}
       {wordDetails.bookNames.length > 0 && (
-        <Section
+        <PaginatedSection
           title="நூல்கள்"
           items={wordDetails.bookNames}
-          expandLabel="அனைத்தையும் காண்க"
-          collapseLabel="குறைக்க"
+          layout="row"
           renderItem={(book, index) => (
             <li
               key={index}
-              className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 hover:shadow-lg text-center cursor-pointer"
+              className="flex items-center justify-center p-3  rounded-lg hover:bg-red-50 transition cursor-pointer"
               onClick={() => handleNavigate(book)}
             >
-              {book}
+             {book} <span className="text-red-500">🔗</span>
             </li>
           )}
         />
       )}
 
+      {/* Marai Moozhis Section */}
       {wordDetails.maraiMoozhiNames.length > 0 && (
-        <Section
+        <PaginatedSection
           title="மறை மொழிகள்"
           items={wordDetails.maraiMoozhiNames}
-          expandLabel="அனைத்தையும் காண்க"
-          collapseLabel="குறைக்க"
           renderItem={(maraiMoozhi, index) => (
             <li
               key={index}
-              className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 hover:shadow-lg text-center cursor-pointer"
+              className="flex items-center justify-center p-3 rounded-lg hover:bg-red-50 transition cursor-pointer"
               onClick={() => maraimoozhiHandleNavigate(maraiMoozhi)}
             >
-              {maraiMoozhi}
+              {maraiMoozhi} <span className="text-red-500">🔗</span>
             </li>
           )}
         />
@@ -76,20 +107,21 @@ const WordDetailsSectionsForMaraimoozhi = ({
 
       {/* YouTube Videos Section */}
       {wordDetails.youtubeNames.length > 0 && (
-        <Section
+        <PaginatedSection
           title="உரைகள்"
           items={wordDetails.youtubeNames}
-          expandLabel="அனைத்தையும் காண்க"
-          collapseLabel="குறைக்க"
           renderItem={(video, index) => (
-            <li key={index} className="text-gray-700 text-center">
+            <li
+              key={index}
+              className="flex items-center justify-center p-3 rounded-lg hover:bg-red-50 transition"
+            >
               <a
                 href={video.youTubeURL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-red-500 hover:text-orange-700 "
+                className="hover:text-orange-700  flex items-center gap-2"
               >
-                {video.youtubeName}
+                 {video.youtubeName} <span className="text-red-500">🔗</span>
               </a>
             </li>
           )}
