@@ -5,11 +5,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import DataProvider from "./DataContext.jsx";
 import Header from "./HomeComponents/Header.jsx";
-import { registerSW } from "virtual:pwa-register";
 import CacheInfo from "./CacheInfo.jsx";
 
 // Register the service worker
-registerSW({ immediate: true });
+
 // Lazy-loaded components
 const HomePage = lazy(() => import("./HomePage.jsx"));
 const AllBooks = lazy(() => import("./books/AllBooks.jsx"));

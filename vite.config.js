@@ -23,6 +23,9 @@ export default defineConfig({
         theme_color: "#ffffff",
         background_color: "#ffffff",
       },
+      devOptions: {
+        enabled: true, // ✅ Ensures SW updates in development
+      },
     }),
   ],
   base: "/Word-Search-App/",
@@ -46,7 +49,7 @@ export default defineConfig({
       rollupOptions: {
         input: { main: "index.html" },
         output: {
-          assetFileNames: "assets/[name].[ext]",
+          assetFileNames: "assets/[name].[hash].[ext]",
         },
       },
     },

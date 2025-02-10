@@ -1,8 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { registerSW } from "virtual:pwa-register";
+
+registerSW({ immediate: true });
+
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [updateAvailable, setUpdateAvailable] = useState(false);
   const navigate = useNavigate();
   const menuRef = useRef(null); // Ref for detecting outside clicks
 
@@ -21,6 +26,12 @@ const Header = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
+    const updateSW = registerSW({
+      immediate: true,
+      onNeedRefresh() {
+        setUpdateAvailable(true); // ✅ When a new SW is detected, show a reload button
+      },
+    });
   }, [menuOpen]);
 
   const handleNavigate = () => {
@@ -52,7 +63,14 @@ const Header = () => {
         <h1 className="text-white font-bold text-lg md:text-2xl cursor-pointer">
           <a onClick={() => homePageNavigate()}>செம்மை</a>
         </h1>
-
+        {updateAvailable && (
+        <button
+          className="bg-blue-500 px-3 py-1 rounded"
+          onClick={() => location.reload()}
+        >
+          🔄 Refresh
+        </button>
+      )}
         {/* Hamburger Icon */}
         <button
           className="text-white text-2xl md:hidden"

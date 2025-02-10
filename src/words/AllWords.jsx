@@ -87,15 +87,46 @@ const AllWords = () => {
           சொற்கள்
         </h1>
         
-
-        <div className="relative mb-6">
+        <div className="w-full max-w-3xl mx-auto">
+        <div className="flex items-center gap-2 mb-4 border border-red-500 rounded-lg p-2 bg-white relative">
+        {/* Search Icon */}
+        <span className="p-2 text-red-800">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M10 2a8 8 0 0 1 6.32 12.9l4.39 4.39a1 1 0 1 1-1.42 1.42l-4.39-4.39A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 4.24 10.24A6 6 0 0 0 10 4z" />
+          </svg>
+        </span>
           <input
             type="text"
             placeholder="சொற்களை தேடுக"
             value={searchTerm}
             onChange={handleSearch}
-            className="w-full p-4 rounded-lg border border-gray-300 shadow-xl focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-700"
+          className="flex-1 p-2 text-lg border-b-2 border-red-500 focus:outline-none w-full bg-white"
           />
+          {searchTerm.length>0 && (
+          <button
+            onClick={() => {
+              setSearchTerm("");
+              setFilteredData(outputJson["bookList"]);
+            }}
+            className="p-2 bg-red-800 text-white rounded-full hover:bg-red-700 transition-all flex items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="white"
+              viewBox="0 0 24 24"
+            >
+              <path d="M18.3 5.7a1 1 0 0 0-1.4-1.4L12 9.59 7.1 4.7a1 1 0 1 0-1.4 1.4L10.59 12l-4.89 4.9a1 1 0 1 0 1.4 1.4L12 14.41l4.9 4.89a1 1 0 1 0 1.4-1.4L13.41 12l4.89-4.9z" />
+            </svg>
+          </button>
+        )}
         </div>
 
         <ul className="bg-white rounded-lg shadow-lg p-6 divide-y divide-red-200">
@@ -156,6 +187,7 @@ const AllWords = () => {
           )}
         </ul>
       </div>
+    </div>
     </div>
   );
 };
