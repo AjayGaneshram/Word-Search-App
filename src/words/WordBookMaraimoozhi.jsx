@@ -73,12 +73,12 @@ const WordBookMaraimoozhi = () => {
           </h1>
           <span className="text-red-500  cursor-pointer" onClick={() => wordHandleNavigate(uniqueDetails.wordName)}>🔗</span>
         </div>
-        <div className="mt-4">
+        <div className="mt-4 flex flex-wrap">
           <b className="text-gray-800">பொருள் </b>
-          <p>{uniqueDetails.wordNameDescription}</p>
+          <p className="break-words overflow-hidden text-ellipsis">{uniqueDetails.wordNameDescription}</p>
         </div>
 
-        <ul className="mt-4">
+       {uniqueDetails.maraimoozhis.length >0 && <ul className="mt-4">
           <b className="text-gray-800">மறை மொழிகள்</b>
           {uniqueDetails.maraimoozhis
             .slice(0, showMoreMarai ? uniqueDetails.maraimoozhis.length : 2)
@@ -95,8 +95,9 @@ const WordBookMaraimoozhi = () => {
               {showMoreMarai ? "சுருக்குக" : "மேலும் காண்க"}
             </button>
           )}
-        </ul>
+        </ul>} 
 
+{uniqueDetails.books.length>0 &&
         <ul className="mt-4">
           <b className="text-gray-800">நூல்கள்: </b>
           {uniqueDetails.books
@@ -115,7 +116,7 @@ const WordBookMaraimoozhi = () => {
               {showMoreBooks ? "சுருக்குக" : "மேலும் காண்க"}
             </button>
           )}
-        </ul>
+        </ul>}
       </div>
     );
   };
