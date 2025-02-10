@@ -61,7 +61,7 @@ const Header = () => {
       <div className="flex justify-between items-center h-full px-4 md:px-8 border-b-2 border-white-200 border-b-white-500">
         {/* App Name */}
         <h1 className="text-white font-bold text-lg md:text-2xl cursor-pointer">
-          <a onClick={() => homePageNavigate()}>செம்மை</a>
+          <a onClick={() => homePageNavigate()}>செம்மை..</a>
         </h1>
         {updateAvailable && (
         <button
