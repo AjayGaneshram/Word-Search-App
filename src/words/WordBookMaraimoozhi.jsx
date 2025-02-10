@@ -67,11 +67,11 @@ const WordBookMaraimoozhi = () => {
         <div className="flex items-center justify-between">
           <h1
             className="text-xl md:text-2xl text-red-500 font-bold underline underline-offset-4 cursor-pointer"
-            title="மேலும் காண்க"
             onClick={() => wordHandleNavigate(uniqueDetails.wordName)}
           >
-            {uniqueDetails.wordName}
+            {uniqueDetails.wordName} 
           </h1>
+          <span className="text-red-500  cursor-pointer" onClick={() => wordHandleNavigate(uniqueDetails.wordName)}>🔗</span>
         </div>
         <div className="mt-4">
           <b className="text-gray-800">பொருள் </b>
