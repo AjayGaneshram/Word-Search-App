@@ -80,7 +80,6 @@ const WordsByFirstLetter = () => {
             </span>
           </button>
         </div>
-        {console.log(wordsGroupedByFirstLetter[decodedLetter])}
         {/* ✅ Show Words Starting with the Selected Letter */}
         {wordsGroupedByFirstLetter[decodedLetter]?.length > 0 && (
           <div>
@@ -93,10 +92,9 @@ const WordsByFirstLetter = () => {
                 {uriLetterMeaning[decodedLetter]}
               </h3>
               
-               <WordListFirstLetter wordData={wordsGroupedByFirstLetter[decodedLetter]} viewType="firstLetter" />  
+               <WordListFirstLetter wordData={wordsGroupedByFirstLetter[decodedLetter].sort()} viewType="firstLetter" />  
 
             </div>
-
             <div>
               {wordsGroupedByFirstLetter[decodedLetter].sort().map((word, index) =>
                 wordDetails[word] ? (

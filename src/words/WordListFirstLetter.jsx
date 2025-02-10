@@ -16,7 +16,7 @@ const WordListFirstLetter = ({ wordData }) => {
   const filteredWords = useMemo(() => {
     const words = wordData.filter((word) =>
       word.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    ).sort();
     setIsDropdownOpen(words.length > 0 || searchQuery.length > 0);
     return words;
   }, [searchQuery, wordData]);
@@ -88,13 +88,13 @@ const WordListFirstLetter = ({ wordData }) => {
             </div>
           ) : (
             <div className="space-y-2">
-  {Object.entries(groupedWords).map(([letter, words]) => (
+  {Object.entries(groupedWords).sort().map(([letter, words]) => (
     <details key={letter} className="border rounded-lg p-2 bg-gray-50" open={searchQuery.length > 0}>
       <summary className="text-lg font-bold cursor-pointer">
         {letter}
       </summary>
       <div className="mt-2 flex flex-wrap gap-2">
-        {words.map((word, idx) => (
+        {words.sort().map((word, idx) => (
           <a
             key={idx}
             href={`#${encodeURIComponent(word)}`}

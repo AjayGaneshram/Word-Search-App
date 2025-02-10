@@ -15,8 +15,8 @@ const AllWords = () => {
 
   useEffect(() => {
     if (outputJson) {
-      setWordData(outputJson["wordList"]);
-      setFilteredData(outputJson["wordList"]);
+      setWordData(outputJson["wordList"].sort());
+      setFilteredData(outputJson["wordList"].sort());
     }
   }, [outputJson]);
 
@@ -25,7 +25,7 @@ const AllWords = () => {
     setSearchTerm(value);
     const filtered = wordData.filter((word) =>
       word.toLowerCase().includes(value)
-    );
+    ).sort();
     setFilteredData(filtered);
     setCurrentPage(1);
   };
@@ -35,7 +35,7 @@ const AllWords = () => {
   const currentItems = filteredData.slice(
     startIndex,
     startIndex + itemsPerPage
-  );
+  ).sort();
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
@@ -112,7 +112,7 @@ const AllWords = () => {
           <button
             onClick={() => {
               setSearchTerm("");
-              setFilteredData(outputJson["bookList"]);
+              setFilteredData(outputJson["bookList"].sort());
             }}
             className="p-2 bg-red-800 text-white rounded-full hover:bg-red-700 transition-all flex items-center justify-center"
           >

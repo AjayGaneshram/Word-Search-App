@@ -15,8 +15,8 @@ const AllMaraiMoozhi = () => {
 
   useEffect(() => {
     if (outputJson) {
-      setWordData(outputJson["maraiMoozhiList"]);
-      setFilteredData(outputJson["maraiMoozhiList"]);
+      setWordData(outputJson["maraiMoozhiList"].sort());
+      setFilteredData(outputJson["maraiMoozhiList"].sort());
     }
   }, [outputJson]);
 
@@ -26,7 +26,7 @@ const AllMaraiMoozhi = () => {
     setSearchTerm(value);
     const filtered = wordData.filter((word) =>
       word.toLowerCase().includes(value)
-    );
+    ).sort();
     setFilteredData(filtered);
     setCurrentPage(1); // Reset to first page on search
   };
@@ -34,7 +34,7 @@ const AllMaraiMoozhi = () => {
   // Pagination calculations based on filteredData
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = filteredData.slice(startIndex, startIndex + itemsPerPage);
+  const currentItems = filteredData.slice(startIndex, startIndex + itemsPerPage).sort();
 
   const handlePageChange = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {

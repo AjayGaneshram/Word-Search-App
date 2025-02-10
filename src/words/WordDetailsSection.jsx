@@ -48,7 +48,7 @@ const PaginatedSection = ({ title, items, renderItem, itemsPerPage = 4, layout }
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(items.length / itemsPerPage);
   const startIdx = (currentPage - 1) * itemsPerPage;
-  const visibleItems = items.slice(startIdx, startIdx + itemsPerPage);
+  const visibleItems = items.slice(startIdx, startIdx + itemsPerPage).sort();
 
   return (
     <div className="mb-8">
@@ -57,10 +57,10 @@ const PaginatedSection = ({ title, items, renderItem, itemsPerPage = 4, layout }
       </h2>
       {layout === "row" ? (
         <div className="flex flex-wrap justify-center gap-4">
-          {visibleItems.map(renderItem)}
+          {visibleItems.map(renderItem).sort()}
         </div>
       ) : (
-        <ul className="divide-y divide-gray-300">{visibleItems.map(renderItem)}</ul>
+        <ul className="divide-y divide-gray-300">{visibleItems.map(renderItem).sort()}</ul>
       )}
       {totalPages > 1 && <Pagination currentPage={currentPage} totalPages={totalPages} handlePageChange={setCurrentPage} />}
     </div>
@@ -74,7 +74,7 @@ const WordDetailsSections = ({ wordDetails, handleNavigate, maraimoozhiHandleNav
       {wordDetails.books.length > 0 && (
         <PaginatedSection
           title="நூல்கள்"
-          items={wordDetails.books}
+          items={wordDetails.books.sort()}
           layout="row"
           renderItem={(book, index) => (
             <li
@@ -92,7 +92,7 @@ const WordDetailsSections = ({ wordDetails, handleNavigate, maraimoozhiHandleNav
       {wordDetails.maraimoozhis.length > 0 && (
         <PaginatedSection
           title="மறை மொழிகள்"
-          items={wordDetails.maraimoozhis}
+          items={wordDetails.maraimoozhis.sort()}
           renderItem={(maraiMoozhi, index) => (
             <li
               key={index}
@@ -109,7 +109,7 @@ const WordDetailsSections = ({ wordDetails, handleNavigate, maraimoozhiHandleNav
       {wordDetails.youtubeNames.length > 0 && (
         <PaginatedSection
           title="உரைகள்"
-          items={wordDetails.youtubeNames}
+          items={wordDetails.youtubeNames.sort()}
           renderItem={(video, index) => (
             <li
               key={index}

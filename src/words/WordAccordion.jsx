@@ -370,7 +370,7 @@ const WordAccordion = ({ wordData }) => {
                 <div key={key} className="mb-4">
                   <h3 className="text-red-800 font-bold text-lg mb-2">{key}</h3>
                   <div className="flex flex-wrap gap-2">
-                    {words.map((word, index) => (
+                    {words.sort().map((word, index) => (
                       <a
                         key={index}
                         href={`#${encodeURIComponent(word.wordName)}`}
