@@ -68,7 +68,7 @@ const Header = () => {
           className="bg-blue-500 px-3 py-1 rounded"
           onClick={() => location.reload()}
         >
-          🔄 Refresh
+          🔄 புதுப்பிக்கவும்
         </button>
       )}
         {/* Hamburger Icon */}
