@@ -22,10 +22,7 @@ export default defineConfig({
         display: "standalone",
         theme_color: "#ffffff",
         background_color: "#ffffff",
-      },
-      devOptions: {
-        enabled: true, // ✅ Ensures SW updates in development
-      },
+      }
     }),
   ],
   base: "/Word-Search-App/",

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { FaLink } from "react-icons/fa6";
 const Pagination = ({ currentPage, totalPages, handlePageChange }) => {
   const pages = [];
   for (let i = 1; i <= totalPages; i++) {
@@ -79,10 +79,10 @@ const WordDetailsSections = ({ wordDetails, handleNavigate, maraimoozhiHandleNav
           renderItem={(book, index) => (
             <li
               key={index}
-              className="flex items-center justify-center p-3  rounded-lg hover:bg-red-50 transition cursor-pointer"
+              className="flex items-center justify-center p-3  rounded-lg hover:bg-red-50 transition cursor-pointer gap-2"
               onClick={() => handleNavigate(book.bookName)}
             >
-             {book.bookName} <span className="text-red-500">🔗</span>
+             {book.bookName} <span className="text-red-500">  <FaLink/></span>
             </li>
           )}
         />
@@ -96,10 +96,10 @@ const WordDetailsSections = ({ wordDetails, handleNavigate, maraimoozhiHandleNav
           renderItem={(maraiMoozhi, index) => (
             <li
               key={index}
-              className="flex items-center justify-center p-3 rounded-lg hover:bg-red-50 transition cursor-pointer"
+              className="flex items-center justify-center p-3 rounded-lg hover:bg-red-50 transition cursor-pointer gap-2"
               onClick={() => maraimoozhiHandleNavigate(maraiMoozhi.maraiMoozhiName)}
             >
-              {maraiMoozhi.maraiMoozhiName} <span className="text-red-500">🔗</span>
+              {maraiMoozhi.maraiMoozhiName} <span className="text-red-500">  <FaLink/></span>
             </li>
           )}
         />
@@ -113,7 +113,7 @@ const WordDetailsSections = ({ wordDetails, handleNavigate, maraimoozhiHandleNav
           renderItem={(video, index) => (
             <li
               key={index}
-              className="flex items-center justify-center p-3 rounded-lg hover:bg-red-50 transition"
+              className="flex items-center justify-center p-3 rounded-lg hover:bg-red-50 transition gap-2"
             >
               <a
                 href={video.youTubeURL}
@@ -121,7 +121,7 @@ const WordDetailsSections = ({ wordDetails, handleNavigate, maraimoozhiHandleNav
                 rel="noopener noreferrer"
                 className="hover:text-orange-700  flex items-center gap-2"
               >
-                 {video.youtubeName} <span className="text-red-500">🔗</span>
+                 {video.youtubeName} <span className="text-red-500">  <FaLink/></span>
               </a>
             </li>
           )}

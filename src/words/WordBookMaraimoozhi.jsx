@@ -4,6 +4,7 @@ import SearchComponent from "../search/SearchBar";
 import CustomDropdown from "./CustomSelector";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../DataContext";
+import { FaLink } from "react-icons/fa6";
 const itemsPerPageOptions = [8, 16, 24, 32];
 const WordBookMaraimoozhi = () => {
   const [wordDetails, setWordDetails] = useState([]);
@@ -64,14 +65,14 @@ const WordBookMaraimoozhi = () => {
 
     return (
       <div className="m-4 p-6 w-full max-w-sm bg-white shadow-lg rounded-lg border border-red-200 shadow-xl">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-2">
           <h1
             className="text-xl md:text-2xl text-red-500 font-bold underline underline-offset-4 cursor-pointer"
             onClick={() => wordHandleNavigate(uniqueDetails.wordName)}
           >
             {uniqueDetails.wordName} 
           </h1>
-          <span className="text-red-500  cursor-pointer" onClick={() => wordHandleNavigate(uniqueDetails.wordName)}>🔗</span>
+          <span className="text-red-500  cursor-pointer" onClick={() => wordHandleNavigate(uniqueDetails.wordName)}> <FaLink/>  </span>
         </div>
         <div className="mt-4 flex flex-wrap">
           <b className="text-gray-800">பொருள் </b>

@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { DataContext } from "../../DataContext";
 import WordDetailsSections from "../WordDetailsSection";
 import WordListFirstLetter from "../WordListFirstLetter";
-
+import { FaLink } from "react-icons/fa6";
 const WordsByFirstLetter = () => {
   const [wordsGroupedByFirstLetter, setWordsGroupedByFirstLetter] = useState(
     {}
