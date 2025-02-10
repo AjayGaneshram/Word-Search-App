@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 import { registerSW } from "virtual:pwa-register";
 
-registerSW({ immediate: true });
+registerSW({
+  immediate: true, // ✅ Instantly register and activate SW
+  onNeedRefresh() {
+    location.reload(); // ✅ Auto-refresh the page when an update is available
+  },
+});
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,12 +31,7 @@ const Header = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-    const updateSW = registerSW({
-      immediate: true,
-      onNeedRefresh() {
-        setUpdateAvailable(true); // ✅ When a new SW is detected, show a reload button
-      },
-    });
+   
   }, [menuOpen]);
 
   const handleNavigate = () => {
@@ -61,16 +61,8 @@ const Header = () => {
       <div className="flex justify-between items-center h-full px-4 md:px-8 border-b-2 border-white-200 border-b-white-500">
         {/* App Name */}
         <h1 className="text-white font-bold text-lg md:text-2xl cursor-pointer">
-          <a onClick={() => homePageNavigate()}>செம்மை..</a>
+          <a onClick={() => homePageNavigate()}>செம்மை</a>
         </h1>
-        {updateAvailable && (
-        <button
-          className="bg-blue-500 px-3 py-1 rounded"
-          onClick={() => location.reload()}
-        >
-          🔄 புதுப்பிக்கவும்
-        </button>
-      )}
         {/* Hamburger Icon */}
         <button
           className="text-white text-2xl md:hidden"
