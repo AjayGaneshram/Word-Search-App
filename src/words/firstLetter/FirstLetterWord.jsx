@@ -95,11 +95,10 @@ const WordsByFirstLetter = () => {
                <WordListFirstLetter wordData={wordsGroupedByFirstLetter[decodedLetter].sort()} viewType="firstLetter" />  
 
             </div>
-            <div>
+            {/* <div>
               {wordsGroupedByFirstLetter[decodedLetter].sort().map((word, index) =>
                 wordDetails[word] ? (
                   <div key={index} id={wordDetails[word].wordName}>
-                    {/* Word Title */}
                     <div className="mb-8 text-center">
                       <h1 className="text-4xl font-extrabold text-red-500 underline">
                         {wordDetails[word].wordName}
@@ -114,80 +113,11 @@ const WordsByFirstLetter = () => {
                       handleNavigate={handleNavigate}
                       maraimoozhiHandleNavigate={maraimoozhiHandleNavigate}
                     />
-                    {/* Books Section */}
-                    {/* {wordDetails[word].books.length > 0 && (
-                      <div className="mb-8">
-                        <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
-                          நூல்கள்
-                        </h2>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          {wordDetails[word].books.map((book, index) => (
-                            <li
-                              key={index}
-                              className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 hover:shadow-lg text-center cursor-pointer"
-                              onClick={() => handleNavigate(book.bookName)}
-                            >
-                              {book.bookName}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )} */}
-
-                    {/* Marai Moozhis Section */}
-                    {/* {wordDetails[word].maraimoozhis.length > 0 && (
-                      <div className="mb-8">
-                        <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
-                          மறை மொழிகள்
-                        </h2>
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          {wordDetails[word].maraimoozhis.map(
-                            (maraiMoozhi, index) => (
-                              <li
-                                key={index}
-                                className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 hover:shadow-lg text-center cursor-pointer"
-                                onClick={() =>
-                                  maraimoozhiHandleNavigate(
-                                    maraiMoozhi.maraiMoozhiName
-                                  )
-                                }
-                              >
-                                {maraiMoozhi.maraiMoozhiName}
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    )} */}
-
-                    {/* YouTube Videos Section */}
-                    {/* {wordDetails[word].youtubeNames.length > 0 && (
-                      <div className="mb-8">
-                        <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
-                          உரைகள்
-                        </h2>
-                        <ul className="space-y-4 text-center">
-                          {wordDetails[word].youtubeNames.map(
-                            (video, index) => (
-                              <li key={index} className="text-gray-700">
-                                <a
-                                  href={video.youTubeURL}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-red-500 hover:underline hover:text-orange-700"
-                                >
-                                  {video.youtubeName}
-                                </a>
-                              </li>
-                            )
-                          )}
-                        </ul>
-                      </div>
-                    )} */}
+                   
                   </div>
                 ) : null
               )}
-            </div>
+            </div> */}
           </div>
         )}
         {wordsGroupedByFirstLetter[decodedLetter]?.length == 0 && (

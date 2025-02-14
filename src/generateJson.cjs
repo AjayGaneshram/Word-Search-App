@@ -70,6 +70,7 @@ function generateOutput() {
                     outputData.books[book.bookName] = {
                         bookName_firstLetter: book.bookName_firstLetter,
                         bookName: book.bookName,
+                        wordIyal: ((book.wordIyal != undefined && book.wordIyal != null) && book.wordIyal),
                         words: []
                     };
                 }
@@ -91,9 +92,12 @@ function generateOutput() {
                     wordName: word.wordName,
                     wordNameDescription: word.wordNameDescription || '',
                     maraiMoozhiNames: word.maraimoozhis ? word.maraimoozhis.sort().map(maraiMoozhi => maraiMoozhi.maraiMoozhiName) : [],
-                    bookNames: [book.bookName],
+                    bookNames: [{
+                        "bookName": book.bookName,
+                        "wordIyal": ((book.wordIyal != undefined && book.wordIyal != null) ? book.wordIyal : null)
+                    }],
                     youtubeNames: word.youTubeVideos ? word.youTubeVideos.sort().map(youtube => ({
-                        youtubeName: youtube.youtubeName,
+                        youtubeName: youtube.youtubeNFame,
                         youTubeURL: youtube.youTubeURL
                     })) : []
                 };

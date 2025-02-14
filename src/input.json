@@ -54,6 +54,11 @@
       {
         "bookName": "அண்டவியல் முதல் நிலை",
         "bookName_firstLetter": "அ"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [
@@ -72,6 +77,11 @@
       {
         "bookName_firstLetter": "உ",
         "bookName": "உயிர் நூல்"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [
@@ -111,6 +121,11 @@
       {
         "bookName_firstLetter": "உ",
         "bookName": "உயிர் நூல்"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [
@@ -165,6 +180,11 @@
       {
         "bookName_firstLetter": "உ",
         "bookName": "உணர்ச்சி இயல்"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [
@@ -211,7 +231,8 @@
       },
       {
         "bookName_firstLetter": "கா",
-        "bookName": "காலம் கோலம் மாயை"
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [
@@ -271,7 +292,8 @@
       },
       {
         "bookName_firstLetter": "கா",
-        "bookName": "காலம் கோலம் மாயை"
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கமாய் உள்ளான் எந்தை"
       }
     ],
     "maraimoozhis": [
@@ -329,6 +351,11 @@
       {
         "bookName_firstLetter": "உ",
         "bookName": "உயிர் நூல்"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [
@@ -461,7 +488,13 @@
     "wordName": "உறுபொருள்",
     "wordName_FirstLetter": "உ",
     "wordNameDescription": "தானாக வந்தடையும் பொருள்.உயிருக்கு உடல், ஐம்பூதம் மழை,உயிரனக் கூட்டம் எல்லாம் உறுபொருட்களே.",
-    "books": [],
+    "books": [
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
+      }
+    ],
     "maraimoozhis": [
       {
         "maraiMoozhiName": "உறுபொருள் சேர்க்கை உண்மையைக் வெளிபடுத்தும்.",
@@ -483,6 +516,11 @@
       {
         "bookName_firstLetter": "உ",
         "bookName": "உணவு நூல்"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [
@@ -555,12 +593,16 @@
     "books": [
       {
         "bookName_firstLetter": "கா",
-        "bookName": "காலம் கோலம் மாயை"
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "ஈர்ப்பே உறவமைக்கும்"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
-    "maraimoozhis": [
-      
-    ],
+    "maraimoozhis": [],
     "youTubeVideos": [
       {
         "youtubeName": "உறவு நலம்",
@@ -577,13 +619,18 @@
     ]
   },
   {
-    "wordName": "உவர்ப்பு ",
+    "wordName": "உவர்ப்பு",
     "wordName_FirstLetter": "உ",
     "wordNameDescription": "ஆதி சுவை.புவியில் நிலம் உருவாவதற்கு முன்பு இருந்த எரிநீர் உவர்ப்பு சுவையில் தான் இருந்தது",
     "books": [
       {
         "bookName_firstLetter": "சு",
         "bookName": "சுவையியல்"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [],
@@ -597,6 +644,11 @@
       {
         "bookName_firstLetter": "தொ",
         "bookName": "தொல்காப்பியம் மரபியல் உரை"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [],
@@ -615,6 +667,11 @@
       {
         "bookName_firstLetter": "அ",
         "bookName": "அண்டவியல் முதல் நிலை"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [],
@@ -641,7 +698,13 @@
     "wordName": "உண்மை",
     "wordName_FirstLetter": "உ",
     "wordNameDescription": "விளைவை நோக்காதது.விளைவு நோக்காத சொற்கள் உண்மையானவை.விளைவு நோக்காத செயல்கள் உண்மையானவை.",
-    "books": [],
+    "books": [
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
+      }
+    ],
     "maraimoozhis": [],
     "youTubeVideos": [
       {
@@ -670,6 +733,11 @@
       {
         "bookName_firstLetter": "வ",
         "bookName": "வடிவு நூல்"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [],
@@ -683,6 +751,11 @@
       {
         "bookName": "மூல நூல்",
         "bookName_firstLetter": "மூ"
+      },
+      {
+        "bookName_firstLetter": "கா",
+        "bookName": "காலம் கோலம் மாயை",
+        "wordIyal": "இயக்கம்"
       }
     ],
     "maraimoozhis": [

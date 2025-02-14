@@ -172,7 +172,7 @@ const WordsinMaraiMoozhi = () => {
         </div>
 
         {/* Word Details with Scrollspy Section */}
-        {wordData.sort().map((word, index) => (
+        {/* {wordData.sort().map((word, index) => (
           <section key={index} id={word.wordName} className="mb-8 pt-12 pb-8">
             <div className="text-center">
               <h2 className="text-3xl font-extrabold text-red-500 underline mb-4">
@@ -190,7 +190,7 @@ const WordsinMaraiMoozhi = () => {
               />
             </div>
           </section>
-        ))}
+        ))} */}
       </div>
     </div>
   );

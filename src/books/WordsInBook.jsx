@@ -76,7 +76,7 @@ const WordsInBook = () => {
     navigate(`/Word-Search-App/maraiMozhi/${word}`);
   };
   const { outputJson } = useContext(DataContext);
-  // const BOOKSUMMARYDATA = {
+ 
   //   "மூல நூல்": [
   //     {
   //       wordName: "இயல்பு",
@@ -183,24 +183,7 @@ const WordsInBook = () => {
   //   ],
   // };
   useEffect(() => {
-    // Replace with your API endpoint
-    // setWordData(BOOKSUMMARYDATA[decodedBookName]);
-    // fetch(`http://localhost:8080/words/book-summary/${decodedBookName}`)
-    //   .then((response) => response.json())
-    //   .then((data) => setWordData(data));
-
-    // fetch("./output.json") // Fetch from public folder
-    //   .then((response) => {
-    //     console.log(response);
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     console.log(data);
-    //     console.log(data["eachBook"][decodedBookName]);
-    //     setWordData(data["eachBook"][decodedBookName]);
-    //   })
-    //   .catch((error) => console.error("Error fetching JSON:", error));
-
+   
     setWordData(outputJson["eachBook"][decodedBookName]);
   }, []);
 
@@ -292,7 +275,7 @@ const WordsInBook = () => {
         </div>
 
         {/* Word Details with Scrollspy Section */}
-        {wordData.sort().map((word, index) => (
+        {/* {wordData.sort().map((word, index) => (
           <section key={index} id={word.wordName} className="mb-8 pt-12 pb-8">
             <div className="text-center">
               <h2 className="text-3xl font-extrabold text-red-500 underline mb-4">
@@ -309,7 +292,7 @@ const WordsInBook = () => {
               />
             </div>
           </section>
-        ))}
+        ))} */}
       </div>
     </div>
   );

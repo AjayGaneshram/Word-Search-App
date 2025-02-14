@@ -255,70 +255,7 @@ const WordSummary = () => {
               maraimoozhiHandleNavigate={maraimoozhiHandleNavigate}
             />
 
-            {/* <div className="mb-8">
-              <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
-                நூல்கள்
-              </h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {wordDetails.books.map((book, index) => (
-                  <li
-                    key={index}
-                    className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 hover:shadow-lg text-center cursor-pointer"
-                    onClick={() => handleNavigate(book.bookName)}
-                  >
-                    {book.bookName}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
-                மறை மொழிகள்
-              </h2>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {wordDetails.maraimoozhis.map((maraiMoozhi, index) => (
-                  <li
-                    key={index}
-                    className="p-4 bg-white shadow-xl rounded-md text-gray-700 border border-red-200 hover:shadow-lg text-center cursor-pointer"
-                    onClick={() =>
-                      maraimoozhiHandleNavigate(maraiMoozhi.maraiMoozhiName)
-                    }
-                  >
-                    {maraiMoozhi.maraiMoozhiName}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-red-600 mb-4 border-b-2 border-red-200 pb-2 text-center">
-                உரைகள்
-              </h2>
-              <ul className="space-y-4 text-center">
-                {wordDetails.youtubeNames.map((video, index) => (
-                  <li key={index} className="text-gray-700">
-                    <a
-                      href={video.youTubeURL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-red-500 hover:underline hover:text-orange-700"
-                    >
-                      {video.youtubeName}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div> */}
-
-            {/* Back to Home Button */}
-            {/* <div className="text-center">
-              <button
-                onClick={() => homePageNavigate()}
-                className="px-6 py-2 bg-red-800 text-white rounded-md shadow-xl hover:bg-red-800"
-              >
-                முகப்புப்பக்கம்
-              </button>
-            </div> */}
+            
           </div>
         )}
       </div>
