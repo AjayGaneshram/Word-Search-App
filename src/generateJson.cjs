@@ -134,12 +134,29 @@ function generateOutput() {
                 if (!outputData.eachMaraimoozhi[maraiMoozhi.maraiMoozhiName]) {
                     outputData.eachMaraimoozhi[maraiMoozhi.maraiMoozhiName] = [];
                 }
-
                 const maraiMoozhiDetails = {
                     wordName: word.wordName,
                     wordNameDescription: word.wordNameDescription || '',
-                    bookNames: word.books ? word.books.sort().map(book => book.bookName) : [],
-                    maraiMoozhiNames: [maraiMoozhi.maraiMoozhiName],
+                    bookNames: word.maraimoozhis
+                        ? Object.values(
+                            word.maraimoozhis
+                                .flatMap(maraiMoozhi => maraiMoozhi.bookDetails || [])
+                                .filter(book => book.maraimoozhiIyal !== null && book.maraimoozhiIyal !== undefined)
+                                .reduce((acc, book) => {
+                                    if (!acc[book.bookName]) {
+                                        acc[book.bookName] = { bookName: book.bookName, wordIyal: new Set() };
+                                    }
+                                    acc[book.bookName].wordIyal.add(book.maraimoozhiIyal);
+                                    return acc;
+                                }, {})
+                        ).map(book => ({
+                            bookName: book.bookName,
+                            wordIyal: Array.from(book.wordIyal) // Convert Set to Array for unique values
+                        }))
+                        : [],
+                    maraiMoozhiNames: [
+                        maraiMoozhi.maraiMoozhiName,
+                    ],
                     youtubeNames: word.youTubeVideos ? word.youTubeVideos.sort().map(youtube => ({
                         youtubeName: youtube.youtubeName,
                         youTubeURL: youtube.youTubeURL

@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Pagination = ({ currentPage, totalPages, handlePageChange }) => {
@@ -73,7 +73,7 @@ const PaginatedSection = ({ title, items, renderItem }) => {
   );
 };
 
-const WordAccordion = ({ wordData }) => {
+const WordAccordion = ({ wordData, component }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [openAccordions, setOpenAccordions] = useState({});
   const navigate = useNavigate();
@@ -82,35 +82,85 @@ const WordAccordion = ({ wordData }) => {
 
   const sortedWords = [...wordData].sort((a, b) => a.wordName.localeCompare(b.wordName, "ta"));
 
-  const groupedByWordIyal = sortedWords.reduce((acc, word) => {
-    const category = word.bookNames?.[0]?.wordIyal || "Ungrouped";
-    if (!acc[category]) acc[category] = [];
-    acc[category].push(word);
-    return acc;
-  }, {});
+  let groupedData = {};
 
-  const finalGroupedWords = Object.entries(groupedByWordIyal).reduce((acc, [wordIyal, words]) => {
-    const groupedByFirstLetter = words.reduce((subAcc, word) => {
+  if (component === "book") {
+    groupedData = sortedWords.reduce((acc, word) => {
+      const wordIyal = word.bookNames?.[0]?.wordIyal || "சொற்கள்";
+      if (!acc[wordIyal]) acc[wordIyal] = {};
       const firstLetter = word.wordName.charAt(0);
-      if (!subAcc[firstLetter]) subAcc[firstLetter] = [];
-      subAcc[firstLetter].push(word);
-      return subAcc;
+      if (!acc[wordIyal][firstLetter]) acc[wordIyal][firstLetter] = [];
+      acc[wordIyal][firstLetter].push(word);
+      return acc;
     }, {});
-    acc[wordIyal] = groupedByFirstLetter;
-    return acc;
-  }, {});
+  } else if (component === "maraiMoozhi") {
+    groupedData = sortedWords.reduce((acc, word) => {
+      // Ensure maraiMoozhiNames is present
+      word.maraiMoozhiNames?.forEach((maraiMoozhi) => {
+        const bookNames = word.bookNames || [];
+        
+        // If no bookNames, use "சொற்கள்"
+        if (bookNames.length === 0) {
+          const defaultBookName = "சொற்கள்";
+          const defaultWordIyal = "சொற்கள்";
+  
+          // Initialize the structure for "சொற்கள்" if it doesn't exist yet
+          if (!acc[defaultBookName]) acc[defaultBookName] = {};
+          if (!acc[defaultBookName][defaultWordIyal]) acc[defaultBookName][defaultWordIyal] = [];
+          
+          // Push the word to the default "சொற்கள்" group
+          acc[defaultBookName][defaultWordIyal].push(word);
+        } else {
+          // For each book associated with this word, group under each book
+          bookNames.forEach((book) => {
+            const bookName = book.bookName || "சொற்கள்";
+            const wordIyal = book.wordIyal || "சொற்கள்";
+            
+            // Initialize the structure if it doesn't exist yet
+            if (!acc[bookName]) acc[bookName] = {};
+            if (!acc[bookName][wordIyal]) acc[bookName][wordIyal] = [];
+            
+            // Push the word into the corresponding book and wordIyal grouping
+            acc[bookName][wordIyal].push(word);
+          });
+        }
+      });
+  
+      // Handle case where maraiMoozhiNames or bookNames are missing
+      if (!word.maraiMoozhiNames || word.maraiMoozhiNames.length === 0) {
+        const defaultBookName = "சொற்கள்";
+        const defaultWordIyal = "சொற்கள்";
+        
+        // Initialize the structure for "சொற்கள்" if it doesn't exist yet
+        if (!acc[defaultBookName]) acc[defaultBookName] = {};
+        if (!acc[defaultBookName][defaultWordIyal]) acc[defaultBookName][defaultWordIyal] = [];
+        
+        // Push the word to the default "சொற்கள்" group
+        acc[defaultBookName][defaultWordIyal].push(word);
+      }
+      
+      return acc;
+    }, {});
+  }
 
-  const filteredGroups = Object.entries(finalGroupedWords)
-    .map(([wordIyal, letterGroups]) => {
-      const filteredLetterGroups = Object.entries(letterGroups).filter(([_, words]) =>
-        words.some(word => word.wordName.includes(searchQuery))
-      );
-      return filteredLetterGroups.length > 0 ? [wordIyal, Object.fromEntries(filteredLetterGroups)] : null;
-    })
-    .filter(Boolean);
+  const safeGroupedData = groupedData || {};
 
-  const toggleAccordion = (wordIyal) => {
-    setOpenAccordions((prev) => ({ ...prev, [wordIyal]: !prev[wordIyal] }));
+const filteredGroups = Object.entries(safeGroupedData)
+  .map(([mainGroup, subGroups]) => {
+    const filteredSubGroups = Object.entries(subGroups).filter(([subGroup, words]) => {
+      // Ensure that we correctly handle the search query for multiple books
+      return Array.isArray(words)
+        ? words.some((word) => word.wordName.includes(searchQuery))
+        : Object.values(words).flat().some((word) => word.wordName.includes(searchQuery));
+    });
+
+    // Only return groups that contain filtered results
+    return filteredSubGroups.length > 0 ? [mainGroup, Object.fromEntries(filteredSubGroups)] : null;
+  })
+  .filter(Boolean);
+
+  const toggleAccordion = (group) => {
+    setOpenAccordions((prev) => ({ ...prev, [group]: !prev[group] }));
   };
 
   return (
@@ -120,27 +170,27 @@ const WordAccordion = ({ wordData }) => {
           type="text"
           placeholder="சொற்களை தேடுக"
           value={searchQuery}
-          onChange={e => setSearchQuery(e.target.value)}
+          onChange={(e) => setSearchQuery(e.target.value)}
           className="flex-1 p-2 outline-none text-lg bg-transparent border-b-2 border-red-500"
         />
       </div>
 
       {filteredGroups.length > 0 ? (
-        filteredGroups.map(([wordIyal, letterGroups]) => (
-          <div key={wordIyal} className="mb-6">
+        filteredGroups.map(([mainGroup, subGroups]) => (
+          <div key={mainGroup} className="mb-6">
             <button
-              onClick={() => toggleAccordion(wordIyal)}
-              className="w-full text-left font-bold text-sm mb-2 p-3  text-red-800 rounded-lg"
+              onClick={() => toggleAccordion(mainGroup)}
+              className="w-full text-left font-bold text-lg p-3 text-red-800 rounded-lg"
             >
-              <span className="text-">{wordIyal !== "Ungrouped" ? wordIyal : "சொற்கள்"} {openAccordions[wordIyal] ? "«" : "»"}</span>
+              {mainGroup} {openAccordions[mainGroup] ? "《" : "》"}
             </button>
-            {openAccordions[wordIyal] && (
+            {openAccordions[mainGroup] && (
               <div className="ml-4">
-                {Object.entries(letterGroups).map(([letter, words]) => (
+                {Object.entries(subGroups).map(([subGroup, items]) => (
                   <PaginatedSection
-                    key={letter}
-                    title={letter}
-                    items={words}
+                    key={subGroup}
+                    title={subGroup}
+                    items={items}
                     renderItem={({ wordName }) => (
                       <span
                         className="mb-4 p-2 bg-gray-100 text-center rounded-lg hover:bg-red-800 hover:text-white transition-all cursor-pointer"

@@ -242,7 +242,8 @@
       },
       {
         "maraiMoozhiName": "இயக்கம் தணித்தலே ஆற்றல் பெருக்கம்",
-        "maraiMoozhiDescription": null
+        "maraiMoozhiDescription": null,
+        "bookDetails": [{ "bookName": "வடிவு நூல்", "maraimoozhiIyal": "ஆதி" }]
       },
       {
         "maraiMoozhiName": "தொடக்கவும் முடிவும் அற்றது",
@@ -396,7 +397,8 @@
     "maraimoozhis": [
       {
         "maraiMoozhiName": "தனியுரு முகிழா முந்துநிலை யுள்ளே கருவுரு முயக்கமும் இயக்கத் தணிகையும் மூலம் என்க",
-        "maraiMoozhiDescription": null
+        "maraiMoozhiDescription": null,
+        "bookDetails": [{ "bookName": "வடிவு நூல்", "maraimoozhiIyal": "ஆதி" }]
       }
     ],
     "youTubeVideos": []
@@ -414,11 +416,17 @@
     "maraimoozhis": [
       {
         "maraiMoozhiName": "அணு விலக்கமே ஆகாயம் ஆகிறது",
-        "maraiMoozhiDescription": null
+        "maraiMoozhiDescription": null,
+        "bookDetails": [
+          { "bookName": "வடிவு நூல்", "maraimoozhiIyal": "ஆதி" },
+          { "bookName": "வடிவு நூல்", "maraimoozhiIyal": "அணு" },
+          { "bookName": "எண் நூல்", "maraimoozhiIyal": "எண் பிறக்கம்" }
+        ]
       },
       {
         "maraiMoozhiName": "ஆற்றல் நிறைத்துகள் அணுவென்க",
-        "maraiMoozhiDescription": null
+        "maraiMoozhiDescription": null,
+        "bookDetails": [{ "bookName": "வடிவு நூல்", "maraimoozhiIyal": "அணு" }]
       }
     ],
     "youTubeVideos": []

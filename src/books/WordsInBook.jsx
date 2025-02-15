@@ -256,7 +256,7 @@ const WordsInBook = () => {
             {decodedBookName}
           </h1>
           {/* <WordList wordData={wordData}/> */}
-          <WordAccordion wordData={wordData}/>
+          <WordAccordion wordData={wordData} component="book"/>
           {/* <div className="flex flex-wrap justify-center gap-6">
             {wordData.map((word, index) => (
               <a
