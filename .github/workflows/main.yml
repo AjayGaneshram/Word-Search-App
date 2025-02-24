@@ -34,7 +34,7 @@ jobs:
 
       - name: Copy dist folder to public repository
         run: |        
-          cp -r ../dist/* .  # Copy the dist folder contents
+          cp -r ./dist/* .  # Copy the dist folder contents
 
       - name: Commit and push changes to public repository
         run: |
