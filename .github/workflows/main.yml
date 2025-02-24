@@ -34,6 +34,10 @@ jobs:
           git clone https://github.com/AjayGaneshram/BuildRepo.git
           cd BuildRepo
 
+      - name: Pull the latest changes from public repo
+        run: |
+          git pull origin main  # Pull the latest changes from the remote main branch
+
       - name: Copy dist folder to public repository
         run: |
           cp -r ./dist/* .  # Copy the dist folder contents to the public repo
