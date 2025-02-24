@@ -1,0 +1,42 @@
+name: Deploy to Public Repo
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch if needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout private repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js (if you're using Node)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Change this to the version of Node.js you're using
+
+      - name: Install dependencies and build
+        run: |
+          npm install  # Or your build command if using a different package manager
+          npm run build  # Or your specific build command
+
+      - name: Clone public repository
+        run: |
+          git clone https://github.com/AjayGaneshram/BuildRepo.git
+          cd BuildRepo
+
+      - name: Copy dist folder to public repository
+        run: |
+          rm -rf *  # Optional: Remove all files in the public repo (if needed)
+          cp -r ../dist/* .  # Copy the dist folder contents
+
+      - name: Commit and push changes to public repository
+        run: |
+          git config --global user.email "rkgganeshram@gmail.com"
+          git config --global user.name "AjayGaneshram"
+          git add .
+          git commit -m "Deploy new build from private repo"
+          git push https://AjayGaneshram:${{ secrets.GH_PAT }}@github.com/AjayGaneshram/BuildRepo.git main
