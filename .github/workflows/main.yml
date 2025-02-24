@@ -23,6 +23,10 @@ jobs:
           npm install  # Or your build command if using a different package manager
           npm run build  # Or your specific build command
 
+      - name: Check if dist folder exists
+        run: |
+          ls -l dist  # Verify that the dist folder was created
+
       - name: Clone public repository
         run: |
           git clone https://github.com/AjayGaneshram/BuildRepo.git
