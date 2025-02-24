@@ -33,8 +33,7 @@ jobs:
           cd BuildRepo
 
       - name: Copy dist folder to public repository
-        run: |
-          rm -rf *  # Optional: Remove all files in the public repo (if needed)
+        run: |        
           cp -r ../dist/* .  # Copy the dist folder contents
 
       - name: Commit and push changes to public repository
