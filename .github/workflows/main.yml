@@ -1,4 +1,4 @@
-name: Deploy to Public Repo
+name: Deploy to Public-Repo
 
 on:
   push:
