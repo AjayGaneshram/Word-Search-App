@@ -34,8 +34,10 @@ jobs:
           git clone https://github.com/AjayGaneshram/BuildRepo.git
           cd BuildRepo
 
-      - name: Pull the latest changes from public repo
+      - name: Pull the latest changes from public repo and resolve conflicts if any
         run: |
+          git fetch origin
+          git reset --hard origin/main  # Reset any local changes and sync with the remote branch
           git pull origin main  # Pull the latest changes from the remote main branch
 
       - name: Copy dist folder to public repository
