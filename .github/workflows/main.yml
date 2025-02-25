@@ -13,41 +13,42 @@ jobs:
       - name: Checkout private repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GH_PAT }}  # Use the token from your secrets
+          token: ${{ secrets.GH_PAT }}  # Use the token from your GitHub secrets
 
-      - name: Set up Node.js (if you're using Node)
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Change this to the version of Node.js you're using
+          node-version: '20'  # Change this to match your Node.js version
 
       - name: Install dependencies and build
         run: |
-          npm install  # Or your build command if using a different package manager
-          npm run build  # Or your specific build command
+          npm install
+          npm run build
 
       - name: Check if dist folder exists
-        run: |
-          ls -l dist  # Verify that the dist folder was created
+        run: ls -l dist  # Verify build output
 
       - name: Clone public repository
         run: |
-          git clone https://github.com/AjayGaneshram/BuildRepo.git
-          cd BuildRepo
+          git clone https://github.com/AjayGaneshram/BuildRepo.git public-repo
+          cd public-repo
+          git config --global user.email "rkgganeshram@gmail.com"
+          git config --global user.name "AjayGaneshram"
 
-      - name: Pull the latest changes from public repo and resolve conflicts if any
+      - name: Ensure latest state from public repository
         run: |
-          git fetch origin
-          git reset --hard origin/main  # Reset any local changes and sync with the remote branch
-          git pull origin main  # Pull the latest changes from the remote main branch
+          cd public-repo
+          git fetch origin main
+          git reset --hard origin/main  # Reset local branch to remote
+          git pull origin main --rebase  # Ensure we have the latest changes
 
       - name: Copy dist folder to public repository
         run: |
-          cp -r ./dist/* .  # Copy the dist folder contents to the public repo
+          cp -r ./dist/* public-repo/  # Copy build files
 
       - name: Commit and push changes to public repository
         run: |
-          git config --global user.email "rkgganeshram@gmail.com"
-          git config --global user.name "AjayGaneshram"
+          cd public-repo
           git add .
-          git commit -m "Deploy new build from private repo"
-          git push https://github-actions:${{ secrets.GH_PAT }}@github.com/AjayGaneshram/BuildRepo.git main
+          git commit -m "Deploy new build from private repo" || echo "No changes to commit"
+          git push https://github-actions:${{ secrets.GH_PAT }}@github.com/AjayGaneshram/BuildRepo.git main --force
